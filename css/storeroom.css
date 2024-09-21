@@ -1,0 +1,30 @@
+.storeroom__room {
+  position: relative;
+}
+
+.storeroom__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+
+  display: flex;
+  flex-wrap: wrap;
+  /* border: solid 1px white; */
+
+  transition: all 900ms cubic-bezier(.9, 0, .33, 1);
+}
+
+.storeroom__overlay_close {
+  background-color: transparent;
+  border: none;
+}
+
+.storeroom__square {
+  width: 33%;
+  height: 20%;
+
+  border: solid 0.5px white;
+}

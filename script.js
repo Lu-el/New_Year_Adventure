@@ -1,11 +1,13 @@
 import {rollTheDice} from './script/modules/dice.js';
-import { navAction } from './script/modules/nav.js';
+import { navAction } from './script/modules/kitchen.js';
 import { popupAction } from './script/modules/popup.js';
 import { bookStyle} from './script/modules/book.js';
+import { turnLight } from './script/modules/storeroom.js';
 
 navAction();
 popupAction();
 bookStyle();
+turnLight();
 // buttom__roll
 // buttom__name
 
