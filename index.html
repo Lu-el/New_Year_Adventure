@@ -116,7 +116,7 @@
 
   </section>
 
-  <section class="storeroom">
+  <section class="storeroom visually-hidden">
     <div class="container storeroom__container">
       <div class="room storeroom__room">
         <img src="./img/storeroom.jpg" alt="Гостинная" class="room__img">
@@ -142,6 +142,39 @@
     </div>
 
 
+  </section>
+
+  <section class="library">
+    <div class="container library__container">
+      <img src="./img/library.jpg" alt="Гостинная" class="room__img">
+
+      <div class="library__quiz" id="quiz">
+        <div class="library__overlay">
+          <h2 class="library__question" id="question">Question is loading...</h2>
+
+          <ul class="library__list">
+            <li class="library__item">
+              <input class="library__answer library__answer_a" type="radio" name="answer" id="a" />
+              <label class="library__label library__label_a " for="a" id="a_text">Answer...</label>
+            </li>
+            <li class="library__item">
+              <input class="library__answer library__answer_b" type="radio" name="answer" id="b" />
+              <label class="library__label library__label_b" for="b" id="b_text">Answer...</label>
+            </li>
+            <li class="library__item">
+              <input class="library__answer library__answer_c" type="radio" name="answer" id="c" />
+              <label class="library__label library__label_c" for="c" id="c_text">Answer...</label>
+            </li>
+            <li class="library__item">
+              <input class="library__answer library__answer_d" type="radio" name="answer" id="d" />
+              <label class="library__label library__label_d" for="d" id="d_text">Answer...</label>
+            </li>
+          </ul>
+        </div>
+
+        <button class="library__btn" id="submit">Готово</button>
+      </div>
+    </div>
   </section>
 
 

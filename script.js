@@ -3,11 +3,14 @@ import { navAction } from './script/modules/kitchen.js';
 import { popupAction } from './script/modules/popup.js';
 import { bookStyle} from './script/modules/book.js';
 import { turnLight } from './script/modules/storeroom.js';
+import { libraryAction } from './script/modules/library.js';
+
 
 navAction();
 popupAction();
 bookStyle();
 turnLight();
+libraryAction();
 // buttom__roll
 // buttom__name
 
