@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 
 <head>
@@ -144,7 +144,7 @@
 
   </section>
 
-  <section class="library">
+  <section class="library visually-hidden">
     <div class="container library__container">
       <img src="./img/library.jpg" alt="Гостинная" class="room__img">
 
@@ -174,6 +174,23 @@
 
         <button class="library__btn" id="submit">Готово</button>
       </div>
+    </div>
+  </section>
+
+  <section class="dining">
+    <div class="container dining__container">
+      <img src="./img/diningroom.jpg" alt="Гостинная" class="room__img">
+
+      <div class="dining__wrapper wrapper">
+        <p class="dining__text">Время
+          <span class="dining__span" id="seconds">00</span>:
+          <span class="dining__span" id="tens">00</span>
+        </p>
+        <p class="dining__text dining__text_end" id="text"></p>
+        <div class="dining__game" id="container">
+        </div>
+      </div>
+
     </div>
   </section>
 

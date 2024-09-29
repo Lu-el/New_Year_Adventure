@@ -4,6 +4,7 @@ import { popupAction } from './script/modules/popup.js';
 import { bookStyle} from './script/modules/book.js';
 import { turnLight } from './script/modules/storeroom.js';
 import { libraryAction } from './script/modules/library.js';
+import { diningGameAction } from './script/modules/dining.js';
 
 
 navAction();
@@ -11,6 +12,7 @@ popupAction();
 bookStyle();
 turnLight();
 libraryAction();
+diningGameAction();
 // buttom__roll
 // buttom__name
 

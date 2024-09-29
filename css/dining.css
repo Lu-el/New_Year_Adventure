@@ -1,0 +1,163 @@
+.dining__container {
+  position: relative;
+}
+
+.dining__wrapper {
+  position: absolute;
+  top: 0;
+  width: calc(100% - 40px);
+}
+
+.dining__text {
+  font-size: 1em;
+  color: white;
+  font-weight: 700;
+}
+
+/* button {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+  background: #82d2e5;
+  color: #fff;
+  border: solid 1px #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 18px 10px;
+  width: 180px;
+  margin: 10px;
+  outline: none;
+}
+
+button:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background: #fff;
+  border: solid 1px #fff;
+  color: #82d2e5;
+} */
+
+.dining__game {
+  max-width: 630px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+.dining__game:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.dining__game [data-view="card"] {
+  transform: rotateY(180deg);
+  width: 80px;
+  height: 80px;
+  border: solid 1px #d3cece;
+  border-radius: 50%;
+  float: left;
+  margin: 5px;
+  cursor: pointer;
+  background-image: url('../img/plate.png');
+  background-color: #f3f3f3;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.dining__game .flipped {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: rotateY(0deg);
+}
+
+.dining__game .reverse {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: rotateY(180deg);
+}
+
+.dining__game .correct {
+  opacity: 0.5;
+  cursor: default;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: rotateY(0deg);
+}
+
+.dining__game .correct[data-item="fireworks"],
+.dining__game .flipped[data-item="fireworks"] {
+  background: url('../img/plateGame/fireworks.png') left center no-repeat #fff;
+  background-size: contain;
+}
+
+.dining__game .correct[data-item="snake"],
+.dining__game .flipped[data-item="snake"] {
+  background: url("../img/plateGame/snake.png") center center no-repeat #fff;
+  background-size: contain;
+}
+
+.dining__game .correct[data-item="reindeer"],
+.dining__game .flipped[data-item="reindeer"] {
+  background: url("../img/plateGame/reindeer.png") center center no-repeat #fff;
+  background-size: contain;
+}
+
+.dining__game .correct[data-item="santa"],
+.dining__game .flipped[data-item="santa"] {
+  background: url("../img/plateGame/santa.png") center center no-repeat #fff;
+  background-size: contain;
+}
+
+.dining__game .correct[data-item="mandarin"],
+.dining__game .flipped[data-item="mandarin"] {
+  background: url("../img/plateGame/mandarin.jpg") center center no-repeat #fff;
+  background-size: contain;
+}
+
+.dining__game .correct[data-item="tree"],
+.dining__game .flipped[data-item="tree"] {
+  background: url("../img/plateGame/tree.jpg") center center no-repeat #fff;
+  background-size: contain;
+}
+
+@media (min-width: 400px) {
+  .dining__game [data-view="card"] {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 510px) {
+  .dining__game [data-view="card"] {
+    margin: 20px;
+  }
+}
+
+@media (min-width: 610px) {
+  .dining__text {
+    font-size: 2em;
+  }
+
+  .dining__game [data-view="card"] {
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+  }
+}
+
+/* @media (min-width: 670px) {
+  .dining__game [data-view="card"] {
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+  }
+} */
+
