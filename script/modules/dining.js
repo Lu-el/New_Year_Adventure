@@ -1,13 +1,37 @@
+const shuffle = (deck) =>  {
+  for (var j, x, i = deck.length; i; j = Math.floor(Math.random() * i), x = deck[--i], deck[i] = deck[j], deck[j] = x);
+  return deck;
+}
+
+const check = (className, resultsArray) => {
+  let element = document.getElementsByClassName("flipped");
+  setTimeout(function () {
+    for (let i = (element.length - 1); i >= 0; i--) {
+      if (!resultsArray
+        || element[i].dataset.item === resultsArray[0]) {
+        element[i].className = className;
+      }
+    }
+  }, 500);
+}
+
+const win = (counter) => {
+  if (counter === 6) {
+    text.innerHTML = `Ваш результат`;
+  }
+}
+
+const getresultGame = (attemmpts, clickcounter) => {
+  attemmpts.innerHTML = clickcounter;
+}
+
 export const diningGameAction = () => {
   const myCards = document.getElementById('container');
   let resultsArray = [];
   let counter = 0;
-  const text = document.getElementById('text');
-  let seconds = "00";
-  let tens = "00";
-  const appendTens = document.getElementById("tens");
-  const appendSeconds = document.getElementById("seconds");
-  let Interval;
+  let clickcounter = 0;
+  const attemmpts = document.querySelector('.dining__span_attempt')
+
   const images = [
     'fireworks',
     'snake',
@@ -18,12 +42,6 @@ export const diningGameAction = () => {
   ];
   const clone = images.slice(0); // duplicate array
   const cards = images.concat(clone); // merge to arrays
-  // Shufffel function
-
-  const shuffle = (o) =>  {
-    for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-    return o;
-  }
 
   shuffle(cards);
 
@@ -33,18 +51,18 @@ export const diningGameAction = () => {
     card.dataset.view = "card";
     myCards.appendChild(card);
     card.onclick = function () {
+      clickcounter++;
+      attemmpts.innerHTML = clickcounter;
       if (this.className != 'flipped' && this.className != 'correct') {
         this.className = 'flipped';
-        var result = this.dataset.item;
+        let result = this.dataset.item;
         resultsArray.push(result);
-        clearInterval(Interval);
-        Interval = setInterval(startTimer, 10);
       }
       if (resultsArray.length > 1) {
         if (resultsArray[0] === resultsArray[1]) {
-          check("correct");
+          check("correct", resultsArray);
           counter++;
-          win();
+          win(counter);
           resultsArray = [];
         } else {
           check("reverse");
@@ -53,37 +71,4 @@ export const diningGameAction = () => {
       }
     }
   };
-  var check = function (className) {
-    var x = document.getElementsByClassName("flipped");
-    setTimeout(function () {
-      for (var i = (x.length - 1); i >= 0; i--) {
-        x[i].className = className;
-      }
-    }, 500);
-  }
-  var win = function () {
-    if (counter === 6) {
-      clearInterval(Interval);
-      text.innerHTML = "Ваш результат";
-    }
-  }
-  function startTimer() {
-    tens++;
-    if (tens < 9) {
-      appendTens.innerHTML = "0" + tens;
-    }
-    if (tens > 9) {
-      appendTens.innerHTML = tens;
-    }
-    if (tens > 99) {
-      seconds++;
-      appendSeconds.innerHTML = "0" + seconds;
-      tens = 0;
-      appendTens.innerHTML = "0" + 0;
-    }
-    if (seconds > 9) {
-      appendSeconds.innerHTML = seconds;
-    }
-  }
-
 }
