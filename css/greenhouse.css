@@ -5,7 +5,7 @@
 .greenhouse__game {
   position: absolute;
   top: 20px;
-  left: 30px;
+  width: calc(100% - 40px);
 }
 
 .greenhouse__wrapper {
@@ -63,14 +63,14 @@
 
 .greenhouse__btn::after {
   content: '';
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   display: block;
   position: absolute;
-  right: 3px;
-  top: 3px;
+  right: 9px;
+  top: 5px;
   background-image: url('../img/leaf.png');
-  background-size: 20px;
+  background-size: 25px;
   background-repeat: no-repeat;
   z-index: 10;
   cursor: pointer;
@@ -79,7 +79,6 @@
 
 .greenhouse__input:focus ~ .greenhouse__btn::after {
   background-image: url('../img/plant.png');
-  background-size: 20px;
 }
 
 .greenhouse__input {
@@ -90,7 +89,7 @@
 
   border: none;
   outline: none;
-  padding: 0 0.325em;
+  padding: 5px 0.325em;
   z-index: 1;
 
   font-family: inherit;
