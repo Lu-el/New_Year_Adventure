@@ -14,5 +14,15 @@ export const gamePlant = (arr) => {
   const wordShufled = shuffle(wordSymbol);
   console.log(wordShufled);
 
+  const container = document.querySelector('.greenhouse__wrapper');
+  console.log(container);
+
+  wordShufled.forEach(element => {
+    const card = document.createElement('div');
+    card.classList.add('greenhouse__card');
+    card.innerHTML = element;
+    container.append(card)
+  });
+
 
 }

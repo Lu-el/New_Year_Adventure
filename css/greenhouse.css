@@ -77,7 +77,7 @@
   transition: all 300ms cubic-bezier(.9, 0, .33, 1);
 }
 
-.greenhouse__input:focus ~ .greenhouse__btn::after {
+.greenhouse__input:focus~.greenhouse__btn::after {
   background-image: url('../img/plant.png');
 }
 
@@ -102,3 +102,26 @@
   color: #cbd0d5;
 }
 
+@media (min-width: 500px) {
+  .greenhouse__overlay {
+    font-size: 20px;
+  }
+
+  .greenhouse__btn::after {
+    top: 7px;
+  }
+
+  .greenhouse__card {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 600px) {
+  .greenhouse__card {
+    font-size: 2rem;
+  }
+
+  .greenhouse__overlay {
+    font-size: 1rem;
+  }
+}
