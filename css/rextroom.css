@@ -1,7 +1,3 @@
-/* body {
-  background-color: #f0f0f0;
-}*/
-
 .restroom__container {
   position: relative;
 }
@@ -16,7 +12,7 @@
 }
 
 .perspective {
-  background: url(http://dc428.4shared.com/img/QWu4ziBq/s3/doorBorder.png);
+  background: url('../img/doorBorder.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -33,7 +29,7 @@
 }
 
 .thumb {
-  background: url(http://dc428.4shared.com/img/-vayshJ-/s3/ClassDoor.png);
+  background: url('../img/door.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -80,5 +76,47 @@
   100% {
     opacity: 1;
     transform: rotateY(0deg);
+  }
+}
+
+@media (min-width: 360px) {
+  .restroom__doors {
+    top: 40%;
+  }
+}
+
+@media (min-width: 500px) {
+  .perspective {
+    height: 200px;
+    width: 100px;
+  }
+
+  .thumb {
+    height: 200px;
+    width: 100px;
+  }
+}
+
+@media (min-width: 600px) {
+  .perspective {
+    height: 240px;
+    width: 120px;
+  }
+
+  .thumb {
+    height: 240px;
+    width: 120px;
+  }
+}
+
+@media (min-width: 700px) {
+  .perspective {
+    height: 300px;
+    width: 150px;
+  }
+
+  .thumb {
+    height: 300px;
+    width: 150px;
   }
 }
