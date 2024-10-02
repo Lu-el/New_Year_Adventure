@@ -7,6 +7,7 @@ import { libraryAction } from './script/modules/library.js';
 import { diningGameAction } from './script/modules/dining.js';
 import { wordMess } from './script/modules/objects.js';
 import { gamePlant } from './script/modules/greenhouse.js';
+import { openDoor } from './script/modules/restroom.js';
 
 navAction();
 popupAction();
@@ -15,6 +16,7 @@ turnLight();
 libraryAction();
 diningGameAction();
 gamePlant(wordMess);
+openDoor();
 
 
 // buttom__roll
