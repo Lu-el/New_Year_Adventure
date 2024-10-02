@@ -9,13 +9,37 @@ const getRandomNumber = (min, max) => {
 
 export const gamePlant = (arr) => {
   const randomNumber = getRandomNumber(0, arr.length);
+  const input = document.querySelector('.greenhouse__input');
   const word = arr[randomNumber];
   const wordSymbol = Array.from(word);
   const wordShufled = shuffle(wordSymbol);
-  console.log(wordShufled);
+  const greenhouseError = document.querySelector('.greenhouse__error');
+
+  input.addEventListener("keyup", () => {
+    const arrVariant = Array.from(input.value);
+    const arrVariantSmall = arrVariant.map(item => item.toLowerCase())
+    const lastValue = arrVariantSmall.slice(-1);
+    const checking = [];
+
+    if (!wordSymbol.includes(`${lastValue}`)) {
+      // alert('нет такой буквы');
+      greenhouseError.classList.toggle('visually-hidden');
+      setTimeout(() => {
+        greenhouseError.classList.toggle('visually-hidden');
+      }, 1000);
+
+      arrVariantSmall.forEach(element => {
+        if (wordSymbol.includes(`${element}`)) {
+          checking.push(element)
+        }
+      })
+      input.value = checking.join('');
+    }
+
+
+  })
 
   const container = document.querySelector('.greenhouse__wrapper');
-  console.log(container);
 
   wordShufled.forEach(element => {
     const card = document.createElement('div');
