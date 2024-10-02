@@ -1,21 +1,20 @@
 export const openDoor = () => {
   const restroom = document.querySelector('.restroom__doors');
-  const perspectives = document.querySelectorAll('.perspective');
-  const thumbs = document.querySelectorAll('.thumb');
+  const perspectives = restroom.querySelectorAll('.restroom__border');
+  const thumbs = restroom.querySelectorAll('.restroom__door');
 
   perspectives.forEach(element => {
     element.addEventListener('click', () => {
-      const thumb = element.querySelector('.thumb');
+      const thumb = element.querySelector('.restroom__door');
 
-      if (thumb.classList.contains('thumbOpened')) {
-        thumb.classList.remove("thumbOpened");
+      if (thumb.classList.contains('restroom__door_opened')) {
+        thumb.classList.remove("restroom__door_opened");
       } else {
         thumbs.forEach(element => {
-          element.classList.remove('thumbOpened')
+          element.classList.remove('restroom__door_opened')
         });
-        thumb.classList.add('thumbOpened')
+        thumb.classList.add('restroom__door_opened')
       }
-
     })
   })
 

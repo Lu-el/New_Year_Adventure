@@ -11,25 +11,22 @@
   width: calc(100% - 40px);
 }
 
-.perspective {
-  background: url('../img/doorBorder.png');
+.restroom__border {
+  background: url('../img/doorBorder.png'), url('../img/holl.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+  background-size: contain, 70px;
   position: relative;
-  /* display: inline; */
   float: left;
   height: 160px;
   width: 80px;
-  /* margin: 20px; */
-  /* margin-left: 0px; */
   -webkit-perspective: 450;
   border-radius: 3px;
   box-sizing: border-box;
 }
 
-.thumb {
-  background: url('../img/door.png');
+.restroom__door {
+  background:  url('../img/door.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -44,32 +41,21 @@
   cursor: pointer;
 }
 
-.thumbOpened {
+/* .restroom__border::after {
+  content: '';
+  width: 80px;
+  height: 160px;
+  display: block;
+  background-image: url('https://sun9-37.userapi.com/s/v1/ig2/v7Wp9_H8Q1V8OUo2bnAZTV812ZcnA399lZkI6mdQM87sAHwraLvt7j1kRneFtIcT6anaDIedtD_mem2bHOMcrAKn.jpg?quality=96&as=32x32,48x48,72x72,108x108,160x160,200x200&from=bu&u=GQiGsBdsktjuEtNdJtxIR3viqwFK2UpbQZRQgGRAiJQ&cs=200x200');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+} */
+
+.restroom__door_opened {
   transform: rotateY(-90deg);
   transform-origin: 8px;
   transition: .5s linear;
-}
-
-.alert {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  color: #000;
-
-  transform-origin: left;
-  transform: rotateY(180deg);
-  opacity: 0;
-  animation-name: go;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
-  width: 350px;
 }
 
 @keyframes go {
@@ -86,36 +72,36 @@
 }
 
 @media (min-width: 500px) {
-  .perspective {
+  .restroom__border {
     height: 200px;
     width: 100px;
   }
 
-  .thumb {
+  .restroom__door {
     height: 200px;
     width: 100px;
   }
 }
 
 @media (min-width: 600px) {
-  .perspective {
+  .restroom__border {
     height: 240px;
     width: 120px;
   }
 
-  .thumb {
+  .restroom__door {
     height: 240px;
     width: 120px;
   }
 }
 
 @media (min-width: 700px) {
-  .perspective {
+  .restroom__border {
     height: 300px;
     width: 150px;
   }
 
-  .thumb {
+  .restroom__door {
     height: 300px;
     width: 150px;
   }
