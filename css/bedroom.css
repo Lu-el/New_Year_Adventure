@@ -1,0 +1,33 @@
+.bedroom__container {
+  position: relative;
+}
+
+.bedroom__wraper {
+  position: absolute;
+  top: 0;
+  width: calc(100% - 40px);
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bedroom__key svg {
+  width: 50px;
+  height: 100px;
+  display: block;
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+}
+
+.bedroom__key svg:hover {
+  color: #1fc4c7;
+  filter: drop-shadow(0px 0px 10px #116466);
+}
+
+.bedroom__key svg:active {
+  scale: 1.2;
+  color: #1fc4c7;
+  filter: drop-shadow(0px 0px 10px #116466);
+}
