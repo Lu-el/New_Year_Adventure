@@ -1339,7 +1339,8 @@
       <img src="./img/workroom.jpg" alt="Гостинная" class="room__img">
 
       <div class="workroom__wraper">
-        <h2 class="workroom__title">Быки и коровы</h2>
+        <div class="workroom__overlay">
+          <h2 class="workroom__title">Быки и коровы</h2>
 
         <table class="workroom__table">
           <thead class="workroom__thead">
@@ -1367,7 +1368,18 @@
                 2
               </td>
             </tr>
-            <tr>
+            <tr class="workroom__tr">
+              <td class="workroom__td workroom__td_number">
+                1586
+              </td>
+              <td class="workroom__td workroom__td_bull">
+                1
+              </td>
+              <td class="workroom__td workroom__td_cow">
+                2
+              </td>
+            </tr>
+            <tr class="workroom__tr">
               <td class="workroom__td workroom__td_number">
                 1586
               </td>
@@ -1380,6 +1392,8 @@
             </tr>
           </tbody>
         </table>
+        <input class="workroom__input" type="number" placeholder="Ваш ответ">
+        </div>
       </div>
     </div>
   </section>
