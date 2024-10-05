@@ -6,33 +6,40 @@
 // 1 бык (единица угадана на своём месте)
 // 2 коровы (3 и 4 присутствуют но не на своих местах)
 
-'use strict';
-
-function generateRandomNumber() {
-  let rundom = String(Math.floor(1000 + Math.random() * 9000));
-
-  return rundom;
+const getRandomNumber = (min, max) => {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// console.log(generateRandomNumber());
+const getComputerNumber = () => {
+  const randomNumber = [];
+  while (randomNumber.length < 4) {
+    let numeric = getRandomNumber(0, 10);
+    if (!randomNumber.includes(numeric)) {
+      randomNumber.push(numeric);
+    }
+  }
+  return randomNumber.join('');
+}
 
+const validateNumber = (userNumber) => {
 
-function validateNumber(numberString) {
-  if (numberString.length !== 4 || isNaN(numberString)) {
-    alert("Please enter 4 digits");
+  if (userNumber.length !== 4 || isNaN(userNumber)) {
+    alert("Введите 4 цифры");
     return false;
   }
 
-  for (let i = 0; i < numberString.length; i++) {
-    if (numberString.split(numberString[i]).length - 1 > 1) {
-      alert("Digits should not be repeated");
+  for (let i = 0; i < userNumber.length; i++) {
+    if (userNumber.split(userNumber[i]).length - 1 > 1) {
+      alert("Цифры не должны повторяться");
       return false;
     }
     return true;
   }
 }
 
-function getBullsCount(numberString, secret) {
+const getBullsCount = (numberString, secret) => {
   let count = 0;
 
   for (let i = 0; i < numberString.length; i++) {
@@ -44,7 +51,7 @@ function getBullsCount(numberString, secret) {
   return count;
 }
 
-function getCowsCount(numberString, secret) {
+const getCowsCount = (numberString, secret) => {
 
   let count = 0;
   for (let i = 0; i < numberString.length; i++) {
@@ -56,31 +63,45 @@ function getCowsCount(numberString, secret) {
   return count;
 }
 
-let secret = generateRandomNumber();
-let prevResults = '';
-var num = 0;
-let bullsCount = 0;
-let cowsCount = 0;
+const getResult = (numberString, secret, table) => {
 
-let numberString = prompt('Input your number', "1234");
+  if (validateNumber(numberString)) {
 
-while (numberString) {
+    const bulls = getBullsCount(numberString, secret);
+    const cows = getCowsCount(numberString, secret);
 
-  if (!validateNumber(numberString)) {
-    alert("Game Over");
-    break;
+    const line = document.createElement('tr');
+    line.classList.add('workroom__tr');
+
+    const tryCell = document.createElement('td');
+    tryCell.classList.add('workroom__td', 'workroom__td_number');
+    tryCell.innerHTML = numberString;
+
+    const bullCell = document.createElement('td');
+    bullCell.classList.add('workroom__td', 'workroom__td_bull');
+    bullCell.innerHTML = bulls;
+
+    const cowCell = document.createElement('td');
+    cowCell.classList.add('workroom__td', 'workroom__td_cow');
+    cowCell.innerHTML = cows;
+
+    line.append(tryCell, bullCell, cowCell);
+
+    table.append(line);
   }
+}
 
-  // if (numberString = null) {
-  //   break;
-  // }
 
-  bullsCount = getBullsCount(numberString, secret);
-  cowsCount = getCowsCount(numberString, secret);
-  num++
-  prevResults += "Попытка " + num + " : " + numberString + '==> bulls: ' + bullsCount + ' cows: ' + cowsCount + '\n';
+export const bullAndCowsGame = () => {
+  const table = document.querySelector('.workroom__tbody');
+  const btnTriing = document.querySelector('.workroom__btn');
+  const computerNumber = getComputerNumber();
+  const inputElem = document.querySelector('.workroom__input');
 
-  numberString = prompt(prevResults + 'Input your number', "1234");
-
+  btnTriing.addEventListener('click', () => {
+    const userNumber = inputElem.value;
+    getResult(userNumber, computerNumber, table);
+    inputElem.value = '';
+  })
 
 }

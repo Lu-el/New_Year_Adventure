@@ -8,6 +8,7 @@ import { diningGameAction } from './script/modules/dining.js';
 import { wordMess } from './script/modules/objects.js';
 import { gamePlant } from './script/modules/greenhouse.js';
 import { openDoor } from './script/modules/restroom.js';
+import { bullAndCowsGame } from './script/modules/workroom.js';
 
 navAction();
 popupAction();
@@ -17,6 +18,7 @@ libraryAction();
 diningGameAction();
 gamePlant(wordMess);
 openDoor();
+bullAndCowsGame();
 
 
 // buttom__roll
