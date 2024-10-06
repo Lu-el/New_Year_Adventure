@@ -17,13 +17,13 @@
 }
 
 @-webkit-keyframes glowing {
-  /* from {
+  from {
     box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f0f, 0 0 20px #0ff, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073;
-  } */
+  }
 
-  /* to {
+  to {
     box-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  } */
+  }
 }
 
 .hall__glowing_deer {
@@ -71,6 +71,3 @@
     right: 82%;
   }
 }
-
-
-

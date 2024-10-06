@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.kitchen__nav {
+.kitchen__overlay {
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -14,7 +14,7 @@
   border-radius: 0% 0% 100% 50%;
 }
 
-.kitchen__nav_open {
+.kitchen__overlay_open {
   transform: translateX(0px);
   border-radius: 0% 0% 0% 0%;
   background: rgba(255, 255, 255, 0.6);
@@ -63,7 +63,7 @@
 
 
 @media (min-width: 800px) {
-  .kitchen__nav {
+  .kitchen__overlay {
     left: 35px;
   }
 }

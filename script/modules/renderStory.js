@@ -42,6 +42,7 @@ const getStoryPages = (room) => {
 export const renderStory = (room) => {
   const story = getSection('story');
   const storyContainer = getContainer('story');
+  story.dataset.room = room.room;
   story.append(storyContainer);
 
   const book = document.createElement('div');
@@ -59,4 +60,27 @@ export const renderStory = (room) => {
 
   bookStyle();
   return story;
+}
+
+export const renderRoom = (room) => {
+  const roomSection = getSection(room.room);
+  roomSection.dataset.room = room.room;
+  const roomContainer = getContainer(room.room);
+  const overlayMission = document.createElement('div');
+  overlayMission.classList.add(`${room.room}__overlay`);
+
+  roomSection.append(roomContainer);
+
+  const roomOverlay = document.createElement('div');
+  roomOverlay.classList.add('room');
+
+  const roomImg = document.createElement('img');
+  roomImg.classList.add('room__img');
+  roomImg.src = room.src;
+  roomImg.alt = room.title;
+  roomOverlay.append(roomImg);
+
+  roomContainer.append(roomOverlay, overlayMission);
+
+  return roomSection;
 }

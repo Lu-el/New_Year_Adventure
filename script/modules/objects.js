@@ -10,6 +10,11 @@ export const storyBook = {
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/holl.jpg",
+    mission: `<div class="hall__glowing hall__glowing_deer"></div>
+      <div class="hall__glowing hall__glowing_picture"></div>
+      <div class="hall__glowing hall__glowing_fireplace"></div>
+      <div class="hall__glowing hall__glowing_lamp"></div>
+      <div class="hall__glowing hall__glowing_firtree"></div>`
   },
   "kitchen": {
     room: 'kitchen',
@@ -22,6 +27,14 @@ export const storyBook = {
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/kitchen.jpg",
+    mission: `
+    <div class="kitchen__links">
+            <a href="" class="link kitchen__link">Оливье</a>
+            <a href="" class="link kitchen__link">Гусь с яблоками</a>
+            <a href="" class="link kitchen__link">Мандариновый торт</a>
+            <a href="" class="link kitchen__link">Селедка под шубой</a>
+          </div>
+          `
   },
 }
 

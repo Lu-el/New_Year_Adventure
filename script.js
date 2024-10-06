@@ -1,16 +1,24 @@
+import { kitchenAction } from "./script/modules/kitchen.js";
 import { storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
-import { renderRoom } from "./script/modules/renderRoom.js";
-import { renderStory } from "./script/modules/renderStory.js";
+import { renderStory, renderRoom } from "./script/modules/renderStory.js";
+import { hallAction } from "./script/modules/renderTask.js";
 
 const body = document.querySelector('body');
 body.append(renderHead(), renderMain(), renderFooter());
 
 const main = document.querySelector('main');
-const story = renderStory(storyBook.hall);
-const room = renderRoom(storyBook.hall);
 
-main.append(story, room);
+const getMissionRoom = (data) => {
+  const story = renderStory(data);
+  const room = renderRoom(data);
+
+  main.append(story, room);
+  hallAction();
+}
+
+getMissionRoom(storyBook.kitchen);
+
 
 
 
