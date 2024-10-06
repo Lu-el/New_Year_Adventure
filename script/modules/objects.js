@@ -1,3 +1,5 @@
+import { kitchenAction } from "./kitchen.js"
+
 export const storyBook = {
   "hall": {
     room: 'hall',
@@ -14,7 +16,7 @@ export const storyBook = {
       <div class="hall__glowing hall__glowing_picture"></div>
       <div class="hall__glowing hall__glowing_fireplace"></div>
       <div class="hall__glowing hall__glowing_lamp"></div>
-      <div class="hall__glowing hall__glowing_firtree"></div>`
+      <div class="hall__glowing hall__glowing_firtree"></div>`,
   },
   "kitchen": {
     room: 'kitchen',
@@ -29,12 +31,13 @@ export const storyBook = {
     src: "img/kitchen.jpg",
     mission: `
     <div class="kitchen__links">
-            <a href="" class="link kitchen__link">Оливье</a>
-            <a href="" class="link kitchen__link">Гусь с яблоками</a>
-            <a href="" class="link kitchen__link">Мандариновый торт</a>
-            <a href="" class="link kitchen__link">Селедка под шубой</a>
+            <a href="#" class="link kitchen__link">Оливье</a>
+            <a href="#" class="link kitchen__link">Гусь с яблоками</a>
+            <a href="#" class="link kitchen__link">Мандариновый торт</a>
+            <a href="#" class="link kitchen__link">Селедка под шубой</a>
           </div>
-          `
+          `,
+    action: kitchenAction,
   },
 }
 

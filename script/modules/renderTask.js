@@ -1,6 +1,4 @@
-import { kitchenAction } from "./kitchen.js";
 import { storyBook } from "./objects.js";
-
 
 export const hallAction = () => {
   const buttonTask = document.querySelector('.book__btn_task');
@@ -15,7 +13,10 @@ export const hallAction = () => {
     console.log(overlay);
 
     overlay.innerHTML = room.mission;
-    kitchenAction();
+    if (room.action) {
+      room.action();
+    };
+    buttonTask.classList.add('visually-hidden');
   })
 }
 

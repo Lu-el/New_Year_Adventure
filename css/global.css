@@ -94,7 +94,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   border-radius: 10px;
 
   filter: drop-shadow(0px 0px 10px #190e7a);
-  /* box-shadow: inset 0px 0px 5px 5px #190e7a; */
 }
 
 section {
