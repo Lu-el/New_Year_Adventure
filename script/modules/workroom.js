@@ -1,11 +1,3 @@
-// Написать игру Быки и коровы
-// компьютер загадывает случайное число из 4 разных цифр
-// игрок вводит 4 значное число с разными цифрами
-// компьтер отображает результат (введённое число: сколько быков, сколько коров)
-// если загадано 1234, а введено 1345, то ответ (Попытка 1345: 1 бык 2 коровы)
-// 1 бык (единица угадана на своём месте)
-// 2 коровы (3 и 4 присутствуют но не на своих местах)
-
 const getRandomNumber = (min, max) => {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -51,7 +43,7 @@ const getBullsCount = (numberString, secret) => {
   return count;
 }
 
-const getCowsCount = (numberString, secret) => {
+const getCowsCount = (numberString, secret, btn) => {
 
   let count = 0;
   for (let i = 0; i < numberString.length; i++) {
@@ -63,7 +55,7 @@ const getCowsCount = (numberString, secret) => {
   return count;
 }
 
-const getResult = (numberString, secret, table) => {
+const getResult = (numberString, secret, table, userArea) => {
 
   if (validateNumber(numberString)) {
 
@@ -88,6 +80,11 @@ const getResult = (numberString, secret, table) => {
     line.append(tryCell, bullCell, cowCell);
 
     table.append(line);
+
+    if (bulls === 4) {
+      userArea.classList.add('visually-hidden');
+      line.style.color = 'red';
+    }
   }
 }
 
@@ -97,11 +94,12 @@ export const bullAndCowsGame = () => {
   const btnTriing = document.querySelector('.workroom__btn');
   const computerNumber = getComputerNumber();
   const inputElem = document.querySelector('.workroom__input');
+  const userArea = document.querySelector('.workroom__feedback')
+  console.log(computerNumber);
 
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;
-    getResult(userNumber, computerNumber, table);
+    getResult(userNumber, computerNumber, table, userArea);
     inputElem.value = '';
   })
-
 }

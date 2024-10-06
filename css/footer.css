@@ -1,0 +1,28 @@
+.footer {
+  margin-top: auto;
+}
+
+.footer__container {
+  font-family: "Kablammo", system-ui;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer__rights {
+  width: 100%;
+}
