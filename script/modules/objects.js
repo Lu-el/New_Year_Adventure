@@ -1,4 +1,5 @@
 import { kitchenAction } from "./kitchen.js"
+import { hallListener } from "./renderTask.js"
 
 export const storyBook = {
   "hall": {
@@ -12,11 +13,20 @@ export const storyBook = {
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/holl.jpg",
-    mission: `<div class="hall__glowing hall__glowing_deer"></div>
-      <div class="hall__glowing hall__glowing_picture"></div>
-      <div class="hall__glowing hall__glowing_fireplace"></div>
-      <div class="hall__glowing hall__glowing_lamp"></div>
-      <div class="hall__glowing hall__glowing_firtree"></div>`,
+    mission: `
+      <div data-room="1" class="hall__glowing hall__glowing_deer"></div>
+      <div data-room="1" class="hall__glowing hall__glowing_picture"></div>
+      <div data-room="1" class="hall__glowing hall__glowing_fireplace"></div>
+      <div data-room="1" class="hall__glowing hall__glowing_lamp"></div>
+      <div data-room="1" class="hall__glowing hall__glowing_firtree"></div>`,
+      result: {
+        1: 'kitchen',
+        // 2: 'storeroom',
+        // 3: 'library',
+        // 4: 'dining',
+        // 9: 'workroom',
+      },
+      listener: hallListener,
   },
   "kitchen": {
     room: 'kitchen',
@@ -41,8 +51,6 @@ export const storyBook = {
   },
 }
 
-
-
 export const wordMess = [
   'магнолия',
   'апельсин',
@@ -55,3 +63,7 @@ export const wordMess = [
   'тюльпан',
   'ежевика',
 ]
+
+export const users = {
+  rooms: ['hall']
+}

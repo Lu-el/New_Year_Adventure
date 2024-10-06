@@ -1,23 +1,41 @@
-import { kitchenAction } from "./script/modules/kitchen.js";
 import { storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
 import { renderStory, renderRoom } from "./script/modules/renderStory.js";
-import { hallAction } from "./script/modules/renderTask.js";
+import {  renderTask } from "./script/modules/renderTask.js";
 
-const body = document.querySelector('body');
-body.append(renderHead(), renderMain(), renderFooter());
 
-const main = document.querySelector('main');
+// document.body.append(renderHead(), renderMain(), renderFooter());
 
-const getMissionRoom = (data) => {
+// const main = document.querySelector('main');
+
+const getMissionRoom = (main, data, user) => {
   const story = renderStory(data);
   const room = renderRoom(data);
 
   main.append(story, room);
-  hallAction();
+  renderTask(user);
 }
 
-getMissionRoom(storyBook.kitchen);
+const users = {
+  rooms: ['hall']
+}
+
+const init = (user) => {
+  // указать имя
+
+  document.body.append(renderHead(), renderMain(), renderFooter());
+  const main = document.querySelector('main');
+
+  const roomCurrent = user.rooms.slice(-1)[0];
+  console.log(roomCurrent);
+
+  getMissionRoom(main, storyBook[roomCurrent]);
+  console.log(user);
+
+
+}
+
+init(users);
 
 
 

@@ -1,6 +1,18 @@
 import { bookStyle } from "./book.js";
 import { getContainer, getSection } from "./functions.js";
 
+export const getEndPage = (room) => {
+  const endPage = document.querySelector('.book__pages').lastElementChild;
+  const ending = endPage.querySelector('.book__text');
+  ending.innerHTML = room.ending;
+
+  const btnContinute = document.createElement('button');
+  btnContinute.classList.add('book__btn', 'book__btn_continute');
+  btnContinute.innerHTML = 'Идти дальше';
+
+  endPage.append(btnContinute);
+}
+
 const getStoryPages = (room) => {
   const titlePage = document.createElement('div');
   titlePage.classList.add('book__page');
@@ -30,11 +42,12 @@ const getStoryPages = (room) => {
   endingPage.classList.add('book__page');
   const ending = document.createElement('p');
   ending.classList.add('book__text');
-  ending.innerHTML = room.ending;
-  const btnContinute = document.createElement('button');
-  btnContinute.classList.add('book__btn', 'book__btn_continute');
-  btnContinute.innerHTML = 'Идти дальше';
-  endingPage.append(ending, btnContinute);
+  ending.innerHTML = '';
+  // ending.innerHTML = room.ending;
+  // const btnContinute = document.createElement('button');
+  // btnContinute.classList.add('book__btn', 'book__btn_continute');
+  // btnContinute.innerHTML = 'Идти дальше';
+  endingPage.append(ending);
 
   return {titlePage, descriptionPage, taskPage, endingPage};
 }
