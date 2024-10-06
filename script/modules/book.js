@@ -9,7 +9,6 @@ export const bookStyle = () => {
 
   document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < pages.length; i++) {
-      //Or var page = pages[i];
       pages[i].pageNum = i + 1;
       pages[i].onclick = function () {
         if (this.pageNum % 2 === 0) {

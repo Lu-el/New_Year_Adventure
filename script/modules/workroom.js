@@ -95,7 +95,6 @@ export const bullAndCowsGame = () => {
   const computerNumber = getComputerNumber();
   const inputElem = document.querySelector('.workroom__input');
   const userArea = document.querySelector('.workroom__feedback')
-  console.log(computerNumber);
 
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;

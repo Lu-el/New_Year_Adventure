@@ -3,11 +3,11 @@
   text-transform: uppercase;
 }
 
-.five {
+.header__container {
   padding: 50px 20px 50px 170px;
   text-align: center;
 }
-.five h1 {
+.header__container .header__title {
   /* font-family: 'Open Sans', sans-serif; */
   font-family: "Kablammo", system-ui;
   font-weight: 400;
@@ -22,7 +22,7 @@
   border-top: 4px solid;
 
 }
-.five h1:before {
+.header__container .header__title:before {
   content: "Новогодний";
   position: absolute;
   top: -10px;
@@ -32,7 +32,7 @@
   font-family: 'Marck Script', cursive;
   /* font-family: "Kablammo", system-ui; */
 }
-.five h1:after {
+.header__container .header__title:after {
   content: "";
   position: absolute;
   width: 120%;
@@ -42,20 +42,20 @@
   background: white;
 }
 @media (max-width: 580px) {
-  .five {padding-left: 130px;}
-  .five h1 {font-size: 2em;}
-  .five h1:before {left: -130px;}
+  .header__container {padding-left: 130px;}
+  .header__container .header__title {font-size: 2em;}
+  .header__container .header__title:before {left: -130px;}
 }
 @media (max-width: 480px) {
-  .five {padding-left: 100px;}
-  .five h1 {
+  .header__container {padding-left: 100px;}
+  .header__container .header__title {
     font-size: 1.5em;
     padding-right: 10px;
 }
-  .five h1:before {left: -100px;}
+  .header__container .header__title:before {left: -100px;}
 }
 @media (max-width: 380px) {
-  .five {padding-left: 90px;}
-  .five h1 {font-size: 1.3em;}
-  .five h1:before {left: -88px;}
+  .header__container {padding-left: 90px;}
+  .header__container .header__title {font-size: 1.3em;}
+  .header__container .header__title:before {left: -88px;}
 }
