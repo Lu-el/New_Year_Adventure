@@ -4,20 +4,31 @@ import { getEndPage } from "./renderStory.js";
 export const hallListener = (overlay, room) => {
   const glowElements = document.querySelectorAll('.hall__glowing');
   let resultNumber;
-  let nextRoom;
 
   for (let glowElement of glowElements) {
     glowElement.addEventListener('click', (e) => {
       const target = e.target;
       resultNumber = target.dataset.room;
-
       overlay.classList.add('visually-hidden');
-
       getEndPage(room, resultNumber);
-
     })
   }
+}
 
+export const kitchenListener = (overlay, room) => {
+  const dishElements = document.querySelectorAll('.kitchen__link');
+  let resultNumber;
+
+  //клинуть только по крану! (внести правки в kitchen.js)
+
+  for (let dishElement of dishElements) {
+    dishElement.addEventListener('click', (e) => {
+      const target = e.target;
+      resultNumber = target.dataset.room;
+      overlay.classList.add('visually-hidden');
+      getEndPage(room, resultNumber);
+    })
+  }
 }
 
 export const renderTask = () => {

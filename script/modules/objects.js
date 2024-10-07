@@ -1,5 +1,5 @@
 import { kitchenAction } from "./kitchen.js"
-import { hallListener } from "./renderTask.js"
+import { hallListener, kitchenListener } from "./renderTask.js"
 
 export const storyBook = {
   "hall": {
@@ -14,21 +14,25 @@ export const storyBook = {
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/holl.jpg",
     mission: `
-      <div data-room="1" class="hall__glowing hall__glowing_deer"></div>
-      <div data-room="1" class="hall__glowing hall__glowing_picture"></div>
-      <div data-room="1" class="hall__glowing hall__glowing_fireplace"></div>
-      <div data-room="1" class="hall__glowing hall__glowing_lamp"></div>
-      <div data-room="1" class="hall__glowing hall__glowing_firtree"></div>`,
-      result: {
-        1: 'kitchen',
-        // 2: 'storeroom',
-        // 3: 'library',
-        // 4: 'dining',
-        // 9: 'workroom',
-      },
-      listener: hallListener,
+      <div data-room="2" class="hall__glowing hall__glowing_deer"></div>
+      <div data-room="2" class="hall__glowing hall__glowing_picture"></div>
+      <div data-room="2" class="hall__glowing hall__glowing_fireplace"></div>
+      <div data-room="2" class="hall__glowing hall__glowing_lamp"></div>
+      <div data-room="2" class="hall__glowing hall__glowing_firtree"></div>`,
+    result: {
+      1: 'hall',
+      2: 'kitchen',
+      3: 'storeroom',
+      4: 'library',
+      5: 'dining',
+      6: 'greenhouse',
+      7: 'restroom',
+      8: 'bedroom',
+      9: 'workroom',
+    },
+    listener: hallListener,
   },
-  "kitchen": {
+  'kitchen': {
     room: 'kitchen',
     title: "Кухня",
     description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
@@ -41,13 +45,25 @@ export const storyBook = {
     src: "img/kitchen.jpg",
     mission: `
     <div class="kitchen__links">
-            <a href="#" class="link kitchen__link">Оливье</a>
-            <a href="#" class="link kitchen__link">Гусь с яблоками</a>
-            <a href="#" class="link kitchen__link">Мандариновый торт</a>
-            <a href="#" class="link kitchen__link">Селедка под шубой</a>
+            <a data-room="1" href="#" class="link kitchen__link">Оливье</a>
+            <a data-room="1" href="#" class="link kitchen__link">Гусь с яблоками</a>
+            <a data-room="1" href="#" class="link kitchen__link">Мандариновый торт</a>
+            <a data-room="1" href="#" class="link kitchen__link">Селедка под шубой</a>
           </div>
           `,
+    result: {
+      1: 'hall',
+      2: 'kitchen',
+      3: 'storeroom',
+      4: 'library',
+      5: 'dining',
+      6: 'greenhouse',
+      7: 'restroom',
+      8: 'bedroom',
+      9: 'workroom',
+    },
     action: kitchenAction,
+    listener: kitchenListener,
   },
 }
 

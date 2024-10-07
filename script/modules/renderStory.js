@@ -72,7 +72,7 @@ export const renderStory = (room) => {
     pages.append(bookStory[key]);
   }
 
-  bookStyle();
+  // bookStyle();
   return story;
 }
 

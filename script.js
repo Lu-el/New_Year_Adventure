@@ -1,3 +1,4 @@
+import { bookStyle } from "./script/modules/book.js";
 import { storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
 import { renderStory, renderRoom } from "./script/modules/renderStory.js";
@@ -17,19 +18,17 @@ const getMissionRoom = (main, data, user) => {
 }
 
 const users = {
-  rooms: ['hall']
+  rooms: ['kitchen']
 }
 
-const init = (user) => {
-  // указать имя
-
-  document.body.append(renderHead(), renderMain(), renderFooter());
-  const main = document.querySelector('main');
-
+const roomAction = (user, main, storyBook) => {
   const roomCurrent = user.rooms.slice(-1)[0];
+  console.log(roomCurrent);
+
   const room = storyBook[roomCurrent];
 
   getMissionRoom(main, room);
+  bookStyle();
 
   document.addEventListener('click', (e) => {
     const target = e.target;
@@ -39,16 +38,22 @@ const init = (user) => {
       const rooms = user.rooms;
       rooms.push(nextRoom);
       user.rooms = rooms;
-      console.log(user);
+      main.innerHTML = '';
+      roomAction(user, main, storyBook);
     }
-
-
   })
-
-
 }
 
-init(users);
+const init = (user, storyBook) => {
+  // указать имя
+
+  document.body.append(renderHead(), renderMain(), renderFooter());
+  const main = document.querySelector('main');
+
+  roomAction(user, main, storyBook);
+}
+
+init(users, storyBook);
 
 
 
