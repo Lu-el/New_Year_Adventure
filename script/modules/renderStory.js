@@ -1,7 +1,7 @@
 import { bookStyle } from "./book.js";
 import { getContainer, getSection } from "./functions.js";
 
-export const getEndPage = (room) => {
+export const getEndPage = (room, resultNumber) => {
   const endPage = document.querySelector('.book__pages').lastElementChild;
   const ending = endPage.querySelector('.book__text');
   ending.innerHTML = room.ending;
@@ -9,6 +9,7 @@ export const getEndPage = (room) => {
   const btnContinute = document.createElement('button');
   btnContinute.classList.add('book__btn', 'book__btn_continute');
   btnContinute.innerHTML = 'Идти дальше';
+  btnContinute.dataset.roomNext =  resultNumber;
 
   endPage.append(btnContinute);
 }

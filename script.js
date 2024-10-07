@@ -1,7 +1,7 @@
 import { storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
 import { renderStory, renderRoom } from "./script/modules/renderStory.js";
-import {  renderTask } from "./script/modules/renderTask.js";
+import { renderTask } from "./script/modules/renderTask.js";
 
 
 // document.body.append(renderHead(), renderMain(), renderFooter());
@@ -27,10 +27,23 @@ const init = (user) => {
   const main = document.querySelector('main');
 
   const roomCurrent = user.rooms.slice(-1)[0];
-  console.log(roomCurrent);
+  const room = storyBook[roomCurrent];
 
-  getMissionRoom(main, storyBook[roomCurrent]);
-  console.log(user);
+  getMissionRoom(main, room);
+
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('.book__btn_continute')) {
+      const resultNumber = target.closest('.book__btn_continute').dataset.roomNext;
+      const nextRoom = room.result[resultNumber];
+      const rooms = user.rooms;
+      rooms.push(nextRoom);
+      user.rooms = rooms;
+      console.log(user);
+    }
+
+
+  })
 
 
 }

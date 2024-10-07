@@ -13,14 +13,8 @@ export const hallListener = (overlay, room) => {
 
       overlay.classList.add('visually-hidden');
 
-      getEndPage(room);
-      if (document.querySelector('.book__btn_continute')) {
-        const continute = document.querySelector('.book__btn_continute');
-        continute.addEventListener('click', () => {
-          nextRoom = room.result[resultNumber];
-          // user.rooms = user.rooms.push(nextRoom);
-        })
-      }
+      getEndPage(room, resultNumber);
+
     })
   }
 
@@ -43,11 +37,7 @@ export const renderTask = () => {
     buttonTask.classList.add('visually-hidden');
 
     room.listener(overlay, room);
-  }
-
-  )
-
-
+  })
 }
 
 
