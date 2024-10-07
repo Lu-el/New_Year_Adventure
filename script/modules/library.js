@@ -35,7 +35,7 @@ const quizData = [
 
 
 
-const quizLibrary = document.querySelector(".library__quiz");
+const quizLibrary = document.querySelector(".library__overlay");
 const submitButton = quizLibrary.querySelector(".library__btn");
 const answerElements = quizLibrary.querySelectorAll(".library__answer");
 const questionElement = quizLibrary.querySelector(".library__question");

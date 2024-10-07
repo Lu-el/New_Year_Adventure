@@ -1,5 +1,6 @@
 import { kitchenAction } from "./kitchen.js"
-import { hallListener, kitchenListener } from "./renderTask.js"
+// import { libraryAction } from "./library.js"
+import { hallListener, kitchenListener, storeroomListener } from "./renderTask.js"
 
 export const storyBook = {
   "hall": {
@@ -15,9 +16,9 @@ export const storyBook = {
     src: "img/holl.jpg",
     mission: `
       <div data-room="2" class="hall__glowing hall__glowing_deer"></div>
-      <div data-room="2" class="hall__glowing hall__glowing_picture"></div>
+      <div data-room="3" class="hall__glowing hall__glowing_picture"></div>
       <div data-room="2" class="hall__glowing hall__glowing_fireplace"></div>
-      <div data-room="2" class="hall__glowing hall__glowing_lamp"></div>
+      <div data-room="3" class="hall__glowing hall__glowing_lamp"></div>
       <div data-room="2" class="hall__glowing hall__glowing_firtree"></div>`,
     result: {
       1: 'hall',
@@ -47,8 +48,8 @@ export const storyBook = {
     <div class="kitchen__links">
             <a data-room="1" href="#" class="link kitchen__link">Оливье</a>
             <a data-room="1" href="#" class="link kitchen__link">Гусь с яблоками</a>
-            <a data-room="1" href="#" class="link kitchen__link">Мандариновый торт</a>
-            <a data-room="1" href="#" class="link kitchen__link">Селедка под шубой</a>
+            <a data-room="3" href="#" class="link kitchen__link">Мандариновый торт</a>
+            <a data-room="3" href="#" class="link kitchen__link">Селедка под шубой</a>
           </div>
           `,
     result: {
@@ -64,6 +65,90 @@ export const storyBook = {
     },
     action: kitchenAction,
     listener: kitchenListener,
+  },
+  'storeroom': {
+    room: 'storeroom',
+    title: "Кладовая",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/storeroom.jpg",
+    mission: `
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+            <div class="storeroom__square"></div>
+          `,
+    result: {
+      3: 'hall',
+      6: 'hall',
+      9: 'kitchen',
+      12: 'kitchen',
+      15: 'kitchen',
+    },
+    listener: storeroomListener,
+  },
+  "library": {
+    room: 'library',
+    title: "Библиотека",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/library.jpg",
+    mission: `
+                <div class="library__quiz">
+            <h2 class="library__question" id="question">Question is loading...</h2>
+
+            <ul class="library__list">
+              <li class="library__item">
+                <input class="library__answer library__answer_a" type="radio" name="answer" id="a" />
+                <label class="library__label library__label_a " for="a" id="a_text">Answer...</label>
+              </li>
+              <li class="library__item">
+                <input class="library__answer library__answer_b" type="radio" name="answer" id="b" />
+                <label class="library__label library__label_b" for="b" id="b_text">Answer...</label>
+              </li>
+              <li class="library__item">
+                <input class="library__answer library__answer_c" type="radio" name="answer" id="c" />
+                <label class="library__label library__label_c" for="c" id="c_text">Answer...</label>
+              </li>
+              <li class="library__item">
+                <input class="library__answer library__answer_d" type="radio" name="answer" id="d" />
+                <label class="library__label library__label_d" for="d" id="d_text">Answer...</label>
+              </li>
+            </ul>
+          </div>`,
+    result: {
+      1: 'hall',
+      2: 'kitchen',
+      3: 'storeroom',
+      4: 'library',
+      5: 'dining',
+      6: 'greenhouse',
+      7: 'restroom',
+      8: 'bedroom',
+      9: 'workroom',
+    },
+    // listener: libraryAction,
   },
 }
 

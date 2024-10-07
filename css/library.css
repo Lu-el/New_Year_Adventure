@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.library__quiz {
+.library__overlay {
   position: absolute;
   left: 10%;
   top: 10px;
@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-.library__overlay {
+.library__quiz {
   padding: 10px;
 }
 
@@ -66,13 +66,13 @@
 }
 
 @media (min-width: 520px) {
-  .library__overlay {
+  .library__quiz {
     padding: 1rem;
   }
 }
 
 @media (min-width: 620px) {
-  .library__quiz {
+  .library__overlay {
     left: 20%;
     top: 50px;
     width: 60%;
@@ -80,7 +80,7 @@
 }
 
 @media (min-width: 900px) {
-  .library__overlay {
+  .library__quiz {
     padding: 1rem;
   }
 

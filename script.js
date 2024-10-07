@@ -18,7 +18,7 @@ const getMissionRoom = (main, data, user) => {
 }
 
 const users = {
-  rooms: ['kitchen']
+  rooms: ['hall']
 }
 
 const roomAction = (user, main, storyBook) => {
