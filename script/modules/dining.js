@@ -1,7 +1,5 @@
-export const shuffle = (deck) =>  {
-  for (let j, x, i = deck.length; i; j = Math.floor(Math.random() * i), x = deck[--i], deck[i] = deck[j], deck[j] = x);
-  return deck;
-}
+import { shuffle } from "./functions.js";
+
 
 const check = (className, resultsArray) => {
   let element = document.getElementsByClassName("dining__card_flipped");

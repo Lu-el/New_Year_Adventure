@@ -1,4 +1,3 @@
-import { bookStyle } from "./book.js";
 import { getContainer, getSection } from "./functions.js";
 
 export const getEndPage = (room, resultNumber) => {

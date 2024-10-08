@@ -9,3 +9,8 @@ export const getSection = (classname) => {
   section.classList.add(classname);
   return section;
 }
+
+export const shuffle = (deck) =>  {
+  for (let j, x, i = deck.length; i; j = Math.floor(Math.random() * i), x = deck[--i], deck[i] = deck[j], deck[j] = x);
+  return deck;
+}

@@ -23,25 +23,10 @@ const users = {
 
 const roomAction = (user, main, storyBook) => {
   const roomCurrent = user.rooms.slice(-1)[0];
-  console.log(roomCurrent);
-
+  console.log(user.rooms, roomCurrent);
   const room = storyBook[roomCurrent];
-
   getMissionRoom(main, room);
   bookStyle();
-
-  document.addEventListener('click', (e) => {
-    const target = e.target;
-    if (target.closest('.book__btn_continute')) {
-      const resultNumber = target.closest('.book__btn_continute').dataset.roomNext;
-      const nextRoom = room.result[resultNumber];
-      const rooms = user.rooms;
-      rooms.push(nextRoom);
-      user.rooms = rooms;
-      main.innerHTML = '';
-      roomAction(user, main, storyBook);
-    }
-  })
 }
 
 const init = (user, storyBook) => {
@@ -51,6 +36,22 @@ const init = (user, storyBook) => {
   const main = document.querySelector('main');
 
   roomAction(user, main, storyBook);
+
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('.book__btn_continute')) {
+      const resultNumber = target.closest('.book__btn_continute').dataset.roomNext;
+      console.log(resultNumber);
+      const roomCurrent = target.closest('.story').dataset.room;
+      const room = storyBook[roomCurrent];
+      const nextRoom = room.result[resultNumber];
+      const rooms = user.rooms;
+      rooms.push(nextRoom);
+      user.rooms = rooms;
+      main.innerHTML = '';
+      roomAction(user, main, storyBook);
+    }
+  })
 }
 
 init(users, storyBook);

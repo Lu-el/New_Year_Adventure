@@ -1,4 +1,5 @@
 import { kitchenAction } from "./kitchen.js"
+import { libraryListener } from "./library.js"
 // import { libraryAction } from "./library.js"
 import { hallListener, kitchenListener, storeroomListener } from "./renderTask.js"
 
@@ -115,7 +116,7 @@ export const storyBook = {
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/library.jpg",
     mission: `
-                <div class="library__quiz">
+                          <div class="library__quiz">
             <h2 class="library__question" id="question">Question is loading...</h2>
 
             <ul class="library__list">
@@ -136,19 +137,18 @@ export const storyBook = {
                 <label class="library__label library__label_d" for="d" id="d_text">Answer...</label>
               </li>
             </ul>
-          </div>`,
+          </div>
+
+          <button class="library__btn" id="submit">Готово</button>`,
     result: {
-      1: 'hall',
-      2: 'kitchen',
-      3: 'storeroom',
-      4: 'library',
-      5: 'dining',
-      6: 'greenhouse',
-      7: 'restroom',
-      8: 'bedroom',
-      9: 'workroom',
+      // 3: 'kitchen',
+      // 6: 'bedroom',
+      // 9: 'dining',
+      3: 'kitchen',
+      6: 'kitchen',
+      9: 'hall',
     },
-    // listener: libraryAction,
+    listener: libraryListener,
   },
 }
 
