@@ -1,4 +1,6 @@
 import { shuffle } from "./functions.js";
+import { storyBook } from "./objects.js";
+import { getEndPage } from "./renderStory.js";
 
 
 const check = (className, resultsArray) => {
@@ -13,9 +15,11 @@ const check = (className, resultsArray) => {
   }, 500);
 }
 
-const win = (counter, text) => {
+const win = (counter, text, clickcounter) => {
   if (counter === 6) {
     text.innerHTML = `Ваш результат`;
+    const resultNumber = (clickcounter <= 20) ? 1 : (clickcounter <= 28) ? 2 : 3;
+    getEndPage(storyBook.dining, resultNumber);
   }
 }
 
@@ -57,7 +61,7 @@ export const diningGameAction = () => {
         if (resultsArray[0] === resultsArray[1]) {
           check("dining__card_correct", resultsArray);
           counter++;
-          win(counter, textEnd);
+          win(counter, textEnd, clickcounter);
           resultsArray = [];
         } else {
           check("dining__card_reverse");

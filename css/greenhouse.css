@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.greenhouse__game {
+.greenhouse__overlay {
   position: absolute;
   top: 20px;
   width: calc(100% - 40px);
@@ -25,7 +25,7 @@
 }
 
 
-.greenhouse__overlay {
+.greenhouse__check {
   display: inline-block;
   justify-content: center;
   position: relative;
@@ -103,7 +103,7 @@
 }
 
 @media (min-width: 500px) {
-  .greenhouse__overlay {
+  .greenhouse__check {
     font-size: 20px;
   }
 
@@ -121,7 +121,7 @@
     font-size: 2rem;
   }
 
-  .greenhouse__overlay {
+  .greenhouse__check {
     font-size: 1rem;
   }
 }

@@ -1,82 +1,9 @@
 import { shuffle } from "./functions.js";
-import { storyBook } from "./objects.js";
+import { quizData, storyBook } from "./objects.js";
 import { getEndPage } from "./renderStory.js";
 
 
-const quizData = [
-  {
-    question: "Сколько лет прожил старик со своей старухой в «Сказке о Рыбаке и Рыбке»? ",
-    a: "25",
-    b: "30",
-    c: "33",
-    d: "31",
-    correct: "c",
-  },
-  {
-    question: "Что такое «ланиты»?",
-    a: "Лапти",
-    b: "Глаза",
-    c: "Уши",
-    d: "Щёки",
-    correct: "d",
-  },
-  {
-    question: "Как зовут королевича в «Сказке о мертвой царевне»?",
-    a: "Матвей",
-    b: "Василий",
-    c: "Елисей",
-    d: "Иван",
-    correct: "c",
-  },
-  {
-    question: "Автор романа «Приключения Робинзона Крузо»",
-    a: "Д.Дефо",
-    b: "Д.Лондон",
-    c: "В.Жуковский",
-    d: "Ф.Купер",
-    correct: "a",
-  },
-  {
-    question: "Сколько лет прожил старик со своей старухой в «Сказке о Рыбаке и Рыбке»? ",
-    a: "25",
-    b: "30",
-    c: "33",
-    d: "31",
-    correct: "c",
-  },
-  {
-    question: "Что такое «ланиты»?",
-    a: "Лапти",
-    b: "Глаза",
-    c: "Уши",
-    d: "Щёки",
-    correct: "d",
-  },
-  {
-    question: "Как зовут королевича в «Сказке о мертвой царевне»?",
-    a: "Матвей",
-    b: "Василий",
-    c: "Елисей",
-    d: "Иван",
-    correct: "c",
-  },
-  {
-    question: "Автор романа «Приключения Робинзона Крузо»",
-    a: "Д.Дефо",
-    b: "Д.Лондон",
-    c: "В.Жуковский",
-    d: "Ф.Купер",
-    correct: "a",
-  },
-  {
-    question: "Автор романа «Приключения Робинзона Крузо»",
-    a: "Д.Дефо",
-    b: "Д.Лондон",
-    c: "В.Жуковский",
-    d: "Ф.Купер",
-    correct: "a",
-  },
-];
+
 
 const deselectAnswers = (answerElements) => {
   answerElements.forEach(answer => answer.checked = false);
@@ -112,7 +39,7 @@ const libraryAction = (quizDataShuffle, quizLibrary, submitButton, answerElement
       else {
         quizLibrary.innerHTML = `
           <h2 class="library__question">Вы ответили на ${score}/${quizDataShuffle.length} правильно</h2>
-                ` // location.reload() won't work in CodePen for security reasons;
+          `
         const resultNumber = (score % 3 === 0) ? score : ((Math.floor(score / 3) + 1) * 3);
 
         getEndPage(room, resultNumber)

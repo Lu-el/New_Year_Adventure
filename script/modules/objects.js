@@ -1,7 +1,8 @@
-import { kitchenAction } from "./kitchen.js"
-import { libraryListener } from "./library.js"
-// import { libraryAction } from "./library.js"
-import { hallListener, kitchenListener, storeroomListener } from "./renderTask.js"
+import { diningGameAction } from "./dining.js";
+import { gamePlant } from "./greenhouse.js";
+import { kitchenAction } from "./kitchen.js";
+import { libraryListener } from "./library.js";
+import { hallListener, kitchenListener, storeroomListener } from "./renderTask.js";
 
 export const storyBook = {
   "hall": {
@@ -150,21 +151,160 @@ export const storyBook = {
     },
     listener: libraryListener,
   },
+  "dining": {
+    room: 'dining',
+    title: "Столовая",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/diningroom.jpg",
+    mission: `
+          <p class="dining__text">Попыток
+            <span class="dining__span dining__span_attempt">0</span>
+          </p>
+          <p class="dining__text dining__text_end"></p>
+          <div class="dining__game">
+          </div>
+      `,
+    result: {
+      // 3: 'kitchen',
+      // 6: 'bedroom',
+      // 9: 'dining',
+      1: 'hall',
+      2: 'kitchen',
+      3: 'storeroom',
+    },
+    action: diningGameAction,
+    // listener: libraryListener,
+  },
+  "greenhouse": {
+    room: 'greenhouse',
+    title: "Двор",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/greenhouse.jpg",
+    mission: `
+                    <div class="greenhouse__wrapper">
+
+          </div>
+
+          <p class="greenhouse__answer">
+            <span class="greenhouse__check">
+              <input class="greenhouse__input" type="text" placeholder="Ваш ответ">
+
+              <span class="greenhouse__border-light"></span>
+              <span class="greenhouse__btn"></span>
+              <span class="greenhouse__error visually-hidden">Неправильно</span>
+            </span>
+          </p>
+      `,
+    result: {
+      // 3: 'kitchen',
+      // 6: 'bedroom',
+      // 9: 'dining',
+      1: 'hall',
+      2: 'kitchen',
+      3: 'storeroom',
+    },
+    action: gamePlant,
+    // listener: libraryListener,
+  },
 }
 
 export const wordMess = [
-  'магнолия',
-  'апельсин',
-  'зверобой',
-  'картофель',
-  'броколли',
-  'виноград',
-  'грибница',
-  'мандарин',
-  'тюльпан',
-  'ежевика',
+  'дуб',
+  // 'апельсин',
+  // 'зверобой',
+  // 'картофель',
+  // 'броколли',
+  // 'виноград',
+  // 'грибница',
+  // 'мандарин',
+  // 'тюльпан',
+  // 'ежевика',
 ]
 
-export const users = {
-  rooms: ['hall']
-}
+//library
+export const quizData = [
+  {
+    question: "Сколько лет прожил старик со своей старухой в «Сказке о Рыбаке и Рыбке»? ",
+    a: "25",
+    b: "30",
+    c: "33",
+    d: "31",
+    correct: "c",
+  },
+  {
+    question: "Что такое «ланиты»?",
+    a: "Лапти",
+    b: "Глаза",
+    c: "Уши",
+    d: "Щёки",
+    correct: "d",
+  },
+  {
+    question: "Как зовут королевича в «Сказке о мертвой царевне»?",
+    a: "Матвей",
+    b: "Василий",
+    c: "Елисей",
+    d: "Иван",
+    correct: "c",
+  },
+  {
+    question: "Автор романа «Приключения Робинзона Крузо»",
+    a: "Д.Дефо",
+    b: "Д.Лондон",
+    c: "В.Жуковский",
+    d: "Ф.Купер",
+    correct: "a",
+  },
+  {
+    question: "Сколько лет прожил старик со своей старухой в «Сказке о Рыбаке и Рыбке»? ",
+    a: "25",
+    b: "30",
+    c: "33",
+    d: "31",
+    correct: "c",
+  },
+  {
+    question: "Что такое «ланиты»?",
+    a: "Лапти",
+    b: "Глаза",
+    c: "Уши",
+    d: "Щёки",
+    correct: "d",
+  },
+  {
+    question: "Как зовут королевича в «Сказке о мертвой царевне»?",
+    a: "Матвей",
+    b: "Василий",
+    c: "Елисей",
+    d: "Иван",
+    correct: "c",
+  },
+  {
+    question: "Автор романа «Приключения Робинзона Крузо»",
+    a: "Д.Дефо",
+    b: "Д.Лондон",
+    c: "В.Жуковский",
+    d: "Ф.Купер",
+    correct: "a",
+  },
+  {
+    question: "Автор романа «Приключения Робинзона Крузо»",
+    a: "Д.Дефо",
+    b: "Д.Лондон",
+    c: "В.Жуковский",
+    d: "Ф.Купер",
+    correct: "a",
+  },
+];

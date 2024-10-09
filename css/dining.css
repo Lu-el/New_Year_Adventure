@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.dining__wrapper {
+.dining__overlay {
   position: absolute;
   top: 0;
   width: calc(100% - 40px);
