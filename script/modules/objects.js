@@ -1,8 +1,9 @@
+import { bedroomAction } from "./bedroom.js";
 import { diningGameAction } from "./dining.js";
 import { gamePlant } from "./greenhouse.js";
 import { kitchenAction } from "./kitchen.js";
 import { libraryListener } from "./library.js";
-import { hallListener, kitchenListener, restroomListener, storeroomListener } from "./renderTask.js";
+import { bedroomListener, hallListener, kitchenListener, restroomListener, storeroomListener } from "./renderTask.js";
 import { openDoor } from "./restroom.js";
 
 export const storyBook = {
@@ -273,24 +274,7 @@ export const storyBook = {
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/bedroom.jfif",
-    mission: `
-          <div data-room="1" class="restroom__border">
-            <div class="restroom__door">
-            </div>
-          </div>
-          <div data-room="2" class="restroom__border">
-            <div class="restroom__door">
-            </div>
-          </div>
-          <div data-room="4" class="restroom__border">
-            <div class="restroom__door">
-            </div>
-          </div>
-          <div data-room="6" class="restroom__border">
-            <div class="restroom__door">
-            </div>
-          </div>
-      `,
+    mission: '',
     result: {
       1: 'hall',
       2: 'kitchen',
@@ -302,8 +286,8 @@ export const storyBook = {
       8: 'bedroom',
       9: 'workroom',
     },
-    action: openDoor,
-    listener: restroomListener,
+    action: bedroomAction,
+    listener: bedroomListener,
   },
 }
 
@@ -394,3 +378,18 @@ export const quizData = [
     correct: "a",
   },
 ];
+
+export const keys = [
+  'img/keys/key1.svg',
+  'img/keys/key2.svg',
+  'img/keys/key3.svg',
+  'img/keys/key4.svg',
+  'img/keys/key5.svg',
+  'img/keys/key6.svg',
+  'img/keys/key7.svg',
+  'img/keys/key8.svg',
+  'img/keys/key9.svg',
+  'img/keys/key10.svg',
+  'img/keys/key11.svg',
+  'img/keys/key12.svg'
+]

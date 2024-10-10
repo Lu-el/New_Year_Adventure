@@ -65,6 +65,23 @@ export const restroomListener = (overlay, room) => {
   }
 }
 
+export const bedroomListener = (overlay, room) => {
+  const keys = overlay.querySelectorAll('.bedroom__key');
+  let resultNumber;
+
+  for (let key of keys) {
+    key.addEventListener('click', (e) => {
+      const target = e.target;
+      key.classList.toggle('bedroom__key_checked');
+      // if ()
+      // resultNumber = target.dataset.room;
+      // overlay.classList.add('visually-hidden');
+      // getEndPage(room, resultNumber);
+    })
+  }
+}
+
+
 export const renderTask = () => {
   const buttonTask = document.querySelector('.book__btn_task');
 
