@@ -51,6 +51,20 @@ export const storeroomListener = (overlay, room) => {
   })
 }
 
+export const restroomListener = (overlay, room) => {
+  const doors = overlay.querySelectorAll('.restroom__border');
+  let resultNumber;
+
+  for (let door of doors) {
+    door.addEventListener('dblclick', (e) => {
+      const target = e.target;
+      resultNumber = target.dataset.room;
+      overlay.classList.add('visually-hidden');
+      getEndPage(room, resultNumber);
+    })
+  }
+}
+
 export const renderTask = () => {
   const buttonTask = document.querySelector('.book__btn_task');
 

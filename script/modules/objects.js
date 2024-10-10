@@ -2,7 +2,7 @@ import { diningGameAction } from "./dining.js";
 import { gamePlant } from "./greenhouse.js";
 import { kitchenAction } from "./kitchen.js";
 import { libraryListener } from "./library.js";
-import { hallListener, kitchenListener, storeroomListener } from "./renderTask.js";
+import { hallListener, kitchenListener, restroomListener, storeroomListener } from "./renderTask.js";
 import { openDoor } from "./restroom.js";
 
 export const storyBook = {
@@ -231,33 +231,79 @@ export const storyBook = {
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
     src: "img/restroom.webp",
     mission: `
-          <div class="restroom__border">
+          <div data-room="1" class="restroom__border">
             <div class="restroom__door">
             </div>
           </div>
-          <div class="restroom__border">
+          <div data-room="2" class="restroom__border">
             <div class="restroom__door">
             </div>
           </div>
-          <div class="restroom__border">
+          <div data-room="4" class="restroom__border">
             <div class="restroom__door">
             </div>
           </div>
-          <div class="restroom__border">
+          <div data-room="6" class="restroom__border">
             <div class="restroom__door">
             </div>
           </div>
       `,
     result: {
-      // 3: 'kitchen',
-      // 6: 'bedroom',
-      // 9: 'dining',
       1: 'hall',
       2: 'kitchen',
       3: 'storeroom',
+      4: 'library',
+      5: 'dining',
+      6: 'greenhouse',
+      7: 'restroom',
+      8: 'bedroom',
+      9: 'workroom',
     },
     action: openDoor,
-    // listener: libraryListener,
+    listener: restroomListener,
+  },
+  "bedroom": {
+    room: 'bedroom',
+    title: "Спальня",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/bedroom.jfif",
+    mission: `
+          <div data-room="1" class="restroom__border">
+            <div class="restroom__door">
+            </div>
+          </div>
+          <div data-room="2" class="restroom__border">
+            <div class="restroom__door">
+            </div>
+          </div>
+          <div data-room="4" class="restroom__border">
+            <div class="restroom__door">
+            </div>
+          </div>
+          <div data-room="6" class="restroom__border">
+            <div class="restroom__door">
+            </div>
+          </div>
+      `,
+    result: {
+      1: 'hall',
+      2: 'kitchen',
+      3: 'storeroom',
+      4: 'library',
+      5: 'dining',
+      6: 'greenhouse',
+      7: 'restroom',
+      8: 'bedroom',
+      9: 'workroom',
+    },
+    action: openDoor,
+    listener: restroomListener,
   },
 }
 

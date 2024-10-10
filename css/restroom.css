@@ -26,28 +26,28 @@
 }
 
 .restroom__border:first-child {
-  background: url('../img/holl.jpg');
+  background: url('../img/restroom/holl.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30px;
 }
 
 .restroom__border:nth-child(2) {
-  background: url('../img/kitchen.jpg');
+  background: url('../img/restroom/kitchen.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30px;
 }
 
 .restroom__border:nth-child(3) {
-  background: url('../img/diningroom.jpg');
+  background: url('../img/restroom/library.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30px;
 }
 
 .restroom__border:nth-child(4) {
-  background: url('../img/greenhouse.jpg');
+  background: url('../img/restroom/greenhouse.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30px;
@@ -136,28 +136,28 @@
   }
 
   .restroom__border:first-child {
-    background: url('../img/holl.jpg');
+    background: url('../img/restroom/holl.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px;
   }
 
   .restroom__border:nth-child(2) {
-    background: url('../img/kitchen.jpg');
+    background: url('../img/restroom/kitchen.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px;
   }
 
   .restroom__border:nth-child(3) {
-    background: url('../img/diningroom.jpg');
+    background: url('../img/restroom/library.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px;
   }
 
   .restroom__border:nth-child(4) {
-    background: url('../img/greenhouse.jpg');
+    background: url('../img/restroom/greenhouse.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px;
