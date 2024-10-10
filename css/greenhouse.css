@@ -24,6 +24,10 @@
   padding: 5px;
 }
 
+.greenhouse__card_correct {
+  background-color: green;
+}
+
 
 .greenhouse__check {
   display: inline-block;

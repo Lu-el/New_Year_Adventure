@@ -17,9 +17,9 @@ export const gamePlant = () => {
   const wordSymbol = Array.from(word);
   const wordShufled = shuffle(wordSymbol);
   const container = document.querySelector('.greenhouse__wrapper');
-
-
+  const clue = document.querySelector('.greenhouse__btn');
   const greenhouseError = document.querySelector('.greenhouse__error');
+  let countClue = 0;
 
   input.addEventListener("keyup", () => {
     const arrVariant = Array.from(input.value);
@@ -28,9 +28,9 @@ export const gamePlant = () => {
     const checking = [];
 
     if (!wordSymbol.includes(`${lastValue}`)) {
-      greenhouseError.classList.toggle('visually-hidden');
+      greenhouseError.classList.add('visually-hidden');
       setTimeout(() => {
-        greenhouseError.classList.toggle('visually-hidden');
+        greenhouseError.classList.remove('visually-hidden');
       }, 1000);
       arrVariantSmall.forEach(element => {
         if (wordSymbol.includes(`${element}`)) {
@@ -42,7 +42,6 @@ export const gamePlant = () => {
 
     if (arrVariant.length === word.length || arrVariant.length > word.length) {
       if (arrVariantSmall.join('') === word) {
-        // alert('super')
         answer.classList.add('visually-hidden');
         container.innerHTML = '';
         Array.from(word).forEach(element => {
@@ -53,17 +52,40 @@ export const gamePlant = () => {
         });
 
       } else {
-          greenhouseError.classList.remove('visually-hidden');
+        greenhouseError.classList.remove('visually-hidden');
       }
     }
-
   })
 
+  clue.addEventListener('click', () => {
+    if (countClue < wordShufled.length) {
+      const letter = Array.from(word)[countClue];
+      const cards = container.querySelectorAll('.greenhouse__card_mess');
+      let i = 0;
 
+      const cardNew = document.createElement('div');
+      cardNew.classList.add('greenhouse__card', 'greenhouse__card_correct');
+      cardNew.innerHTML = letter;
+
+      cards[0].insertAdjacentElement('beforebegin', cardNew);
+
+      for (let card of cards) {
+        if (card.innerHTML === letter) {
+          while (i < 1) {
+            card.style.display = 'none';
+            card.classList.remove('greenhouse__card_mess')
+            i++;
+          }
+        }
+      }
+
+      countClue++;
+    }
+  })
 
   wordShufled.forEach(element => {
     const card = document.createElement('div');
-    card.classList.add('greenhouse__card');
+    card.classList.add('greenhouse__card', 'greenhouse__card_mess');
     card.innerHTML = element;
     container.append(card)
   });
