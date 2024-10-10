@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.restroom__doors {
+.restroom__overlay {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
@@ -12,10 +12,10 @@
 }
 
 .restroom__border {
-  background: url('../img/doorBorder.png'), url('../img/holl.jpg');
+  background: url('../img/doorBorder.png');
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain, 70px;
+  background-position: center;
+  background-size: contain;
   position: relative;
   float: left;
   height: 160px;
@@ -24,6 +24,35 @@
   border-radius: 3px;
   box-sizing: border-box;
 }
+
+.restroom__border:first-child {
+  background: url('../img/holl.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
+
+.restroom__border:nth-child(2) {
+  background: url('../img/kitchen.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
+
+.restroom__border:nth-child(3) {
+  background: url('../img/diningroom.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
+
+.restroom__border:nth-child(4) {
+  background: url('../img/greenhouse.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
+
 
 .restroom__door {
   background:  url('../img/door.png');
@@ -66,7 +95,7 @@
 }
 
 @media (min-width: 360px) {
-  .restroom__doors {
+  .restroom__overlay {
     top: 40%;
   }
 }
@@ -104,5 +133,33 @@
   .restroom__door {
     height: 300px;
     width: 150px;
+  }
+
+  .restroom__border:first-child {
+    background: url('../img/holl.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+  }
+
+  .restroom__border:nth-child(2) {
+    background: url('../img/kitchen.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+  }
+
+  .restroom__border:nth-child(3) {
+    background: url('../img/diningroom.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+  }
+
+  .restroom__border:nth-child(4) {
+    background: url('../img/greenhouse.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
   }
 }

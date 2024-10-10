@@ -1,5 +1,5 @@
 export const openDoor = () => {
-  const restroom = document.querySelector('.restroom__doors');
+  const restroom = document.querySelector('.restroom__overlay');
   const perspectives = restroom.querySelectorAll('.restroom__border');
   const thumbs = restroom.querySelectorAll('.restroom__door');
 

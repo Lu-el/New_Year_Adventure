@@ -1,5 +1,6 @@
 import { shuffle } from "./functions.js";
-import { wordMess } from "./objects.js";
+import { storyBook, wordMess } from "./objects.js";
+import { getEndPage } from "./renderStory.js";
 
 const getRandomNumber = (min, max) => {
   min = Math.ceil(min)
@@ -18,7 +19,7 @@ export const gamePlant = () => {
   const wordShufled = shuffle(wordSymbol);
   const container = document.querySelector('.greenhouse__wrapper');
   const clue = document.querySelector('.greenhouse__btn');
-  const greenhouseError = document.querySelector('.greenhouse__error');
+  // const greenhouseError = document.querySelector('.greenhouse__error');
   let countClue = 0;
 
   input.addEventListener("keyup", () => {
@@ -27,18 +28,18 @@ export const gamePlant = () => {
     const lastValue = arrVariantSmall.slice(-1);
     const checking = [];
 
-    if (!wordSymbol.includes(`${lastValue}`)) {
-      greenhouseError.classList.add('visually-hidden');
-      setTimeout(() => {
-        greenhouseError.classList.remove('visually-hidden');
-      }, 1000);
-      arrVariantSmall.forEach(element => {
-        if (wordSymbol.includes(`${element}`)) {
-          checking.push(element)
-        }
-      })
-      input.value = checking.join('');
-    }
+    // if (!wordSymbol.includes(`${lastValue}`)) {
+    //   greenhouseError.classList.add('visually-hidden');
+    //   setTimeout(() => {
+    //     greenhouseError.classList.remove('visually-hidden');
+    //   }, 1000);
+    //   arrVariantSmall.forEach(element => {
+    //     if (wordSymbol.includes(`${element}`)) {
+    //       checking.push(element)
+    //     }
+    //   })
+    //   input.value = checking.join('');
+    // }
 
     if (arrVariant.length === word.length || arrVariant.length > word.length) {
       if (arrVariantSmall.join('') === word) {
@@ -46,14 +47,15 @@ export const gamePlant = () => {
         container.innerHTML = '';
         Array.from(word).forEach(element => {
           const card = document.createElement('div');
-          card.classList.add('greenhouse__card');
+          card.classList.add('greenhouse__card', 'greenhouse__card_correct');
           card.innerHTML = element;
           container.append(card);
         });
+        const resultNumber = (countClue <= 1) ? 1 : (countClue <= 2) ? 2 : 3;
+        getEndPage(storyBook.greenhouse, resultNumber)
 
-      } else {
-        greenhouseError.classList.remove('visually-hidden');
       }
+        // greenhouseError.classList.remove('visually-hidden');
     }
   })
 
@@ -78,7 +80,6 @@ export const gamePlant = () => {
           }
         }
       }
-
       countClue++;
     }
   })
