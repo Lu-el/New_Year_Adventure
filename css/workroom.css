@@ -8,22 +8,23 @@
   font-style: normal;
 }
 
-.workroom__wraper {
-  position: absolute;
+.workroom__overlay {
+position: absolute;
   top: 10px;
   left: 30px;
+  width: calc(100% - 60px);
   background-image: url("../img/cub.png");
   width: calc(100% - 60px);
   background-size: cover;
-  padding-bottom: 5px;
 }
 
-.workroom__overlay {
+.workroom__wraper {
+  padding: 0px 5px 5px 5px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 0 auto;
-  width: 230px;
+  width: 240px;
 }
 
 .workroom__table {
@@ -85,7 +86,7 @@
 }
 
 @media (min-width: 600px) {
-  .workroom__wraper {
+  .workroom__overlay {
     background-size: contain;
   }
 
@@ -97,12 +98,12 @@
     font-size: 22px;
   }
 
-  .workroom__overlay {
+  .workroom__wraper {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin: 0 auto;
-    width: 280px;
+    width: 290px;
   }
 
   .workroom__input {

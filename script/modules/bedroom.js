@@ -17,7 +17,6 @@ export const bedroomAction = () => {
   const overlay = document.querySelector('.bedroom__overlay');
   const keysSRC = keys;
   const deck = shuffle(getObjectKeys(keysSRC));
-  const arrayResult =[];
 
   deck.forEach((element, index, arr) => {
     if (index < 3) {

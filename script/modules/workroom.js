@@ -1,3 +1,6 @@
+import { storyBook } from "./objects.js";
+import { getEndPage } from "./renderStory.js";
+
 const getRandomNumber = (min, max) => {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -43,7 +46,7 @@ const getBullsCount = (numberString, secret) => {
   return count;
 }
 
-const getCowsCount = (numberString, secret, btn) => {
+const getCowsCount = (numberString, secret) => {
 
   let count = 0;
   for (let i = 0; i < numberString.length; i++) {
@@ -80,10 +83,14 @@ const getResult = (numberString, secret, table, userArea) => {
     line.append(tryCell, bullCell, cowCell);
 
     table.append(line);
+    console.log(document.querySelectorAll('.workroom__td_number').length);
 
     if (bulls === 4) {
       userArea.classList.add('visually-hidden');
       line.style.color = 'red';
+      const trying = document.querySelectorAll('.workroom__td_number').length;
+      const resultNumber = (trying <= 6) ? 1 : (trying <= 9) ? 2 : 3;
+      getEndPage(storyBook.workroom, resultNumber);
     }
   }
 }
@@ -93,8 +100,9 @@ export const bullAndCowsGame = () => {
   const table = document.querySelector('.workroom__tbody');
   const btnTriing = document.querySelector('.workroom__btn');
   const computerNumber = getComputerNumber();
+  console.log(computerNumber);
   const inputElem = document.querySelector('.workroom__input');
-  const userArea = document.querySelector('.workroom__feedback')
+  const userArea = document.querySelector('.workroom__feedback');
 
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;

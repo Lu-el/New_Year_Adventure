@@ -18,7 +18,7 @@ const getMissionRoom = (main, data, user) => {
 }
 
 const users = {
-  rooms: ['bedroom']
+  rooms: ['forest']
 }
 
 const roomAction = (user, main, storyBook) => {
@@ -28,6 +28,8 @@ const roomAction = (user, main, storyBook) => {
   getMissionRoom(main, room);
   bookStyle();
 }
+
+
 
 const init = (user, storyBook) => {
   // указать имя

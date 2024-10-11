@@ -5,8 +5,28 @@ import { kitchenAction } from "./kitchen.js";
 import { libraryListener } from "./library.js";
 import { bedroomListener, hallListener, kitchenListener, restroomListener, storeroomListener } from "./renderTask.js";
 import { openDoor } from "./restroom.js";
+import { bullAndCowsGame } from "./workroom.js";
 
 export const storyBook = {
+  "forest": {
+    room: 'forest',
+    title: "Начало",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.
+      Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/forest.jpg",
+    mission: ``,
+    result: {
+      1: 'hall',
+    },
+  },
   "hall": {
     room: 'hall',
     title: "Гостиная",
@@ -25,14 +45,10 @@ export const storyBook = {
       <div data-room="3" class="hall__glowing hall__glowing_lamp"></div>
       <div data-room="2" class="hall__glowing hall__glowing_firtree"></div>`,
     result: {
-      1: 'hall',
       2: 'kitchen',
       3: 'storeroom',
       4: 'library',
       5: 'dining',
-      6: 'greenhouse',
-      7: 'restroom',
-      8: 'bedroom',
       9: 'workroom',
     },
     listener: hallListener,
@@ -57,15 +73,10 @@ export const storyBook = {
           </div>
           `,
     result: {
-      1: 'hall',
-      2: 'kitchen',
       3: 'storeroom',
-      4: 'library',
       5: 'dining',
       6: 'greenhouse',
-      7: 'restroom',
       8: 'bedroom',
-      9: 'workroom',
     },
     action: kitchenAction,
     listener: kitchenListener,
@@ -99,11 +110,11 @@ export const storyBook = {
             <div class="storeroom__square"></div>
           `,
     result: {
-      3: 'hall',
-      6: 'hall',
-      9: 'kitchen',
-      12: 'kitchen',
-      15: 'kitchen',
+      3: 'library',
+      6: 'greenhouse',
+      9: 'restroom',
+      12: 'bedroom',
+      15: 'workroom',
     },
     listener: storeroomListener,
   },
@@ -148,8 +159,8 @@ export const storyBook = {
       // 6: 'bedroom',
       // 9: 'dining',
       3: 'kitchen',
-      6: 'kitchen',
-      9: 'hall',
+      6: 'dining',
+      9: 'bedroom',
     },
     listener: libraryListener,
   },
@@ -173,15 +184,11 @@ export const storyBook = {
           </div>
       `,
     result: {
-      // 3: 'kitchen',
-      // 6: 'bedroom',
-      // 9: 'dining',
-      1: 'hall',
-      2: 'kitchen',
-      3: 'storeroom',
+      1: 'greenhouse',
+      2: 'restroom',
+      3: 'workroom',
     },
     action: diningGameAction,
-    // listener: libraryListener,
   },
   "greenhouse": {
     room: 'greenhouse',
@@ -210,12 +217,9 @@ export const storyBook = {
           </p>
       `,
     result: {
-      // 3: 'kitchen',
-      // 6: 'bedroom',
-      // 9: 'dining',
       1: 'hall',
-      2: 'kitchen',
-      3: 'storeroom',
+      2: 'library',
+      3: 'bedroom',
     },
     action: gamePlant,
     // listener: libraryListener,
@@ -252,13 +256,8 @@ export const storyBook = {
     result: {
       1: 'hall',
       2: 'kitchen',
-      3: 'storeroom',
       4: 'library',
-      5: 'dining',
       6: 'greenhouse',
-      7: 'restroom',
-      8: 'bedroom',
-      9: 'workroom',
     },
     action: openDoor,
     listener: restroomListener,
@@ -277,11 +276,56 @@ export const storyBook = {
     mission: '',
     result: {
       0: 'hall',
-      1: 'kitchen',
-      2: 'storeroom',
+      1: 'dining',
+      2: 'workroom',
     },
     action: bedroomAction,
     listener: bedroomListener,
+  },
+  "workroom": {
+    room: 'workroom',
+    title: "Кабинет",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "/img/workroom.jpg",
+    mission: `
+              <div class="workroom__wraper">
+            <h2 class="workroom__title">Быки и коровы</h2>
+
+            <table class="workroom__table">
+              <thead class="workroom__thead">
+                <tr class="workroom__tr">
+                  <th class="workroom__td">
+                    Попытка
+                  </th>
+                  <th class="workroom__td">
+                    Быки
+                  </th>
+                  <th class="workroom__td">
+                    Коровы
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="workroom__tbody">
+              </tbody>
+            </table>
+            <div class="workroom__feedback">
+              <input class="workroom__input" type="number" placeholder="Ваш ответ">
+              <button class="workroom__btn">Попытка</button>
+            </div>
+          </div>
+          `,
+    result: {
+      1: 'kitchen',
+      2: 'greenhouse',
+      3: 'restroom',
+    },
+    action: bullAndCowsGame,
   },
 }
 

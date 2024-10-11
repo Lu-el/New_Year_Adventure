@@ -20,6 +20,12 @@
   color: rgb(161, 12, 12);
 }
 
+.book__page::-webkit-scrollbar {
+  width: 10px;
+  background-color: hsl(30, 40%, 70%);
+  box-shadow: inset -50px 0 50px rgba(0, 0, 0, .5);
+}
+
 .book__text {
   text-align: justify;
   font-size: 2.5vw;
@@ -31,6 +37,10 @@
   font-size: 150%;
 
   font-family: "Kablammo", system-ui;
+}
+
+.book__page {
+  overflow-y: overlay;
 }
 
 .book__page:nth-child(even) {
