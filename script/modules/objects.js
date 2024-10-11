@@ -11,12 +11,7 @@ export const storyBook = {
   "forest": {
     room: 'forest',
     title: "Начало",
-    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
-      Вам захотелось рассмотреть ближе один из предметов комнаты.
-      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.
-      Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
-      Вам захотелось рассмотреть ближе один из предметов комнаты.
-      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    description: `Сегодня 31 декабря. Вы не выспались и настроение не очень. `,
     task: `Выберите предмет, который с самого начала привлек ваше внимание.
       Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
@@ -41,9 +36,9 @@ export const storyBook = {
     mission: `
       <div data-room="2" class="hall__glowing hall__glowing_deer"></div>
       <div data-room="3" class="hall__glowing hall__glowing_picture"></div>
-      <div data-room="2" class="hall__glowing hall__glowing_fireplace"></div>
-      <div data-room="3" class="hall__glowing hall__glowing_lamp"></div>
-      <div data-room="2" class="hall__glowing hall__glowing_firtree"></div>`,
+      <div data-room="4" class="hall__glowing hall__glowing_fireplace"></div>
+      <div data-room="5" class="hall__glowing hall__glowing_lamp"></div>
+      <div data-room="9" class="hall__glowing hall__glowing_firtree"></div>`,
     result: {
       2: 'kitchen',
       3: 'storeroom',
@@ -66,10 +61,10 @@ export const storyBook = {
     src: "img/kitchen.jpg",
     mission: `
     <div class="kitchen__links">
-            <a data-room="1" href="#" class="link kitchen__link">Оливье</a>
-            <a data-room="1" href="#" class="link kitchen__link">Гусь с яблоками</a>
-            <a data-room="3" href="#" class="link kitchen__link">Мандариновый торт</a>
-            <a data-room="3" href="#" class="link kitchen__link">Селедка под шубой</a>
+            <a data-room="3" href="#" class="link kitchen__link">Оливье</a>
+            <a data-room="5" href="#" class="link kitchen__link">Гусь с яблоками</a>
+            <a data-room="6" href="#" class="link kitchen__link">Мандариновый торт</a>
+            <a data-room="8" href="#" class="link kitchen__link">Селедка под шубой</a>
           </div>
           `,
     result: {
@@ -155,9 +150,6 @@ export const storyBook = {
 
           <button class="library__btn" id="submit">Готово</button>`,
     result: {
-      // 3: 'kitchen',
-      // 6: 'bedroom',
-      // 9: 'dining',
       3: 'kitchen',
       6: 'dining',
       9: 'bedroom',
@@ -217,9 +209,9 @@ export const storyBook = {
           </p>
       `,
     result: {
-      1: 'hall',
+      1: 'bedroom',
       2: 'library',
-      3: 'bedroom',
+      3: 'hall',
     },
     action: gamePlant,
     // listener: libraryListener,
@@ -292,7 +284,7 @@ export const storyBook = {
       Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
       Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
-    src: "/img/workroom.jpg",
+    src: "img/workroom.jpg",
     mission: `
               <div class="workroom__wraper">
             <h2 class="workroom__title">Быки и коровы</h2>
