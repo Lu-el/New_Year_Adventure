@@ -42,7 +42,7 @@ export const storeroomListener = (overlay, room) => {
         if (toggleNumber == index) {
           overlay.classList.add('storeroom__overlay_close');
           overlay.classList.add('visually-hidden');
-          const result = (countClick % 3 === 0) ? countClick : ((Math.floor(countClick / 3) + 1)*3)
+          const result = (countClick % 3 === 0) ? countClick : ((Math.floor(countClick / 3) + 1) * 3)
           getEndPage(room, result);
         }
         console.log(`${toggleNumber} ${index} ${countClick}`);
@@ -67,17 +67,27 @@ export const restroomListener = (overlay, room) => {
 
 export const bedroomListener = (overlay, room) => {
   const keys = overlay.querySelectorAll('.bedroom__key');
-  let resultNumber;
+
+  const winGame = (e) => {
+    const target = e.target.closest('.bedroom__key');
+
+    target.classList.toggle('bedroom__key_checked');
+    const keysChecked = overlay.querySelectorAll('.bedroom__key_checked');
+    if (keysChecked.length === 2) {
+      if (keysChecked[0].dataset.room === keysChecked[1].dataset.room) {
+        const resultNumber = keysChecked[0].dataset.room;
+        keysChecked[0].style.scale = 1.5;
+        keysChecked[1].style.scale = 1.5;
+        setTimeout(() => {
+          overlay.classList.add('visually-hidden');
+          getEndPage(room, resultNumber);
+        }, 1000);
+      }
+    }
+  }
 
   for (let key of keys) {
-    key.addEventListener('click', (e) => {
-      const target = e.target;
-      key.classList.toggle('bedroom__key_checked');
-      // if ()
-      // resultNumber = target.dataset.room;
-      // overlay.classList.add('visually-hidden');
-      // getEndPage(room, resultNumber);
-    })
+    key.addEventListener('click', winGame)
   }
 }
 
