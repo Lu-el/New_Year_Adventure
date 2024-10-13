@@ -20,12 +20,14 @@ export const bedroomAction = () => {
 
   deck.forEach((element, index, arr) => {
     if (index < 3) {
-      element.room = index;
+      element.room = index + 1;
       arr.push(element);
     }
   })
 
   shuffle(deck);
+  console.log(deck);
+
 
   deck.forEach(element => {
     const div = document.createElement('div');

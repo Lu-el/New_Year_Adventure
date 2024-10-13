@@ -267,9 +267,9 @@ export const storyBook = {
     src: "img/bedroom.jfif",
     mission: '',
     result: {
-      0: 'hall',
-      1: 'dining',
-      2: 'workroom',
+      1: 'bedroom',
+      2: 'bedroom',
+      3: 'bedroom',
     },
     action: bedroomAction,
     listener: bedroomListener,
