@@ -1,6 +1,8 @@
 import { getContainer } from "./functions.js";
 
 export const renderHead = () => {
+  const resourse = 15;
+
   const header = document.createElement('header');
   header.classList.add('header');
   const container = getContainer('header');
@@ -10,6 +12,21 @@ export const renderHead = () => {
   title.classList.add('header__title');
   title.innerHTML = 'эдвен"Чур меня"';
   container.append(title);
+
+  renderResourses(container);
+
+  // const list = document.createElement('ul');
+  // list.classList.add('header__list');
+
+  // let i = 1;
+  // while (i <= resourse) {
+  //   const item = document.createElement('li');
+  //   item.classList.add('header__item');
+  //   list.append(item);
+  //   i++;
+  // }
+
+  // container.append(list);
 
   return header;
 }
@@ -93,3 +110,17 @@ export const renderMain = () => {
   return main;
 }
 
+const renderResourses = (container, resourses = 20) => {
+  const list = document.createElement('ul');
+  list.classList.add('header__list');
+
+  let i = 1;
+  while (i <= resourses) {
+    const item = document.createElement('li');
+    item.classList.add('header__item');
+    list.append(item);
+    i++;
+  }
+
+  container.append(list);
+}

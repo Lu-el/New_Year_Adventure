@@ -4,9 +4,10 @@
 }
 
 .header__container {
-  padding: 50px 20px 50px 170px;
+  padding: 50px 20px 0 170px;
   text-align: center;
 }
+
 .header__container .header__title {
   /* font-family: 'Open Sans', sans-serif; */
   font-family: "Kablammo", system-ui;
@@ -22,6 +23,7 @@
   border-top: 4px solid;
 
 }
+
 .header__container .header__title:before {
   content: "Новогодний";
   position: absolute;
@@ -32,6 +34,7 @@
   font-family: 'Marck Script', cursive;
   /* font-family: "Kablammo", system-ui; */
 }
+
 .header__container .header__title:after {
   content: "";
   position: absolute;
@@ -41,21 +44,96 @@
   bottom: -4px;
   background: white;
 }
-@media (max-width: 580px) {
-  .header__container {padding-left: 130px;}
-  .header__container .header__title {font-size: 2em;}
-  .header__container .header__title:before {left: -130px;}
+
+.header__list {
+  margin-left: -60px;
+  margin-top: 25px;
+  gap: 10px;
+
+  display: grid;
+  grid-template-rows: repeat(2, 20px);
+  grid-template-columns: repeat(10, 20px);
 }
+
+.header__item {
+  width: 20px;
+  height: 20px;
+  background-color: orange;
+  border-radius: 50%;
+  flex-basis: 6%;
+}
+
+@media (max-width: 580px) {
+  .header__container {
+    padding-left: 130px;
+  }
+
+  .header__container .header__title {
+    font-size: 2em;
+  }
+
+  .header__container .header__title:before {
+    left: -130px;
+  }
+
+}
+
+@media (min-width: 700px) {
+  .header__list {
+    margin-left: 0;
+    gap: 20px;
+
+    display: grid;
+    grid-template-rows: repeat(2, 30px);
+    grid-template-columns: repeat(10, 30px);
+  }
+
+  .header__item {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 500px) {
+  .header__list {
+    gap: 15px;
+
+    display: grid;
+    grid-template-rows: repeat(2, 25px);
+    grid-template-columns: repeat(10, 25px);
+  }
+
+  .header__item {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 @media (max-width: 480px) {
-  .header__container {padding-left: 100px;}
+  .header__container {
+    padding-left: 100px;
+  }
+
   .header__container .header__title {
     font-size: 1.5em;
     padding-right: 10px;
+  }
+
+  .header__container .header__title:before {
+    left: -100px;
+  }
 }
-  .header__container .header__title:before {left: -100px;}
-}
+
 @media (max-width: 380px) {
-  .header__container {padding-left: 90px;}
-  .header__container .header__title {font-size: 1.3em;}
-  .header__container .header__title:before {left: -88px;}
+  .header__container {
+    padding-left: 90px;
+  }
+
+  .header__container .header__title {
+    font-size: 1.3em;
+  }
+
+  .header__container .header__title:before {
+    left: -88px;
+  }
 }

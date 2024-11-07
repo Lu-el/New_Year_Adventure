@@ -2,13 +2,15 @@
   width: 100%;
   transition: opacity 0.4s 0.2s;
   perspective: 250vw;
-  padding: 10px 10px 0 10px;
+  padding: 7px 7px 0 7px;
 
   font-family: 'Lovers Quarrel', cursive;
   background-image: url('https://i.pinimg.com/originals/2c/d0/01/2cd001d41719443a50b1bb7a090fef5f.jpg');
   background-size: cover;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 4px;
+  border-bottom: 7px rgba(0, 0, 0, 0.8) solid;
+  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 1);
 }
 
 .book__title {
@@ -18,6 +20,7 @@
   color: #000000;
   font-family: "Kablammo", system-ui;
   color: rgb(161, 12, 12);
+  text-indent: 5px;
 }
 
 .book__page::-webkit-scrollbar {
@@ -82,7 +85,7 @@
   background-color: #f0f0f0;
 
   hyphens: auto;
-  text-indent: 30px;
+  text-indent: 20px;
 }
 
 .book__page:first-child {
@@ -199,10 +202,18 @@
 
     width: calc(100% - 80px);
   }
+
+
 }
 
 
 @media (min-width: 800px) {
+
+  .book {
+    padding: 10px 10px 0 10px;
+    border-bottom: 10px rgba(0, 0, 0, 0.8) solid;
+  }
+
   .book__title {
     margin-top: 100px;
     font-size: 40px;
