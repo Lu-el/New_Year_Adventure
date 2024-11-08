@@ -1,7 +1,7 @@
 import { storyBook } from "./objects.js";
 import { getEndPage } from "./renderStory.js";
 
-export const hallListener = (overlay, room) => {
+export const hallListener = (overlay, room, user) => {
   const glowElements = document.querySelectorAll('.hall__glowing');
   let resultNumber;
 
@@ -10,12 +10,12 @@ export const hallListener = (overlay, room) => {
       const target = e.target;
       resultNumber = target.dataset.room;
       overlay.classList.add('visually-hidden');
-      getEndPage(room, resultNumber);
+      getEndPage(room, resultNumber, user);
     })
   }
 }
 
-export const kitchenListener = (overlay, room) => {
+export const kitchenListener = (overlay, room, user) => {
   const dishElements = document.querySelectorAll('.kitchen__link');
   let resultNumber;
 
@@ -24,12 +24,12 @@ export const kitchenListener = (overlay, room) => {
       const target = e.target;
       resultNumber = target.dataset.room;
       overlay.classList.add('visually-hidden');
-      getEndPage(room, resultNumber);
+      getEndPage(room, resultNumber, user);
     })
   }
 }
 
-export const storeroomListener = (overlay, room) => {
+export const storeroomListener = (overlay, room, user) => {
   let countClick = 0;
   const toggleNumber = Math.floor(Math.random() * 16);
   const squares = document.querySelectorAll('.storeroom__square');
@@ -43,7 +43,7 @@ export const storeroomListener = (overlay, room) => {
           overlay.classList.add('storeroom__overlay_close');
           overlay.classList.add('visually-hidden');
           const result = (countClick % 3 === 0) ? countClick : ((Math.floor(countClick / 3) + 1) * 3)
-          getEndPage(room, result);
+          getEndPage(room, result, user);
         }
         console.log(`${toggleNumber} ${index} ${countClick}`);
       }
@@ -51,7 +51,7 @@ export const storeroomListener = (overlay, room) => {
   })
 }
 
-export const restroomListener = (overlay, room) => {
+export const restroomListener = (overlay, room, user) => {
   const doors = overlay.querySelectorAll('.restroom__border');
   let resultNumber;
 
@@ -60,12 +60,12 @@ export const restroomListener = (overlay, room) => {
       const target = e.target;
       resultNumber = target.dataset.room;
       overlay.classList.add('visually-hidden');
-      getEndPage(room, resultNumber);
+      getEndPage(room, resultNumber, user);
     })
   }
 }
 
-export const bedroomListener = (overlay, room) => {
+export const bedroomListener = (overlay, room, user) => {
   const keys = overlay.querySelectorAll('.bedroom__key');
 
   const winGame = (e) => {
@@ -74,13 +74,13 @@ export const bedroomListener = (overlay, room) => {
     target.classList.toggle('bedroom__key_checked');
     const keysChecked = overlay.querySelectorAll('.bedroom__key_checked');
     if (keysChecked.length === 2) {
-      if (keysChecked[0].dataset.room === keysChecked[1].dataset.room) {
+      if (keysChecked[0].dataset.room && keysChecked[0].dataset.room === keysChecked[1].dataset.room) {
         const resultNumber = keysChecked[0].dataset.room;
         keysChecked[0].style.scale = 1.5;
         keysChecked[1].style.scale = 1.5;
         setTimeout(() => {
           overlay.classList.add('visually-hidden');
-          getEndPage(room, resultNumber);
+          getEndPage(room, resultNumber, user);
         }, 1000);
       }
     }
@@ -92,7 +92,7 @@ export const bedroomListener = (overlay, room) => {
 }
 
 
-export const renderTask = () => {
+export const renderTask = (user) => {
   const buttonTask = document.querySelector('.book__btn_task');
 
   buttonTask.addEventListener('click', (e) => {
@@ -106,13 +106,15 @@ export const renderTask = () => {
     const overlay = document.querySelector(`.${roomName}__overlay`);
 
     overlay.innerHTML = room.mission;
+    // console.log(user);
+
     if (room.action) {
-      room.action();
+      room.action(user);
     };
     buttonTask.classList.add('visually-hidden');
 
     if (room.listener) {
-      room.listener(overlay, room);
+      room.listener(overlay, room, user);
     }
   })
 }

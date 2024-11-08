@@ -18,14 +18,19 @@ const getMissionRoom = (main, data, user) => {
 }
 
 const users = {
-  rooms: ['hall']
+  rooms: ['workroom'],
+  resourses: 20,
+
+  changeResourses (n)  {
+    this.resourses = this.resourses - n;
+  }
 }
 
 const roomAction = (user, main, storyBook) => {
   const roomCurrent = user.rooms.slice(-1)[0];
-  console.log(user.rooms, roomCurrent);
+  console.log(user, roomCurrent);
   const room = storyBook[roomCurrent];
-  getMissionRoom(main, room);
+  getMissionRoom(main, room, user);
   bookStyle();
 }
 
@@ -37,7 +42,7 @@ const roomAction = (user, main, storyBook) => {
 const init = (user, storyBook) => {
   // указать имя
 
-  document.body.append(renderHead(), renderMain(), renderFooter());
+  document.body.append(renderHead(user.resourses), renderMain(), renderFooter());
   const main = document.querySelector('main');
 
   roomAction(user, main, storyBook);

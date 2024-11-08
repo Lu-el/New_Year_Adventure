@@ -9,7 +9,7 @@ const getRandomNumber = (min, max) => {
 }
 
 
-export const gamePlant = () => {
+export const gamePlant = (user) => {
   const arr = wordMess;
   const randomNumber = getRandomNumber(0, arr.length);
   const input = document.querySelector('.greenhouse__input');
@@ -52,7 +52,7 @@ export const gamePlant = () => {
           container.append(card);
         });
         const resultNumber = (countClue <= 1) ? 1 : (countClue <= 2) ? 2 : 3;
-        getEndPage(storyBook.greenhouse, resultNumber)
+        getEndPage(storyBook.greenhouse, resultNumber, user)
 
       }
         // greenhouseError.classList.remove('visually-hidden');

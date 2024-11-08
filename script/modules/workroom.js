@@ -58,7 +58,7 @@ const getCowsCount = (numberString, secret) => {
   return count;
 }
 
-const getResult = (numberString, secret, table, userArea) => {
+const getResult = (numberString, secret, table, userArea, user) => {
 
   if (validateNumber(numberString)) {
 
@@ -90,13 +90,13 @@ const getResult = (numberString, secret, table, userArea) => {
       line.style.color = 'red';
       const trying = document.querySelectorAll('.workroom__td_number').length;
       const resultNumber = (trying <= 6) ? 1 : (trying <= 9) ? 2 : 3;
-      getEndPage(storyBook.workroom, resultNumber);
+      getEndPage(storyBook.workroom, resultNumber, user);
     }
   }
 }
 
 
-export const bullAndCowsGame = () => {
+export const bullAndCowsGame = (user) => {
   const table = document.querySelector('.workroom__tbody');
   const btnTriing = document.querySelector('.workroom__btn');
   const computerNumber = getComputerNumber();
@@ -106,7 +106,7 @@ export const bullAndCowsGame = () => {
 
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;
-    getResult(userNumber, computerNumber, table, userArea);
+    getResult(userNumber, computerNumber, table, userArea, user);
     inputElem.value = '';
   })
 }

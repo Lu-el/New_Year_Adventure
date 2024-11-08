@@ -15,15 +15,16 @@ const check = (className, resultsArray) => {
   }, 500);
 }
 
-const win = (counter, text, clickcounter) => {
+const win = (counter, text, clickcounter, user) => {
   if (counter === 6) {
     text.innerHTML = `Ваш результат`;
     const resultNumber = (clickcounter <= 20) ? 1 : (clickcounter <= 28) ? 2 : 3;
-    getEndPage(storyBook.dining, resultNumber);
+    getEndPage(storyBook.dining, resultNumber, user);
   }
 }
 
-export const diningGameAction = () => {
+export const diningGameAction = (user) => {
+
   const myCards = document.querySelector('.dining__game');
   let resultsArray = [];
   let counter = 0;
@@ -61,7 +62,7 @@ export const diningGameAction = () => {
         if (resultsArray[0] === resultsArray[1]) {
           check("dining__card_correct", resultsArray);
           counter++;
-          win(counter, textEnd, clickcounter);
+          win(counter, textEnd, clickcounter, user);
           resultsArray = [];
         } else {
           check("dining__card_reverse");
