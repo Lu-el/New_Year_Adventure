@@ -100,7 +100,7 @@ export const renderTask = (user) => {
     const roomName = target.closest('.story').dataset.room;
     const room = storyBook[roomName];
     if (room.room === 'forest') {
-      getEndPage(room, 1)
+      getEndPage(room, 1, user)
     }
 
     const overlay = document.querySelector(`.${roomName}__overlay`);

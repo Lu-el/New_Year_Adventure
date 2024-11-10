@@ -184,6 +184,11 @@
   z-index: 3;
 }
 
+.book__resourse {
+  font-family: cursive;
+  font-weight: bold;
+}
+
 @media (min-width: 500px) {
   .book__btn {
     width: calc(100% - 40px);

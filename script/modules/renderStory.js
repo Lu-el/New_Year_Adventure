@@ -3,6 +3,9 @@ import { renderResourses } from "./renderPage.js";
 
 export const getEndPage = (room, resultNumber, user) => {
   const endPage = document.querySelector('.book__pages').lastElementChild;
+  const resourseSpend = document.createElement('p');
+  resourseSpend.classList.add('book__text');
+  resourseSpend.innerHTML = `Вы потратили на действие <span class="book__resourse">${room.resourses[resultNumber]}</span> апельсин.`
   const ending = endPage.querySelector('.book__text');
   ending.innerHTML = room.ending;
 
@@ -10,6 +13,7 @@ export const getEndPage = (room, resultNumber, user) => {
   btnContinute.classList.add('book__btn', 'book__btn_continute');
   btnContinute.innerHTML = 'Идти дальше';
   btnContinute.dataset.roomNext =  resultNumber;
+  console.log(user);
 
   user.changeResourses(room.resourses[resultNumber]);
   renderResourses(user.resourses);
@@ -17,6 +21,7 @@ export const getEndPage = (room, resultNumber, user) => {
 
   console.log(room.resourses[resultNumber]);
 
+  endPage.prepend(resourseSpend)
   endPage.append(btnContinute);
 
 }
@@ -31,10 +36,7 @@ const getStoryPages = (room) => {
 
   const descriptionPage = document.createElement('div');
   descriptionPage.classList.add('book__page');
-  const description = document.createElement('p');
-  description.classList.add('book__text');
-  description.innerHTML = room.description;
-  descriptionPage.append(description);
+  descriptionPage.innerHTML = room.description;
 
   const taskPage = document.createElement('div');
   taskPage.classList.add('book__page');

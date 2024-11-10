@@ -18,7 +18,7 @@ const getMissionRoom = (main, data, user) => {
 }
 
 const users = {
-  rooms: ['workroom'],
+  rooms: ['forest'],
   resourses: 20,
 
   changeResourses (n)  {
