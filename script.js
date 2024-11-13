@@ -34,9 +34,9 @@ const roomAction = (user, main, storyBook) => {
   bookStyle();
 }
 
-// const forestAction = () => {
+const getUserName = () => {
 
-// }
+}
 
 
 const init = (user, storyBook) => {

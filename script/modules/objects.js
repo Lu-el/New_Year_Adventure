@@ -20,7 +20,43 @@ export const storyBook = {
     task: `А вот и первое судьбоносное решенние. Выберите вход в дом, которым вы воспользуетесь. Для того чтобы приступить к выполнению задания после ознакомления с его правилами - необходимо нажимать кнопку ниже "Понятно". Как только задание будет выполнено - на последней страницы Книги историй читайте продолжение...`,
     ending: `У вас в руках есть апельсины (оранжевые кружочки над Книгой истории), которые вы будете тратить на прохождение заданий(ведь голод - не тётка). Чем быстрее вы будете справляться с заданиями(меньше подсказок, меньше попыток), тем больше комнат сможете посетить. Как только апельсины закончаться... - что-то произойдёт`,
     src: "img/forest.jpg",
-    mission: ``,
+    mission: `
+
+
+          <div class="forest__fields">
+            <input name="userName" class="forest__input"
+            placeholder="Введите Ваше имя">
+    <form class="forest__app-cover">
+      <div class="forest__select-box">
+        <input type="checkbox" class="forest__view-button">
+        <div class="forest__select-button" >
+        <div class="forest__selected-value">
+          <span>Вход от трубы</span>
+        </div>
+      </div>
+
+    <div class="forest__options">
+      <div class="forest__option">
+        <input class="s-c top" type="radio" name="platform" value="front">
+        <input class="s-c bottom" type="radio" name="platform" value="front">
+        <i class="fab fa-codepen"></i>
+        <span class="label">Слева</span>
+        <span class="opt-val">Слева</span>
+      </div>
+
+      <div class="forest__option">
+        <input class="s-c top" type="radio" name="platform" value="back">
+        <input class="s-c bottom" type="radio" name="platform" value="back">
+        <i class="fab fa-dribbble"></i>
+        <span class="label">Справа</span>
+        <span class="opt-val">Справа</span>
+      </div>
+
+      <div id="option-bg"></div>
+    </div>
+  </div>
+  </div>
+  </form>`,
     result: {
       1: 'hall',
     },
@@ -31,9 +67,10 @@ export const storyBook = {
   "hall": {
     room: 'hall',
     title: "Гостиная",
-    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
-      Вам захотелось рассмотреть ближе один из предметов комнаты.
-      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    description: `<p class="book__text">Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. </p>
+      <p class="book__text">Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.</p>
+      <p class="book__text">Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.</p>`,
     task: `Выберите предмет, который с самого начала привлек ваше внимание.
       Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
     ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
