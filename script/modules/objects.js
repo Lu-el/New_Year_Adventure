@@ -1,5 +1,6 @@
 import { bedroomAction } from "./bedroom.js";
 import { diningGameAction } from "./dining.js";
+import { getUserName } from "./forest.js";
 import { gamePlant } from "./greenhouse.js";
 import { kitchenAction } from "./kitchen.js";
 import { libraryListener } from "./library.js";
@@ -17,16 +18,14 @@ export const storyBook = {
       <p class="book__text">Уже через несколько шагов Вы видите дом, который на картинке.</p>
       <p class="book__text">"Классно оформили... Кажется пора возвращаться" - подумали вы. Но повернувшись, тропинки вы не увидели.</p>
       <p class="book__text">Единственным выходом было обратиться за помощью в этот наверняка жилой дом.</p>`,
-    task: `А вот и первое судьбоносное решенние. Выберите вход в дом, которым вы воспользуетесь. Для того чтобы приступить к выполнению задания после ознакомления с его правилами - необходимо нажимать кнопку ниже "Понятно". Как только задание будет выполнено - на последней страницы Книги историй читайте продолжение...`,
+    task: `Выберите вход в дом, которым вы воспользуетесь. А вот и первое судьбоносное решенние. Для того чтобы приступить к выполнению задания после ознакомления с его правилами - необходимо нажимать кнопку ниже. Как только задание будет выполнено - на последней страницы Книги историй читайте продолжение...`,
     ending: `У вас в руках есть апельсины (оранжевые кружочки над Книгой истории), которые вы будете тратить на прохождение заданий(ведь голод - не тётка). Чем быстрее вы будете справляться с заданиями(меньше подсказок, меньше попыток), тем больше комнат сможете посетить. Как только апельсины закончаться... - что-то произойдёт`,
     src: "img/forest.jpg",
     mission: `
-
-
           <div class="forest__fields">
             <input name="userName" class="forest__input"
             placeholder="Введите Ваше имя">
-    <form class="forest__app-cover">
+    <form class="forest__app-cover visually-hidden">
       <div class="forest__select-box">
         <input type="checkbox" class="forest__view-button">
         <div class="forest__select-button" >
@@ -37,32 +36,33 @@ export const storyBook = {
 
     <div class="forest__options">
       <div class="forest__option">
-        <input class="s-c top" type="radio" name="platform" value="front">
-        <input class="s-c bottom" type="radio" name="platform" value="front">
-        <i class="fab fa-codepen"></i>
-        <span class="label">Слева</span>
-        <span class="opt-val">Слева</span>
+        <input class="forest__input-radio forest__input-radio_top" type="radio" name="front" value="1">
+        <input class="forest__input-radio forest__input-radio_bottom" type="radio" name="front" value="1">
+        <span class="forest__label">Слева</span>
+        <span class="forest__value">Слева</span>
       </div>
 
       <div class="forest__option">
-        <input class="s-c top" type="radio" name="platform" value="back">
-        <input class="s-c bottom" type="radio" name="platform" value="back">
-        <i class="fab fa-dribbble"></i>
-        <span class="label">Справа</span>
-        <span class="opt-val">Справа</span>
+        <input class="forest__input-radio" type="radio" name="back" value="2">
+        <input class="forest__input-radio" type="radio" name="back" value="2">
+        <span class="forest__label">Справа</span>
+        <span class="forest__value">Справа</span>
       </div>
 
-      <div id="option-bg"></div>
+      <div class="forest__bg"></div>
     </div>
   </div>
   </div>
   </form>`,
     result: {
       1: 'hall',
+      2: 'kitchen',
     },
     resourses: {
       1: 0,
+      2: 0,
     },
+    action: getUserName,
   },
   "hall": {
     room: 'hall',

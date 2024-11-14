@@ -3,7 +3,7 @@ import { storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
 import { renderStory, renderRoom } from "./script/modules/renderStory.js";
 import { renderTask } from "./script/modules/renderTask.js";
-
+import { getUserName } from "./script/modules/forest.js";
 
 // document.body.append(renderHead(), renderMain(), renderFooter());
 
@@ -17,10 +17,11 @@ const getMissionRoom = (main, data, user) => {
   renderTask(user);
 }
 
-const users = {
-  rooms: ['forest'],
-  resourses: 20,
-
+class Users {
+  constructor() {
+    this.rooms = ['forest'];
+    this.resourses = 20;
+  }
   changeResourses (n)  {
     this.resourses = this.resourses - n;
   }
@@ -34,18 +35,17 @@ const roomAction = (user, main, storyBook) => {
   bookStyle();
 }
 
-const getUserName = () => {
-
-}
 
 
-const init = (user, storyBook) => {
+const init = (storyBook) => {
   // указать имя
 
-  document.body.append(renderHead(user.resourses), renderMain(), renderFooter());
+  const userNew = new Users();
+
+  document.body.append(renderHead(userNew.resourses), renderMain(), renderFooter());
   const main = document.querySelector('main');
 
-  roomAction(user, main, storyBook);
+  roomAction(userNew, main, storyBook);
 
   document.addEventListener('click', (e) => {
     const target = e.target;
@@ -55,16 +55,17 @@ const init = (user, storyBook) => {
       const roomCurrent = target.closest('.story').dataset.room;
       const room = storyBook[roomCurrent];
       const nextRoom = room.result[resultNumber];
-      const rooms = user.rooms;
+      const rooms = userNew.rooms;
       rooms.push(nextRoom);
-      user.rooms = rooms;
+      userNew.rooms = rooms;
       main.innerHTML = '';
-      roomAction(user, main, storyBook);
+      roomAction(userNew, main, storyBook);
     }
   })
 }
 
-init(users, storyBook);
+init(storyBook);
+
 
 
 

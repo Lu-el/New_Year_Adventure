@@ -109,7 +109,7 @@ export const renderTask = (user) => {
     // console.log(user);
 
     if (room.action) {
-      room.action(user);
+      room.action(user, room);
     };
     buttonTask.classList.add('visually-hidden');
 

@@ -41,31 +41,16 @@
   position: relative;
 }
 
-#info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  color: #2d3667;
-  font-size: 16px;
-  text-align: center;
-  padding: 14px;
-  background-color: #f3f9f9;
-}
-
 .forest__app-cover {
   width: 100%;
   height: 42px;
-  /* margin: 100px auto 0 auto; */
   z-index: 1;
 }
 
 .forest__select-button {
   position: relative;
-  /* height: 16px; */
   padding: 10px;
   background-color: #fff;
-  /* border-radius: 4px; */
   cursor: pointer;
 
   border: none;
@@ -90,36 +75,12 @@
 
 
 .forest__option,
-.label {
+.forest__label {
   color: #2d3667;
-  /* font-size: 16px; */
-}
-
-#chevrons {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 12px;
-  padding: 9px 14px;
-}
-
-#chevrons i {
-  display: block;
-  height: 50%;
-  color: #d1dede;
-  font-size: 12px;
-  text-align: right;
 }
 
 .forest__view-button:checked + .forest__select-button #chevrons i {
   color: #2d3667;
-}
-
-.options {
-  position: absolute;
-  left: 0;
-  /* width: 250px; */
 }
 
 .forest__options {
@@ -127,11 +88,9 @@
   top: 47px;
   right: 0;
   left: 0;
-  /* width: 298px; */
   margin: 0 auto;
   background: rgba(255,255,255,0.4);
   border: none;
-  /* border-radius: 4px; */
 }
 
 .forest__view-button:checked ~ .forest__options {
@@ -146,33 +105,32 @@
   z-index: 2;
 }
 
-.label {
+.forest__label {
   display: none;
   padding: 0;
-  /* margin-left: 27px; */
 }
 
-.forest__view-button:checked ~ .forest__options .label {
+.forest__view-button:checked ~ .forest__options .forest__label {
   display: block;
   padding: 12px 14px;
 }
 
-.s-c {
+.forest__input-radio {
   position: absolute;
   left: 0;
   width: 100%;
   height: 50%;
 }
 
-.s-c.top {
+.forest__input-radio_top  {
   top: 0;
 }
 
-.s-c.bottom {
+.forest__input-radio_bottom {
   bottom: 0;
 }
 
-input[type="radio"] {
+.forest__input-radio {
   position: absolute;
   right: 0;
   left: 0;
@@ -183,53 +141,35 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-.s-c:hover ~ i {
-  color: #fff;
-  opacity: 0;
-}
-
-.s-c:hover {
+.forest__input-radio:hover {
   height: 100%;
   z-index: 1;
 }
 
-.s-c.bottom:hover + i {
-  /* bottom: -25px; */
-  animation: moveup 0.3s ease 0.1s forwards;
-}
-
-.s-c.top:hover ~ i {
-  /* top: -25px; */
-  animation: movedown 0.3s ease 0.1s forwards;
-}
 
 @keyframes moveup {
   0% {
-    /* bottom: -25px; */
     opacity: 0;
   }
   100% {
-    /* bottom: 0; */
     opacity: 1;
   }
 }
 
 @keyframes movedown {
   0% {
-    /* top: -25px; */
     opacity: 0;
   }
   100% {
-    /* top: 0; */
     opacity: 1;
   }
 }
 
-.label {
+.forest__label {
   transition: 0.3s ease all;
 }
 
-.opt-val {
+.forest__value {
   position: absolute;
   left: 14px;
   width: 217px;
@@ -239,23 +179,17 @@ input[type="radio"] {
   transform: scale(0);
 }
 
-.forest__option input[type="radio"]:checked ~ .opt-val {
+.forest__option .forest__input-radio:checked ~ .forest__value {
   opacity: 1;
   transform: scale(1);
 }
 
-.forest__option input[type="radio"]:checked ~ i {
-  top: 0;
-  bottom: auto;
-  opacity: 1;
-  animation: unset;
-}
 
-.forest__option input[type="radio"]:checked ~ .label {
+.forest__option .forest__input-radio:checked ~ .forest__label {
   color: #fff;
 }
 
-.forest__option input[type="radio"]:checked ~ .label:before {
+.forest__option .forest__input-radio:checked ~ .forest__label:before {
   content: "";
   position: absolute;
   top: 0;
@@ -268,18 +202,18 @@ input[type="radio"] {
 .forest__view-button:not(:checked)
   ~ .forest__options
   .forest__option
-  input[type="radio"]:checked
-  ~ .opt-val {
+  .forest__input-radio:checked
+  ~ .forest__value {
   top: -47px;
   height: 44px;
 }
 
-.forest__option:nth-child(1) input[type="radio"]:checked ~ .label:before {
+.forest__option:nth-child(1) .forest__input-radio:checked ~ .forest__label:before {
   background-color: #000;
   border-radius: 4px 4px 0 0;
 }
 
-.forest__option:nth-child(1) input[type="radio"]:checked ~ .opt-val {
+.forest__option:nth-child(1) .forest__input-radio:checked ~ .forest__value {
   height: 100%;
   top: -47px;
   width: 100%;
@@ -288,11 +222,11 @@ input[type="radio"] {
   padding-top: 10px;
 }
 
-.forest__option:nth-child(2) input[type="radio"]:checked ~ .label:before {
+.forest__option:nth-child(2) .forest__input-radio:checked ~ .forest__label:before {
   background-color: #ea4c89;
 }
 
-.forest__option:nth-child(2) input[type="radio"]:checked ~ .opt-val {
+.forest__option:nth-child(2) .forest__input-radio:checked ~ .forest__value {
   height: 100%;
   top: -92px;
   width: 100%;
@@ -302,7 +236,7 @@ input[type="radio"] {
 }
 
 
-#option-bg {
+.forest__bg {
   position: absolute;
   top: 0;
   right: 0;
@@ -313,21 +247,21 @@ input[type="radio"] {
   display: none;
 }
 
-.forest__view-button:checked ~ .forest__options #option-bg {
+.forest__view-button:checked ~ .forest__options .forest__bg {
   display: block;
 }
 
-.forest__option:hover .label {
+.forest__option:hover .forest__label {
   color: #fff;
 }
 
-.forest__option:nth-child(1):hover ~ #option-bg {
+.forest__option:nth-child(1):hover ~ .forest__bg {
   top: 0;
   background-color: #000;
   border-radius: 4px 4px 0 0;
 }
 
-.forest__option:nth-child(2):hover ~ #option-bg {
+.forest__option:nth-child(2):hover ~ .forest__bg {
   top: 44px;
   background-color: #ea4c89;
 }
