@@ -1,6 +1,25 @@
 import { storyBook } from "./objects.js";
 import { getEndPage } from "./renderStory.js";
 
+export const beginigListener = (overlay, room, user) => {
+  const buttons = document.querySelectorAll('.begining__button');
+  let resultNumber;
+
+  for (let button of buttons) {
+    button.addEventListener('click', (e) => {
+      resultNumber = button.dataset.room;
+      if (resultNumber === 1) {
+        getEndPage(room, resultNumber, user);
+      } else {
+        console.log(localStorage);
+
+      }
+
+      getEndPage(room, resultNumber, user);
+    })
+  }
+}
+
 export const hallListener = (overlay, room, user) => {
   const glowElements = document.querySelectorAll('.hall__glowing');
   let resultNumber;

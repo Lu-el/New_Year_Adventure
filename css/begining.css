@@ -1,0 +1,21 @@
+.begining__button {
+  font-family: "Kablammo", system-ui;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.begining__button {
+  background-color: #1abc9c;
+  color: white;
+}
+.begining__button:hover {
+  box-shadow: 0 0 20px #1abc9c, 0 0 30px #1abc9c;
+}
+

@@ -4,14 +4,42 @@ import { getUserName } from "./forest.js";
 import { gamePlant } from "./greenhouse.js";
 import { kitchenAction } from "./kitchen.js";
 import { libraryListener } from "./library.js";
-import { bedroomListener, hallListener, kitchenListener, restroomListener, storeroomListener } from "./renderTask.js";
+import { bedroomListener, beginigListener, hallListener, kitchenListener, restroomListener, storeroomListener } from "./renderTask.js";
 import { openDoor } from "./restroom.js";
 import { bullAndCowsGame } from "./workroom.js";
 
 export const storyBook = {
+  "begining": {
+    room: 'begining',
+    title: "Начало",
+    description: `<p class="book__text">Сегодня 31 декабря. Вы не выспались и настроение не очень, хотя на носу такой праздник.</p>
+      <p class="book__text">Всё же вы решили, как и планировали, поехать покататься на ватрушке с друзьями. По дороге на "секретное" место в лесу, лопнула шина и водитель(ваш друг, а не таксист) остановился на обочине, чтобы исправить положение. Вы тоже вышли из машины, чтобы подышать свежим воздухом, прихватив пакет с апельсинами, чтобы угостить друзей. Вокруг была суматоха: каждый пытался посоветовать что-то очень дельное, другие начали играть в снежки.
+      <p class="book__text">"Ну уж нет" - подумали вы и осмотревшись вокруг увидели тропинку на снегу в лес. "Полюбуюсь зимой, а вдруг и там можно будет покаться". С этими мыслями вы отправляетесь в лес.</p>
+      <p class="book__text">Уже через несколько шагов Вы видите дом, который на картинке.</p>
+      <p class="book__text">"Классно оформили... Кажется пора возвращаться" - подумали вы. Но повернувшись, тропинки вы не увидели.</p>
+      <p class="book__text">Единственным выходом было обратиться за помощью в этот наверняка жилой дом.</p>`,
+    task: `Выберите вход в дом, которым вы воспользуетесь. А вот и первое судьбоносное решенние. Для того чтобы приступить к выполнению задания после ознакомления с его правилами - необходимо нажимать кнопку ниже. Как только задание будет выполнено - на последней страницы Книги историй читайте продолжение...`,
+    ending: `У вас в руках есть апельсины (оранжевые кружочки над Книгой истории), которые вы будете тратить на прохождение заданий(ведь голод - не тётка). Чем быстрее вы будете справляться с заданиями(меньше подсказок, меньше попыток), тем больше комнат сможете посетить. Как только апельсины закончаться... - что-то произойдёт`,
+    mission: `
+      <div class="begining__buttons">
+        <button data-room="1" class="begining__button begining__button_new">Новая игра</button>
+        <button data-room="2" class="begining__button begining__button_new">Продолжить</button>
+      </div>
+    `,
+    result: {
+      1: 'forest',
+      2: 'kitchen',
+    },
+    resourses: {
+      1: 0,
+      2: 0,
+    },
+
+    listener: beginigListener,
+  },
   "forest": {
     room: 'forest',
-    title: "Начало",
+    title: "31 декабря",
     description: `<p class="book__text">Сегодня 31 декабря. Вы не выспались и настроение не очень, хотя на носу такой праздник.</p>
       <p class="book__text">Всё же вы решили, как и планировали, поехать покататься на ватрушке с друзьями. По дороге на "секретное" место в лесу, лопнула шина и водитель(ваш друг, а не таксист) остановился на обочине, чтобы исправить положение. Вы тоже вышли из машины, чтобы подышать свежим воздухом, прихватив пакет с апельсинами, чтобы угостить друзей. Вокруг была суматоха: каждый пытался посоветовать что-то очень дельное, другие начали играть в снежки.
       <p class="book__text">"Ну уж нет" - подумали вы и осмотревшись вокруг увидели тропинку на снегу в лес. "Полюбуюсь зимой, а вдруг и там можно будет покаться". С этими мыслями вы отправляетесь в лес.</p>
@@ -30,21 +58,21 @@ export const storyBook = {
         <input type="checkbox" class="forest__view-button">
         <div class="forest__select-button" >
         <div class="forest__selected-value">
-          <span>Вход от трубы</span>
+          <span class="forest__value-text">Вход от трубы</span>
         </div>
       </div>
 
     <div class="forest__options">
       <div class="forest__option">
-        <input class="forest__input-radio forest__input-radio_top" type="radio" name="front" value="1">
-        <input class="forest__input-radio forest__input-radio_bottom" type="radio" name="front" value="1">
+        <input class="forest__input-radio forest__input-radio_top" type="radio" name="Слева" value="1">
+        <input class="forest__input-radio forest__input-radio_bottom" type="radio" name="Слева" value="1">
         <span class="forest__label">Слева</span>
         <span class="forest__value">Слева</span>
       </div>
 
       <div class="forest__option">
-        <input class="forest__input-radio" type="radio" name="back" value="2">
-        <input class="forest__input-radio" type="radio" name="back" value="2">
+        <input class="forest__input-radio" type="radio" name="Справа" value="2">
+        <input class="forest__input-radio" type="radio" name="Справа" value="2">
         <span class="forest__label">Справа</span>
         <span class="forest__value">Справа</span>
       </div>

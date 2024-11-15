@@ -3,11 +3,6 @@ import { storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
 import { renderStory, renderRoom } from "./script/modules/renderStory.js";
 import { renderTask } from "./script/modules/renderTask.js";
-import { getUserName } from "./script/modules/forest.js";
-
-// document.body.append(renderHead(), renderMain(), renderFooter());
-
-// const main = document.querySelector('main');
 
 const getMissionRoom = (main, data, user) => {
   const story = renderStory(data);
@@ -19,7 +14,7 @@ const getMissionRoom = (main, data, user) => {
 
 class Users {
   constructor() {
-    this.rooms = ['forest'];
+    this.rooms = ['begining'];
     this.resourses = 20;
   }
   changeResourses (n)  {
@@ -35,15 +30,21 @@ const roomAction = (user, main, storyBook) => {
   bookStyle();
 }
 
+window.onbeforeunload = function(e) {
+  e.returnValue = 'Есть несохранённые изменения! Уверены, что хотите покинуть страницу?';
+  return e.returnValue;
+};
 
 
 const init = (storyBook) => {
   // указать имя
 
   const userNew = new Users();
+  document.body.append(renderHead(), renderMain(), renderFooter());
 
-  document.body.append(renderHead(userNew.resourses), renderMain(), renderFooter());
   const main = document.querySelector('main');
+
+  // renderHead(userNew.resourses)
 
   roomAction(userNew, main, storyBook);
 
@@ -62,6 +63,10 @@ const init = (storyBook) => {
       roomAction(userNew, main, storyBook);
     }
   })
+
+  window.onbeforeunload = function(e) {
+    localStorage.user = JSON.stringify(userNew);
+  };
 }
 
 init(storyBook);

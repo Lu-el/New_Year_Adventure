@@ -12,7 +12,7 @@ export const getEndPage = (room, resultNumber, user) => {
   const btnContinute = document.createElement('button');
   btnContinute.classList.add('book__btn', 'book__btn_continute');
   btnContinute.innerHTML = 'Идти дальше';
-  btnContinute.dataset.roomNext =  resultNumber;
+  btnContinute.dataset.roomNext = resultNumber;
   console.log(user);
 
   user.changeResourses(room.resourses[resultNumber]);
@@ -59,7 +59,7 @@ const getStoryPages = (room) => {
   // btnContinute.innerHTML = 'Идти дальше';
   endingPage.append(ending);
 
-  return {titlePage, descriptionPage, taskPage, endingPage};
+  return { titlePage, descriptionPage, taskPage, endingPage };
 }
 
 export const renderStory = (room) => {
@@ -97,11 +97,14 @@ export const renderRoom = (room) => {
   const roomOverlay = document.createElement('div');
   roomOverlay.classList.add('room');
 
-  const roomImg = document.createElement('img');
-  roomImg.classList.add('room__img');
-  roomImg.src = room.src;
-  roomImg.alt = room.title;
-  roomOverlay.append(roomImg);
+  if (room.src) {
+    const roomImg = document.createElement('img');
+    roomImg.classList.add('room__img');
+    roomImg.src = room.src;
+    roomImg.alt = room.title;
+    roomOverlay.append(roomImg);
+  }
+
 
   roomContainer.append(roomOverlay, overlayMission);
 
