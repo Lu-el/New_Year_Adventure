@@ -17,8 +17,16 @@ class Users {
     this.rooms = ['begining'];
     this.resourses = 20;
   }
+
   changeResourses (n)  {
     this.resourses = this.resourses - n;
+  }
+
+  setLocalStorage () {
+    if (this.name) {
+      const nameValue = this.name;
+      localStorage.setItem(`${nameValue}`, JSON.stringify(this));
+  }
   }
 }
 
@@ -30,10 +38,7 @@ const roomAction = (user, main, storyBook) => {
   bookStyle();
 }
 
-window.onbeforeunload = function(e) {
-  e.returnValue = 'Есть несохранённые изменения! Уверены, что хотите покинуть страницу?';
-  return e.returnValue;
-};
+
 
 
 const init = (storyBook) => {
@@ -65,7 +70,7 @@ const init = (storyBook) => {
   })
 
   window.onbeforeunload = function(e) {
-    localStorage.user = JSON.stringify(userNew);
+    userNew.setLocalStorage()
   };
 }
 

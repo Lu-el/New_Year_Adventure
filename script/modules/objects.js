@@ -25,6 +25,13 @@ export const storyBook = {
         <button data-room="1" class="begining__button begining__button_new">Новая игра</button>
         <button data-room="2" class="begining__button begining__button_new">Продолжить</button>
       </div>
+
+      <div class="begining__users">
+      <ul class="begining__users-list">
+
+      </ul>
+
+      </div>
     `,
     result: {
       1: 'forest',

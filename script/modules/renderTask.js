@@ -3,6 +3,7 @@ import { getEndPage } from "./renderStory.js";
 
 export const beginigListener = (overlay, room, user) => {
   const buttons = document.querySelectorAll('.begining__button');
+  const usersAll = document.querySelector('.begining__users-list');
   let resultNumber;
 
   for (let button of buttons) {
@@ -11,8 +12,27 @@ export const beginigListener = (overlay, room, user) => {
       if (resultNumber === 1) {
         getEndPage(room, resultNumber, user);
       } else {
-        console.log(localStorage);
+        console.dir(localStorage);
+        let keys = Object.keys(localStorage);
+        for (let key of keys) {
+          const userLi = document.createElement('li');
+          userLi.classList.add('begining__item');
 
+          const inputRadio = document.createElement('input');
+          inputRadio.classList.add('begining__user-radio');
+          inputRadio.type = "radio";
+          inputRadio.setAttribute('id', `${key}`);
+          inputRadio.value = key;
+          inputRadio.name = 'users';
+
+          const labelRadio = document.createElement('label');
+          labelRadio.classList.add('begining__user-label');
+          labelRadio.setAttribute('for', `${key}`);
+          labelRadio.innerHTML = key;
+
+          userLi.append(inputRadio, labelRadio);
+          usersAll.append(userLi);
+        }
       }
 
       getEndPage(room, resultNumber, user);
