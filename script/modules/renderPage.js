@@ -114,4 +114,29 @@ export const renderMain = () => {
   return main;
 }
 
+export const renderBegining = (container) => {
+  let keys = Object.keys(localStorage);
+  console.log(keys);
+
+  for (let key of keys) {
+    const userLi = document.createElement('li');
+    userLi.classList.add('begining__item');
+
+    const labelRadio = document.createElement('label');
+    labelRadio.classList.add('begining__user-label');
+
+    const inputRadio = document.createElement('input');
+    inputRadio.classList.add('begining__user-radio');
+    inputRadio.type = "radio";
+    inputRadio.value = key;
+    inputRadio.name = 'users';
+
+    labelRadio.append(inputRadio);
+    labelRadio.insertAdjacentHTML('beforeend', `${key}`);
+
+    userLi.append(labelRadio);
+    container.append(userLi);
+  }
+}
+
 

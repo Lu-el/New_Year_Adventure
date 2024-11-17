@@ -12,14 +12,11 @@ export const getEndPage = (room, resultNumber, user) => {
   const btnContinute = document.createElement('button');
   btnContinute.classList.add('book__btn', 'book__btn_continute');
   btnContinute.innerHTML = 'Идти дальше';
+
   btnContinute.dataset.roomNext = resultNumber;
-  console.log(user);
 
   user.changeResourses(room.resourses[resultNumber]);
   renderResourses(user.resourses);
-  console.log(resultNumber);
-
-  console.log(room.resourses[resultNumber]);
 
   endPage.prepend(resourseSpend)
   endPage.append(btnContinute);

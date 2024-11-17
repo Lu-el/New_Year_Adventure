@@ -8,6 +8,17 @@ import { bedroomListener, beginigListener, hallListener, kitchenListener, restro
 import { openDoor } from "./restroom.js";
 import { bullAndCowsGame } from "./workroom.js";
 
+export const roomList = [
+  "hall",
+  'kitchen',
+  'storeroom',
+  "library",
+  "dining",
+  "greenhouse",
+  "restroom",
+  "bedroom",
+  "workroom"
+]
 export const storyBook = {
   "begining": {
     room: 'begining',
@@ -23,7 +34,7 @@ export const storyBook = {
     mission: `
       <div class="begining__buttons">
         <button data-room="1" class="begining__button begining__button_new">Новая игра</button>
-        <button data-room="2" class="begining__button begining__button_new">Продолжить</button>
+        <button  data-room="2" class="begining__button begining__button_new">Продолжить</button>
       </div>
 
       <div class="begining__users">
@@ -35,7 +46,6 @@ export const storyBook = {
     `,
     result: {
       1: 'forest',
-      2: 'kitchen',
     },
     resourses: {
       1: 0,
@@ -153,7 +163,7 @@ export const storyBook = {
           </div>
           `,
     result: {
-      3: 'storeroom',
+      3: 'hall',
       5: 'dining',
       6: 'greenhouse',
       8: 'bedroom',
@@ -447,6 +457,46 @@ export const storyBook = {
       3: 3,
     },
     action: bullAndCowsGame,
+  },
+  "predictions": {
+    room: 'predictions',
+    title: "Предсказания",
+    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
+      Вам захотелось рассмотреть ближе один из предметов комнаты.
+      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
+    task: `Выберите предмет, который с самого начала привлек ваше внимание.
+      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
+    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
+      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    src: "img/workroom.jpg",
+    mission: `
+              <div class="workroom__wraper">
+            <h2 class="workroom__title">Быки и коровы</h2>
+
+            <table class="workroom__table">
+              <thead class="workroom__thead">
+                <tr class="workroom__tr">
+                  <th class="workroom__td">
+                    Попытка
+                  </th>
+                  <th class="workroom__td">
+                    Быки
+                  </th>
+                  <th class="workroom__td">
+                    Коровы
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="workroom__tbody">
+              </tbody>
+            </table>
+            <div class="workroom__feedback">
+              <input class="workroom__input" type="number" placeholder="Ваш ответ">
+              <button class="workroom__btn">Попытка</button>
+            </div>
+          </div>
+          `,
+    // action: ,
   },
 }
 

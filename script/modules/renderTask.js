@@ -1,4 +1,5 @@
 import { storyBook } from "./objects.js";
+import { renderBegining } from "./renderPage.js";
 import { getEndPage } from "./renderStory.js";
 
 export const beginigListener = (overlay, room, user) => {
@@ -8,34 +9,44 @@ export const beginigListener = (overlay, room, user) => {
 
   for (let button of buttons) {
     button.addEventListener('click', (e) => {
+
+      const overlayButtons = e.target.closest('.begining__buttons');
+      overlayButtons.classList.add('visually-hidden');
       resultNumber = button.dataset.room;
-      if (resultNumber === 1) {
+      if (resultNumber == 1) {
+        console.log(resultNumber == 1);
         getEndPage(room, resultNumber, user);
       } else {
-        console.dir(localStorage);
         let keys = Object.keys(localStorage);
-        for (let key of keys) {
-          const userLi = document.createElement('li');
-          userLi.classList.add('begining__item');
+        if (!keys.length) {
+          overlayButtons.classList.remove('visually-hidden');
+          return
+        };
+        renderBegining(usersAll);
 
-          const inputRadio = document.createElement('input');
-          inputRadio.classList.add('begining__user-radio');
-          inputRadio.type = "radio";
-          inputRadio.setAttribute('id', `${key}`);
-          inputRadio.value = key;
-          inputRadio.name = 'users';
-
-          const labelRadio = document.createElement('label');
-          labelRadio.classList.add('begining__user-label');
-          labelRadio.setAttribute('for', `${key}`);
-          labelRadio.innerHTML = key;
-
-          userLi.append(inputRadio, labelRadio);
-          usersAll.append(userLi);
+        const viewRadio = () => {
+          const users = document.querySelectorAll('input[name="users"]');
+          for (let user of users) {
+            if (user.checked) {
+              return JSON.parse(localStorage[user.value])
+            }
+          }
         }
-      }
 
-      getEndPage(room, resultNumber, user);
+        const userChoiсing = document.querySelectorAll('.begining__item');
+        userChoiсing.forEach(el => {
+          el.addEventListener('click', () => {
+            const oldUser = viewRadio();
+            if (oldUser) {
+              user.name = oldUser.name;
+              user.resourses = oldUser.resourses;
+              user.rooms = oldUser.rooms;
+              getEndPage(room, resultNumber, user);
+            }
+
+          })
+        })
+      }
     })
   }
 }

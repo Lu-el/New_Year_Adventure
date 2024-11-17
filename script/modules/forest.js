@@ -6,7 +6,12 @@ export const getUserName = (user, room) => {
   const entrances = document.querySelectorAll('.forest__input-radio');
   const options = document.querySelector('.forest__options');
   const valueOption = document.querySelector('.forest__value-text');
-  const forestUsers = document.querySelector('.forest__users-list');
+
+  if (user.name) {
+    userNameArea.value = user.name;
+    userNameArea.disabled = 'true';
+    entrance.classList.remove('visually-hidden');
+  }
 
   userNameArea.addEventListener('keyup', () => {
     if (userNameArea.value.length > 4) {
@@ -18,31 +23,12 @@ export const getUserName = (user, room) => {
     el.addEventListener('click', () => {
       console.log(el.name);
 
-      let keys = Object.keys(localStorage);
-      for (let key of keys) {
-        const userLi = document.createElement('li');
-        userLi.classList.add('forest__item');
-
-        const inputRadio = document.createElement('input');
-        inputRadio.classList.add('forest__user-radio');
-        inputRadio.type = "radio";
-        inputRadio.setAttribute('id', `${key}`);
-        inputRadio.value = key;
-
-        const labelRadio = document.createElement('label');
-        labelRadio.classList.add('forest__user-label');
-        labelRadio.setAttribute('for', `${key}`);
-
-        userLi.append(inputRadio, labelRadio);
-        forestUsers.append(userLi);
-      }
-
       for (let key in localStorage) {
         if (!localStorage.hasOwnProperty(key)) {
           continue;
         }
 
-        if (key === userNameArea.value) {
+        if (!user.name && key === userNameArea.value) {
           userNameArea.value = 'Такое имя уже есть';
           userNameArea.placeholder = 'Попробуйте снова';
           return;
