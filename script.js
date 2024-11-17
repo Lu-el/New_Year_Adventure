@@ -15,7 +15,7 @@ const getMissionRoom = (main, data, user) => {
 
 class Users {
   constructor() {
-    this.rooms = ['begining'];
+    this.rooms = ['predictions'];
     this.resourses = 20;
   }
 

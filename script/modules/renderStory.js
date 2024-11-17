@@ -2,6 +2,7 @@ import { getContainer, getSection } from "./functions.js";
 import { renderResourses } from "./renderPage.js";
 
 export const getEndPage = (room, resultNumber, user) => {
+  console.log(user);
   const endPage = document.querySelector('.book__pages').lastElementChild;
   const resourseSpend = document.createElement('p');
   resourseSpend.classList.add('book__text');
@@ -14,6 +15,7 @@ export const getEndPage = (room, resultNumber, user) => {
   btnContinute.innerHTML = 'Идти дальше';
 
   btnContinute.dataset.roomNext = resultNumber;
+  // console.log(user);
 
   user.changeResourses(room.resourses[resultNumber]);
   renderResourses(user.resourses);
@@ -50,10 +52,6 @@ const getStoryPages = (room) => {
   const ending = document.createElement('p');
   ending.classList.add('book__text');
   ending.innerHTML = '';
-  // ending.innerHTML = room.ending;
-  // const btnContinute = document.createElement('button');
-  // btnContinute.classList.add('book__btn', 'book__btn_continute');
-  // btnContinute.innerHTML = 'Идти дальше';
   endingPage.append(ending);
 
   return { titlePage, descriptionPage, taskPage, endingPage };

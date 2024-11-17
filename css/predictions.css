@@ -1,0 +1,17 @@
+.predictions__overlay {
+  position: absolute;
+    top: 10px;
+    left: 30px;
+    width: calc(100% - 60px);
+
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #090d45;
+    font-size: 27px;
+    line-height: 0.8;
+    text-align: start;
+    text-indent: 20px;
+
+
+}
