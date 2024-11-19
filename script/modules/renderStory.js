@@ -2,7 +2,7 @@ import { getContainer, getSection } from "./functions.js";
 import { renderResourses } from "./renderPage.js";
 
 export const getEndPage = (room, resultNumber, user) => {
-  console.log(user);
+
   const endPage = document.querySelector('.book__pages').lastElementChild;
   const resourseSpend = document.createElement('p');
   resourseSpend.classList.add('book__text');
