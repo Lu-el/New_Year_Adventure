@@ -18,6 +18,10 @@ export const getEndPage = (room, resultNumber, user) => {
   // console.log(user);
 
   user.changeResourses(room.resourses[resultNumber]);
+
+  if (user.resourses < 0) {
+    btnContinute.dataset.roomNext = 10;
+  }
   renderResourses(user.resourses);
 
   endPage.prepend(resourseSpend)

@@ -14,9 +14,9 @@ const getMissionRoom = (main, data, user) => {
 }
 
 class Users {
-  constructor() {
-    this.rooms = ['predictions'];
-    this.resourses = 20;
+  constructor(firstroom, resourses) {
+    this.rooms = [firstroom];
+    this.resourses = resourses;
   }
 
   changeResourses(n) {
@@ -51,7 +51,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users();
+  const userNew = new Users('predictions', 5);
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');
@@ -65,6 +65,10 @@ const init = (storyBook) => {
       const roomCurrent = target.closest('.story').dataset.room;
       const room = storyBook[roomCurrent];
       let nextRoom = room.result[resultNumber];
+
+      if (resultNumber == 10) {
+        nextRoom = "predictions";
+      }
 
       if (nextRoom) {
         userNew.setNewRoom(nextRoom);

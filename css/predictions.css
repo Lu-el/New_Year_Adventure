@@ -34,7 +34,7 @@
   }
 }
 
-@media (min-width: 520px) {
+@media (min-width: 500px) {
   .predictions__title {
     font-size: 2rem;
   }
@@ -47,7 +47,7 @@
 
 @media (min-width: 600px) {
   .predictions__overlay {
-    padding: 15px;
+    padding: 5px 15px;
   }
 
   .predictions__patern {
