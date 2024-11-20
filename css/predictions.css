@@ -42,22 +42,25 @@
 
 @media (min-width: 500px) {
   .predictions__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .predictions__patern {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     line-height: 0.8;
   }
 }
 
 @media (min-width: 600px) {
-  .predictions__overlay {
-    padding: 5px 15px;
-  }
-
   .predictions__patern {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  .predictions__patern {
+    font-size: 1.3rem;
     line-height: 1;
   }
 }

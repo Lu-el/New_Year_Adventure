@@ -12,11 +12,8 @@ export const getEndPage = (room, resultNumber, user) => {
 
   const btnContinute = document.createElement('button');
   btnContinute.classList.add('book__btn', 'book__btn_continute');
-  console.log(room.title);
 
   if (room.room == 'predictions') {
-    console.log(room.title);
-
     btnContinute.innerHTML = 'Конец истории';
     btnContinute.style.cursor = 'auto';
     resourseSpend.innerHTML = '';

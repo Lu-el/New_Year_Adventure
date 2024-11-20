@@ -19,7 +19,6 @@ export const gamePlant = (user) => {
   const wordShufled = shuffle(wordSymbol);
   const container = document.querySelector('.greenhouse__wrapper');
   const clue = document.querySelector('.greenhouse__btn');
-  // const greenhouseError = document.querySelector('.greenhouse__error');
   let countClue = 0;
 
   input.addEventListener("keyup", () => {
@@ -27,19 +26,6 @@ export const gamePlant = (user) => {
     const arrVariantSmall = arrVariant.map(item => item.toLowerCase())
     const lastValue = arrVariantSmall.slice(-1);
     const checking = [];
-
-    // if (!wordSymbol.includes(`${lastValue}`)) {
-    //   greenhouseError.classList.add('visually-hidden');
-    //   setTimeout(() => {
-    //     greenhouseError.classList.remove('visually-hidden');
-    //   }, 1000);
-    //   arrVariantSmall.forEach(element => {
-    //     if (wordSymbol.includes(`${element}`)) {
-    //       checking.push(element)
-    //     }
-    //   })
-    //   input.value = checking.join('');
-    // }
 
     if (arrVariant.length === word.length || arrVariant.length > word.length) {
       if (arrVariantSmall.join('') === word) {
@@ -55,7 +41,6 @@ export const gamePlant = (user) => {
         getEndPage(storyBook.greenhouse, resultNumber, user)
 
       }
-        // greenhouseError.classList.remove('visually-hidden');
     }
   })
 
