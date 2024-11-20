@@ -12,12 +12,19 @@ export const getEndPage = (room, resultNumber, user) => {
 
   const btnContinute = document.createElement('button');
   btnContinute.classList.add('book__btn', 'book__btn_continute');
-  btnContinute.innerHTML = 'Идти дальше';
 
-  btnContinute.dataset.roomNext = resultNumber;
-  // console.log(user);
+  if (room.title = 'predictions') {
+    btnContinute.innerHTML = 'Конец истории';
+    btnContinute.style.cursor = 'auto';
+    resourseSpend.innerHTML = '';
+  } else {
+    btnContinute.innerHTML = 'Идти дальше';
+    btnContinute.dataset.roomNext = resultNumber;
+  }
 
   user.changeResourses(room.resourses[resultNumber]);
+  console.log(user);
+
 
   if (user.resourses < 0) {
     btnContinute.dataset.roomNext = 10;

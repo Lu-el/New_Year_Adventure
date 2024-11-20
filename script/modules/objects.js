@@ -561,10 +561,10 @@ export const storyBook = {
 
           `,
     result: {
-      1: 'hall',
+      // 1: 'hall',
     },
     resourses: {
-      1: 0,
+      // 1: 0,
     },
     action: printText,
   },

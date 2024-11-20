@@ -59,7 +59,7 @@ export const printText = (user, room) => {
 
   setTimeout(() => {
     getEndPage(room, 1, user)
-  }, ((titleText.length + paternNameText.length + 6) * delay))
+  }, 1000)
 }
 
 

@@ -20,7 +20,9 @@ class Users {
   }
 
   changeResourses(n) {
-    this.resourses = this.resourses - n;
+    if (n) {
+      this.resourses = this.resourses - n;
+    }
   }
 
   setLocalStorage() {
@@ -42,8 +44,6 @@ class Users {
 
 const roomAction = (user, main, storyBook) => {
   const roomCurrent = user.rooms.slice(-1)[0];
-  console.log(roomCurrent);
-
   const room = storyBook[roomCurrent];
   getMissionRoom(main, room, user);
   bookStyle();
@@ -63,6 +63,9 @@ const init = (storyBook) => {
     if (target.closest('.book__btn_continute')) {
       const resultNumber = target.closest('.book__btn_continute').dataset.roomNext;
       const roomCurrent = target.closest('.story').dataset.room;
+      if (roomCurrent === 'predictions') {
+        return
+      }
       const room = storyBook[roomCurrent];
       let nextRoom = room.result[resultNumber];
 
