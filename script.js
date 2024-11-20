@@ -1,6 +1,6 @@
 import { bookStyle } from "./script/modules/book.js";
 import { countSameRoom, randomElement } from "./script/modules/functions.js";
-import { roomList, storyBook } from "./script/modules/objects.js";
+import { mottos, roomList, storyBook } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
 import { renderStory, renderRoom } from "./script/modules/renderStory.js";
 import { renderTask } from "./script/modules/renderTask.js";
@@ -51,7 +51,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users('predictions', 5);
+  const userNew = new Users('hall', 1);
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');
@@ -71,6 +71,12 @@ const init = (storyBook) => {
 
       if (resultNumber == 10) {
         nextRoom = "predictions";
+        const randomIndexPred = Math.floor(Math.random() * room.predictions.length);
+        const randomIndexMotto = Math.floor(Math.random() * mottos.length);
+        console.log(randomIndexPred);
+        userNew.prediction = room.predictions[randomIndexPred];
+        userNew.motto = mottos[randomIndexMotto];
+        console.log(userNew);
       }
 
       if (nextRoom) {

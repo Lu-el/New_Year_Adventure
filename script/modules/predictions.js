@@ -17,9 +17,9 @@ const printTextFn = (text1, elem1, delay) => {
 const wshNewYear = (year) => {
   let text = '';
   if ((new Date().getFullYear()) == year ) {
-    text += 'С НОВЫМ 2025 ГОДОМ!'
+    text += 'С Новым 2025 Годом'
   } else {
-    text += 'С НАСТУПАЮЩИМ НОВЫМ ГОДОМ!'
+    text += 'С наступающим Новым Годом'
   }
   return text
 }
@@ -33,11 +33,13 @@ export const printText = (user, room) => {
   const paternWishes = document.querySelector(".predictions__patern_wishes");
   const paternMotto = document.querySelector(".predictions__patern_motto");
 
-  const titleText = `Здраствуй, малыш! ${wshNewYear(2025)}`;
+  const titleText = `${wshNewYear(2025)}, малыш!`;
   const paternNameText = 'Пишет Вам Дед Мороз! (по сравнению с моим возрастом для меня все люди - малыши)';
   const paternTextText = 'Всю игру я наблюдал за Вами. Вы - молодец, достойно проходили испытания и ни разу не сдались! Я посмотрел Вашу натальную карту, пока Вы осматривали мой дом и вот, что я выяснил.';
-  const paternWishesText = 'Год для вас будет необычным. Вы откроете в себе скрытые резервы, что позволит решиться на самые безумные поступки. Пришло время сделать намеченный прыжок с парашютом или поехать на сплав по реке, сказать любимому человеку о том, как хочется встретить вместе старость. Иногда будет казаться, что изменилось все вокруг. На самом деле изменились вы сами и смогли распахнуть двери своему счастью.';
-  const paternMottoText = `Девиз года: не засиживайся в квартире/доме - за твоей дверью уже стоит счастье, осталось только впустить`;
+  console.log(room);
+
+  const paternWishesText = user.prediction;
+  const paternMottoText = `Девиз года: ${user.motto}`;
 
   printTextFn(titleText, title, delay);
 
