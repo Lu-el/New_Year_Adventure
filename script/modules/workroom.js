@@ -19,19 +19,19 @@ const getComputerNumber = () => {
 }
 
 const validateNumber = (userNumber) => {
-
   if (userNumber.length !== 4 || isNaN(userNumber)) {
     alert("Введите 4 цифры");
     return false;
   }
 
-  for (let i = 0; i < userNumber.length; i++) {
-    if (userNumber.split(userNumber[i]).length - 1 > 1) {
-      alert("Цифры не должны повторяться");
-      return false;
-    }
-    return true;
+  const setNumber = Array.from(userNumber);
+  const check = [... new Set(setNumber)];
+  if (check.length !== 4 || isNaN(userNumber)) {
+    alert("Цифры не должны повторяться");
+    return false;
   }
+  return true;
+
 }
 
 const getBullsCount = (numberString, secret) => {
@@ -106,12 +106,9 @@ export const bullAndCowsGame = (user) => {
   const container = document.querySelector('.workroom__container');
 
   btnTriing.addEventListener('click', () => {
-
-
     const userNumber = inputElem.value;
     getResult(userNumber, computerNumber, table, userArea, user);
     inputElem.value = '';
-    console.log(overlay.offsetHeight, container.offsetHeight);
     if ((overlay.offsetHeight + 20) > container.offsetHeight) {
       container.style.height = `${overlay.offsetHeight + 20}px`;
     }

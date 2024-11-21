@@ -56,6 +56,8 @@
 }
 
 .header__item {
+  background-image: url('../img/mandarin.jpg');
+  background-position: center;
   width: 20px;
   height: 20px;
   background-color: orange;

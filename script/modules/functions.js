@@ -22,7 +22,7 @@ export const countSameRoom = (rooms, room) => {
       count += 1;
     }
   }
-  if (count === 2) {
+  if (count === 1) {
     return true;
   }
   return false;

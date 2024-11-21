@@ -33,6 +33,9 @@ class Users {
   }
 
   setNewRoom(newRoom) {
+    if (!newRoom) {
+      newRoom = 'predictions';
+    }
     if (countSameRoom(this.rooms, newRoom)) {
       this.setNewRoom(randomElement(roomList, this.rooms.slice(-1)[0], newRoom));
       console.log(this.rooms);
@@ -51,7 +54,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users('workroom', 15);
+  const userNew = new Users('begining', 15);
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');
@@ -69,7 +72,11 @@ const init = (storyBook) => {
       const room = storyBook[roomCurrent];
       let nextRoom = room.result[resultNumber];
 
-      if (resultNumber == 10) {
+      if (nextRoom) {
+        userNew.setNewRoom(nextRoom);
+      }
+
+      if (resultNumber == 10 || userNew.rooms.slice(-1)[0] == "predictions") {
         nextRoom = "predictions";
         const randomIndexPred = Math.floor(Math.random() * room.predictions.length);
         const randomIndexMotto = Math.floor(Math.random() * mottos.length);
@@ -77,9 +84,6 @@ const init = (storyBook) => {
         userNew.motto = mottos[randomIndexMotto];
       }
 
-      if (nextRoom) {
-        userNew.setNewRoom(nextRoom);
-      }
 
       main.innerHTML = '';
       roomAction(userNew, main, storyBook);
