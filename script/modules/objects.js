@@ -517,9 +517,12 @@ export const storyBook = {
           </div>
           `,
     result: {
-      1: 'kitchen',
-      2: 'greenhouse',
-      3: 'restroom',
+      1: 'workroom',
+      2: 'workroom',
+      3: 'workroom',
+      // 1: 'kitchen',
+      // 2: 'greenhouse',
+      // 3: 'restroom',
     },
     resourses: {
       1: 1,

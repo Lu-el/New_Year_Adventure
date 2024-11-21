@@ -83,7 +83,6 @@ const getResult = (numberString, secret, table, userArea, user) => {
     line.append(tryCell, bullCell, cowCell);
 
     table.append(line);
-    console.log(document.querySelectorAll('.workroom__td_number').length);
 
     if (bulls === 4) {
       userArea.classList.add('visually-hidden');
@@ -103,10 +102,18 @@ export const bullAndCowsGame = (user) => {
   console.log(computerNumber);
   const inputElem = document.querySelector('.workroom__input');
   const userArea = document.querySelector('.workroom__feedback');
+  const overlay = document.querySelector('.workroom__overlay');
+  const container = document.querySelector('.workroom__container');
 
   btnTriing.addEventListener('click', () => {
+
+
     const userNumber = inputElem.value;
     getResult(userNumber, computerNumber, table, userArea, user);
     inputElem.value = '';
+    console.log(overlay.offsetHeight, container.offsetHeight);
+    if ((overlay.offsetHeight + 20) > container.offsetHeight) {
+      container.style.height = `${overlay.offsetHeight + 20}px`;
+    }
   })
 }

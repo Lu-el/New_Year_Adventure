@@ -51,7 +51,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users('begining', 15);
+  const userNew = new Users('workroom', 15);
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');
