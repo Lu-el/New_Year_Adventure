@@ -38,9 +38,7 @@ export const beginigListener = (overlay, room, user) => {
           el.addEventListener('click', () => {
             const oldUser = viewRadio();
             if (oldUser) {
-              user.name = oldUser.name;
-              user.resourses = oldUser.resourses;
-              user.rooms = oldUser.rooms;
+              Object.assign(user, oldUser);
               getEndPage(room, resultNumber, user);
             }
 

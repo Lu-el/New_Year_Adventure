@@ -6,7 +6,7 @@ export const getEndPage = (room, resultNumber, user) => {
   const endPage = document.querySelector('.book__pages').lastElementChild;
   const resourseSpend = document.createElement('p');
   resourseSpend.classList.add('book__text');
-  resourseSpend.innerHTML = `Вы потратили на действие <span class="book__resourse">${room.resourses[resultNumber]}</span> апельсин.`
+  resourseSpend.innerHTML = `Вы потратили здесь <span class="book__resourse">${room.resourses[resultNumber]}</span> мандарин. У вас осталось <span class="book__resourse">${user.resourses}</span>.`
   const ending = endPage.querySelector('.book__text');
   ending.innerHTML = room.ending;
 

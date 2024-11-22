@@ -1,6 +1,7 @@
 import { bedroomAction } from "./bedroom.js";
 import { diningGameAction } from "./dining.js";
 import { getUserName } from "./forest.js";
+import { countSameRoom, randomElement } from "./functions.js";
 import { gamePlant } from "./greenhouse.js";
 import { kitchenAction } from "./kitchen.js";
 import { libraryListener } from "./library.js";
@@ -9,16 +10,54 @@ import { bedroomListener, beginigListener, hallListener, kitchenListener, restro
 import { openDoor } from "./restroom.js";
 import { bullAndCowsGame } from "./workroom.js";
 
+
+export class Users {
+  constructor(resourses) {
+    this.rooms = ['begining'];
+    this.resourses = resourses;
+    this.recourse = 1;
+  }
+
+  changeResourses(n) {
+    if (n) {
+      this.resourses = this.resourses - n;
+    }
+  }
+
+  setLocalStorage() {
+    if (this.name) {
+      const nameValue = this.name;
+      localStorage.setItem(`${nameValue}`, JSON.stringify(this));
+    }
+  }
+
+  setNewRoom(newRoom) {
+    if (this.recourse > 10 || !newRoom) {
+      newRoom = 'predictions';
+    }
+    if (countSameRoom(this.rooms, newRoom)) {
+      this.recourse++;
+      this.setNewRoom(randomElement(roomList, this.rooms.slice(-1)[0], newRoom));
+      console.log(this.rooms);
+    } else {
+      this.recourse = 1;
+      if (this.rooms.slice(-1)[0] != 'predictions') {
+        this.rooms.push(newRoom);
+      }
+    }
+  }
+}
+
 export const roomList = [
   "hall",
   'kitchen',
-  // 'storeroom',
-  // "library",
-  // "dining",
-  // "greenhouse",
-  // "restroom",
-  // "bedroom",
-  // "workroom"
+  'storeroom',
+  "library",
+  "dining",
+  "greenhouse",
+  "restroom",
+  "bedroom",
+  "workroom"
 ]
 
 export const mottos = [
@@ -188,13 +227,19 @@ export const storyBook = {
   'kitchen': {
     room: 'kitchen',
     title: "Кухня",
-    description: `Вы зашли в просторную комнату, осмотревшись вы поняли, что это гостиная. Праздничная елка с огоньками наполнила комнату ароматом хвои, горячий камин согревал воздух, треск дров придавал уют и расслаблял.
-      Вам захотелось рассмотреть ближе один из предметов комнаты.
-      Вы долго, как вам показалось, осматривали вещь. захотелось не только посмотреть, но и пощупать.`,
-    task: `Выберите предмет, который с самого начала привлек ваше внимание.
-      Если задуманный предмет выделен - кликните по нему, иначе нажмите на один из подсвеченных предметов`,
-    ending: `Вы дотронулись и что-то скрипнуло у вас за спиной - это открылась дверь, которую раньше вы не замечали.
-      Сквозняк? или там кто-то есть? Вы решаетесь зайти...`,
+    description: `
+      <p class="book__text">Это оказалась кухня. Свет из окон освещал комнату, хотя вы заходили в дом, когда уже темнело. В окне ничего нельзя было разобрать - оно было будто запотевшим.
+      </p>
+      <p class="book__text">Предметы на столе говорили о том, что здесь явно кто-то готовится к празднику и ждёт прихода гостей, ну или очень любит поесть в одиночестве. От печи исходил жар и аромат свежего хлеба. На печи была странная записка с надписью "Буль-Буль Клац-Клац". Вы усмехнулись.
+      </p>
+      <p class="book__text">Дом явно уже не вызывал уже никаких страшных мыслей.
+      </p>
+      <p class="book__text">На столе лежала книга рецептов, в ней были воткнуты закладки. Это оказались рецепты 4х блюд
+      </p>`,
+    task: `
+      Вам необходимо будет выбрать одно из новогодних блюд. Чтобы это сделать, подумайте, с чего начинает готовку любой уважающий себя повар. Это и будет "ключик" к следующему шагу.
+    `,
+    ending: `Помыв руки, вы решили приготовить это блюдо - собрали все продукты, согласно книги рецептов и положили их рядом с ней. "Буль-Буль Клац-Клац" - весело произнесли Вы и на ваших глазах продукты и кухонная утварь начали готовиться. Опешив от увиденного - Вы решили идти дальше в дверь за печкой.`,
     src: "img/kitchen.jpg",
     mission: `
     <div class="kitchen__links">
