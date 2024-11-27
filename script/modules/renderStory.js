@@ -1,4 +1,4 @@
-import { getContainer, getSection } from "./functions.js";
+import { getContainer, getSection, wordMandarine } from "./functions.js";
 import { renderResourses } from "./renderPage.js";
 
 export const getEndPage = (room, resultNumber, user) => {
@@ -6,9 +6,31 @@ export const getEndPage = (room, resultNumber, user) => {
   const endPage = document.querySelector('.book__pages').lastElementChild;
   const resourseSpend = document.createElement('p');
   resourseSpend.classList.add('book__text');
-  resourseSpend.innerHTML = `Вы потратили здесь <span class="book__resourse">${room.resourses[resultNumber]}</span> мандарин. У вас осталось <span class="book__resourse">${user.resourses}</span>.`
   const ending = endPage.querySelector('.book__text');
-  ending.innerHTML = room.ending;
+
+  if (resultNumber != 'oldUser') {
+    user.changeResourses(room.resourses[resultNumber]);
+  }
+
+  if (!ending.innerHTML) {
+    const endingTexts = endPage.querySelectorAll('.book__text');
+    endingTexts.forEach(e => {
+      e.innerHTML = '';
+    })
+    // ending.innerHTML = room.ending;
+    if (resultNumber === 'oldUser') {
+      ending.innerHTML = `Вы продолжите историю там, где в последний раз были. Помните где?`
+      resourseSpend.innerHTML = `
+        ${user.resourses <= 0 ? 'У вас не осталось мандарин' : `у вас осталось <span class="book__resourse">${user.resourses}</span> ${wordMandarine(user.resourses)}.`}
+      `;
+    } else {
+      ending.innerHTML = room.ending;
+      resourseSpend.innerHTML = `
+      ${room.resourses[resultNumber] == 0 ? `Здесь вы были слишком увлечены процессом и совсем забыли подкрепиться и` :
+          `Вы потратили здесь <span class="book__resourse">${room.resourses[resultNumber]}</span> ${wordMandarine(room.resourses[resultNumber])} и `}
+      ${user.resourses <= 0 ? 'У вас не осталось мандарин' : `у вас осталось <span class="book__resourse">${user.resourses}</span> ${wordMandarine(user.resourses)}.`}`
+    }
+  }
 
   const btnContinute = document.createElement('button');
   btnContinute.classList.add('book__btn', 'book__btn_continute');
@@ -22,7 +44,8 @@ export const getEndPage = (room, resultNumber, user) => {
     btnContinute.dataset.roomNext = resultNumber;
   }
 
-  user.changeResourses(room.resourses[resultNumber]);
+
+  // user.changeResourses(room.resourses[resultNumber]);
   console.log(user);
 
 

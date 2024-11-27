@@ -39,7 +39,7 @@ export const beginigListener = (overlay, room, user) => {
             const oldUser = viewRadio();
             if (oldUser) {
               Object.assign(user, oldUser);
-              getEndPage(room, resultNumber, user);
+              getEndPage(room, 'oldUser', user);
             }
 
           })

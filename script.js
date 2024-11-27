@@ -23,7 +23,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users(15);
+  const userNew = new Users("begining");
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');
@@ -35,14 +35,16 @@ const init = (storyBook) => {
     if (target.closest('.book__btn_continute')) {
       const resultNumber = target.closest('.book__btn_continute').dataset.roomNext;
       const roomCurrent = target.closest('.story').dataset.room;
+      const room = storyBook[roomCurrent];
       if (roomCurrent === 'predictions') {
         return
       }
-      const room = storyBook[roomCurrent];
-      let nextRoom = room.result[resultNumber];
-      console.log(nextRoom);
 
-      userNew.setNewRoom(nextRoom);
+      if (resultNumber != 'oldUser') {
+        let nextRoom = room.result[resultNumber];
+        userNew.setNewRoom(nextRoom);
+        console.log(nextRoom, resultNumber);
+      }
 
       if (resultNumber == 10 || userNew.rooms.slice(-1)[0] == "predictions") {
         if (!userNew.prediction) {

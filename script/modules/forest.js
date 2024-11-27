@@ -29,8 +29,9 @@ export const getUserName = (user, room) => {
         }
 
         if (!user.name && key === userNameArea.value) {
-          userNameArea.value = 'Такое имя уже есть';
-          userNameArea.placeholder = 'Попробуйте снова';
+          userNameArea.value = '';
+          userNameArea.placeholder = 'Такое имя уже есть';
+          entrance.classList.add('visually-hidden');
           return;
         }
       }

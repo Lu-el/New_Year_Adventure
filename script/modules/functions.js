@@ -37,3 +37,6 @@ export const randomElement = (arr, current, next) => {
     }
   }
 }
+
+export const wordMandarine = (d = 0) => d % 100 < 5 || d % 100 > 20 ?
+(d % 10 == 1 ? `мандарин`: d % 10 > 1 && d % 10 < 5 ? `мандарина`: `мандаринов`) : `мандаринов`;
