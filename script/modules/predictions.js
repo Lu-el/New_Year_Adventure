@@ -38,7 +38,7 @@ export const printText = (user, room) => {
   const paternTextText = 'Всю игру я наблюдал за Вами. Вы - молодец, достойно проходили испытания и ни разу не сдались! Я посмотрел Вашу натальную карту, пока Вы осматривали мой дом и вот, что я выяснил.';
 
   const paternWishesText = user.prediction;
-  const paternMottoText = `Девиз года: ${user.motto}`;
+  const paternMottoText = `Предвозвестие года: ${user.motto}`;
 
   printTextFn(titleText, title, delay);
 

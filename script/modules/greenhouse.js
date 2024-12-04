@@ -19,6 +19,11 @@ export const gamePlant = (user) => {
   const wordShufled = shuffle(wordSymbol);
   const container = document.querySelector('.greenhouse__wrapper');
   const clue = document.querySelector('.greenhouse__btn');
+
+  setTimeout(() => {
+    clue.classList.remove('visually-hidden');
+  }, 120000)
+
   let countClue = 0;
 
   input.addEventListener("keyup", () => {
@@ -45,7 +50,7 @@ export const gamePlant = (user) => {
   })
 
   clue.addEventListener('click', () => {
-    if (countClue < wordShufled.length) {
+    if (countClue < 4) {
       const letter = Array.from(word)[countClue];
       const cards = container.querySelectorAll('.greenhouse__card_mess');
       let i = 0;

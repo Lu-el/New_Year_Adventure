@@ -1,33 +1,11 @@
-import { bookStyle } from "./script/modules/book.js";
 import { mottos, storyBook, Users } from "./script/modules/objects.js";
 import { renderFooter, renderHead, renderMain } from "./script/modules/renderPage.js";
-import { renderStory, renderRoom } from "./script/modules/renderStory.js";
-import { renderTask } from "./script/modules/renderTask.js";
-
-const getMissionRoom = (main, data, user) => {
-  const story = renderStory(data, user);
-  const room = renderRoom(data);
-
-  main.append(story, room);
-  renderTask(user);
-}
-
-
-
-const roomAction = (user, main, storyBook) => {
-  const roomCurrent = user.rooms.slice(-1)[0];
-  const room = storyBook[roomCurrent];
-  getMissionRoom(main, room, user);
-  bookStyle();
-}
+import { roomAction } from "./script/modules/renderTask.js";
 
 const init = (storyBook) => {
-
-  const userNew = new Users("begining");
+  const userNew = new Users();
   document.body.append(renderHead(), renderMain(), renderFooter());
-
   const main = document.querySelector('main');
-
   roomAction(userNew, main, storyBook);
 
   document.addEventListener('click', (e) => {
@@ -68,3 +46,5 @@ const init = (storyBook) => {
 }
 
 init(storyBook);
+
+

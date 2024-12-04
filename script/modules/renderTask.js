@@ -1,6 +1,22 @@
+import { bookStyle } from "./book.js";
 import { storyBook } from "./objects.js";
 import { renderBegining } from "./renderPage.js";
 import { getEndPage } from "./renderStory.js";
+import { renderStory, renderRoom } from "./renderStory.js";
+
+const getMissionRoom = (main, data, user) => {
+  const story = renderStory(data, user);
+  const room = renderRoom(data);
+  main.append(story, room);
+  renderTask(user);
+}
+
+export const roomAction = (user, main, storyBook) => {
+  const roomCurrent = user.rooms.slice(-1)[0];
+  const room = storyBook[roomCurrent];
+  getMissionRoom(main, room, user);
+  bookStyle();
+}
 
 export const beginigListener = (overlay, room, user) => {
   const buttons = document.querySelectorAll('.begining__button');
