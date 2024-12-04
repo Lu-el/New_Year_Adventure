@@ -84,14 +84,49 @@ const getResult = (numberString, secret, table, userArea, user) => {
 
     table.append(line);
 
+    const trying = document.querySelectorAll('.workroom__td_number').length;
+    const count = document.querySelectorAll('.workroom__td_help').length || 0;
+    const buttonTip = document.querySelector('.workroom__tip-btn');
+
+    if (trying > 9) {
+      buttonTip.classList.remove('visually-hidden');
+    }
+
     if (bulls === 4) {
+      if (!buttonTip.classList.contains('visually-hidden')) {
+        buttonTip.classList.add('visually-hidden');
+      };
       userArea.classList.add('visually-hidden');
       line.style.color = 'red';
-      const trying = document.querySelectorAll('.workroom__td_number').length;
-      const resultNumber = (trying <= 6) ? 1 : (trying <= 9) ? 2 : 3;
+      console.log(count);
+
+      const resultNumber = (count <= 0) ? 1 : (count <= 1) ? 2 : 3;
       getEndPage(storyBook.workroom, resultNumber, user);
     }
   }
+}
+
+const helper = (computerNumber, table, count) => {
+  const buttonTip = document.querySelector('.workroom__tip-btn');
+  const numberTip = Array.from(computerNumber);
+  buttonTip.addEventListener('click', () => {
+    if (count === 2) {
+      buttonTip.classList.add('visually-hidden');
+      return;
+    }
+    const tryCell = document.createElement('td');
+    tryCell.classList.add('workroom__td', 'workroom__td_help');
+    numberTip.forEach((el, index) => {
+      if (index <= count) {
+        tryCell.innerHTML += el;
+      }
+    })
+    tryCell.style.textAlign = 'left';
+    tryCell.style.letterSpacing = '8px';
+    table.append(tryCell);
+    buttonTip.classList.add('visually-hidden');
+    count++;
+  })
 }
 
 
@@ -104,7 +139,9 @@ export const bullAndCowsGame = (user) => {
   const userArea = document.querySelector('.workroom__feedback');
   const overlay = document.querySelector('.workroom__overlay');
   const container = document.querySelector('.workroom__container');
+  let count = 0;
 
+  helper(computerNumber, table, count);
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;
     getResult(userNumber, computerNumber, table, userArea, user);

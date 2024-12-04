@@ -23,7 +23,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users("begining");
+  const userNew = new Users("workroom");
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');

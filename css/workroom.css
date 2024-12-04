@@ -85,6 +85,21 @@ position: absolute;
   border: 2px solid rgb(18, 10, 90);
 }
 
+
+.workroom__tip-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-image: url('../img/question1.png');
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  background-color: transparent;
+}
+
 @media (min-width: 600px) {
   .workroom__overlay {
     background-size: contain;
