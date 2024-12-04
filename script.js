@@ -5,7 +5,7 @@ import { renderStory, renderRoom } from "./script/modules/renderStory.js";
 import { renderTask } from "./script/modules/renderTask.js";
 
 const getMissionRoom = (main, data, user) => {
-  const story = renderStory(data);
+  const story = renderStory(data, user);
   const room = renderRoom(data);
 
   main.append(story, room);
@@ -23,7 +23,7 @@ const roomAction = (user, main, storyBook) => {
 
 const init = (storyBook) => {
 
-  const userNew = new Users("workroom");
+  const userNew = new Users("begining");
   document.body.append(renderHead(), renderMain(), renderFooter());
 
   const main = document.querySelector('main');

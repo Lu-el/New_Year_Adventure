@@ -59,7 +59,7 @@ export const getEndPage = (room, resultNumber, user) => {
 
 }
 
-const getStoryPages = (room) => {
+const getStoryPages = (room, user) => {
   const titlePage = document.createElement('div');
   titlePage.classList.add('book__page');
   const title = document.createElement('h1');
@@ -69,7 +69,9 @@ const getStoryPages = (room) => {
 
   const descriptionPage = document.createElement('div');
   descriptionPage.classList.add('book__page');
-  descriptionPage.innerHTML = room.description;
+
+  const roomsW = user.rooms.filter(el => (el == room.room));
+  descriptionPage.innerHTML = (roomsW.length === 2) ? room.descriptionW : room.description;
 
   const taskPage = document.createElement('div');
   taskPage.classList.add('book__page');
@@ -91,7 +93,7 @@ const getStoryPages = (room) => {
   return { titlePage, descriptionPage, taskPage, endingPage };
 }
 
-export const renderStory = (room) => {
+export const renderStory = (room, user) => {
   const story = getSection('story');
   const storyContainer = getContainer('story');
   story.dataset.room = room.room;
@@ -105,7 +107,7 @@ export const renderStory = (room) => {
   pages.classList.add('book__pages');
   book.append(pages);
 
-  const bookStory = getStoryPages(room);
+  const bookStory = getStoryPages(room, user);
   for (let key in bookStory) {
     pages.append(bookStory[key]);
   }
