@@ -4,7 +4,10 @@
   perspective: 250vw;
   padding: 7px 7px 0 7px;
 
-  font-family: 'Lovers Quarrel', cursive;
+  /* font-family: 'Lovers Quarrel', cursive; */
+  font-family: "Geologica", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   background-image: url('https://i.pinimg.com/originals/2c/d0/01/2cd001d41719443a50b1bb7a090fef5f.jpg');
   background-size: cover;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
