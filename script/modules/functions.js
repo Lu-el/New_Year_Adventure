@@ -32,7 +32,6 @@ export const randomElement = (arr, current, next) => {
   const shuffled = shuffle(arr);
   for (let i = 0; i < shuffled.length; i +=1 ) {
     if (shuffled[i] != current && shuffled[i] != next) {
-      console.log(shuffled[i]);
       return shuffled[i];
     }
   }

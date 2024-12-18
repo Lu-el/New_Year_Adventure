@@ -30,7 +30,6 @@ export const beginigListener = (overlay, room, user) => {
       overlayButtons.classList.add('visually-hidden');
       resultNumber = button.dataset.room;
       if (resultNumber == 1) {
-        console.log(resultNumber == 1);
         getEndPage(room, resultNumber, user);
       } else {
         let keys = Object.keys(localStorage);
@@ -109,7 +108,6 @@ export const storeroomListener = (overlay, room, user) => {
           const result = (countClick % 3 === 0) ? countClick : ((Math.floor(countClick / 3) + 1) * 3)
           getEndPage(room, result, user);
         }
-        console.log(`${toggleNumber} ${index} ${countClick}`);
       }
     })
   })

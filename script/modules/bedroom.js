@@ -9,7 +9,6 @@ const getObjectKeys = (arr) => {
       keysObject.src = `img/keys/key${(index+1)}.svg`,
       keysObjects.push(keysObject);
   });
-  // console.log(keysObjects);
   return keysObjects;
 }
 
@@ -26,8 +25,6 @@ export const bedroomAction = () => {
   })
 
   shuffle(deck);
-  console.log(deck);
-
 
   deck.forEach(element => {
     const div = document.createElement('div');

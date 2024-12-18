@@ -82,8 +82,6 @@ export const rollTheDice = (e) => {
       button.classList.remove('dice__buuton_roll');
       button.classList.add('visually-hidden');
 
-      console.log(diceResource[randomResoures].title, diceNumber[randomCount].title)
-
   } else {
     const button = target.closest('.dice__buuton');
     button.classList.add('dice__buuton_roll');

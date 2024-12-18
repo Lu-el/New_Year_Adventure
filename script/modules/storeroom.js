@@ -12,12 +12,9 @@ export const turnLight = () => {
         if (toggleNumber == index) {
           light.classList.add('storeroom__overlay_close');
           light.classList.add('visually-hidden');
-          // light.style.display = 'none';
           const result = (countClick % 3 === 0) ? countClick : ((Math.floor(countClick / 3) + 1)*3)
           light.dataset.countClick = result;
-          // array.forEach(elem => elem.style.border = 'none');
         }
-        console.log(`${toggleNumber} ${index} ${countClick}`);
       }
     })
   })

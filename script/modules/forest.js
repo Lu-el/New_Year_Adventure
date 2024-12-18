@@ -21,7 +21,6 @@ export const getUserName = (user, room) => {
 
   entrances.forEach(el => {
     el.addEventListener('click', () => {
-      console.log(el.name);
 
       for (let key in localStorage) {
         if (!localStorage.hasOwnProperty(key)) {

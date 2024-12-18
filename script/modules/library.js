@@ -11,8 +11,6 @@ const getSelected = (answerElements) => {
   answerElements.forEach((answerElement) => {
     if (answerElement.checked) answer = answerElement.id;
   });
-  console.log(answer);
-
   return answer;
 };
 
@@ -28,7 +26,6 @@ const loadQuiz = (quizDataShuffle, answerElements, questionElement, a_text, b_te
 
 const watchCorrect = (quizDataShuffle, currentQuiz, answerElements, timer) => {
   const correctAnswer = quizDataShuffle[currentQuiz].correct;
-  console.log(correctAnswer);
   answerElements.forEach(el => {
     if (el.id === correctAnswer) {
       el.closest('.library__item').style.color = 'green';

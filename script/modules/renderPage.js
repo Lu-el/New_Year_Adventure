@@ -116,7 +116,6 @@ export const renderMain = () => {
 
 export const renderBegining = (container) => {
   let keys = Object.keys(localStorage);
-  console.log(keys);
 
   for (let key of keys) {
     const userLi = document.createElement('li');

@@ -10,23 +10,18 @@ import { bedroomListener, beginigListener, hallListener, kitchenListener, restro
 import { openDoor } from "./restroom.js";
 import { bullAndCowsGame } from "./workroom.js";
 
-// Посмотреть правильные ответы в библиотеке +
-// не видны цифры и знаки препинания в книге заданий +
-// добавить новые мото
-// на кухне доработать комп версию +
-// на кухне сделать картинки с названиями --неинтересно
-
-
 export class Users {
   constructor() {
     this.rooms = ['begining'];
-    this.resourses = 2;
+    this.resourses = 15;
     this.recourse = 1;
+    this.lastRoomDone = false;
   }
 
   changeResourses(n) {
     if (n) {
       this.resourses = this.resourses - n;
+      this.lastResourses = n;
     }
   }
 
@@ -44,7 +39,6 @@ export class Users {
     if (countSameRoom(this.rooms, newRoom)) {
       this.recourse++;
       this.setNewRoom(randomElement(roomList, this.rooms.slice(-1)[0], newRoom));
-      console.log(this.rooms);
     } else {
       this.recourse = 1;
       if (this.rooms.slice(-1)[0] != 'predictions') {

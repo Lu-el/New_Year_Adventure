@@ -3,6 +3,7 @@ import { renderResourses } from "./renderPage.js";
 
 export const getEndPage = (room, resultNumber, user) => {
 
+  user.lastRoomDone = true;
   const endPage = document.querySelector('.book__pages').lastElementChild;
   const resourseSpend = document.createElement('p');
   resourseSpend.classList.add('book__text');
@@ -17,7 +18,7 @@ export const getEndPage = (room, resultNumber, user) => {
     endingTexts.forEach(e => {
       e.innerHTML = '';
     })
-    // ending.innerHTML = room.ending;
+
     if (resultNumber === 'oldUser') {
       ending.innerHTML = `Вы продолжите историю там, где в последний раз были. Помните где?`
       resourseSpend.innerHTML = `
@@ -47,11 +48,6 @@ export const getEndPage = (room, resultNumber, user) => {
     btnContinute.innerHTML = 'Идти дальше';
     btnContinute.dataset.roomNext = resultNumber;
   }
-
-
-  // user.changeResourses(room.resourses[resultNumber]);
-  console.log(user);
-
 
   if (user.resourses < 0) {
     btnContinute.dataset.roomNext = 10;

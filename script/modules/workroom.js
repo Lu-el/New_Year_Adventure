@@ -98,7 +98,6 @@ const getResult = (numberString, secret, table, userArea, user) => {
       };
       userArea.classList.add('visually-hidden');
       line.style.color = 'red';
-      console.log(count);
 
       const resultNumber = (count <= 0) ? 1 : (count <= 1) ? 2 : 3;
       getEndPage(storyBook.workroom, resultNumber, user);
@@ -134,7 +133,6 @@ export const bullAndCowsGame = (user) => {
   const table = document.querySelector('.workroom__tbody');
   const btnTriing = document.querySelector('.workroom__btn');
   const computerNumber = getComputerNumber();
-  console.log(computerNumber);
   const inputElem = document.querySelector('.workroom__input');
   const userArea = document.querySelector('.workroom__feedback');
   const overlay = document.querySelector('.workroom__overlay');
