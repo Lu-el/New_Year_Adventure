@@ -4,10 +4,10 @@
   perspective: 250vw;
   padding: 7px 7px 0 7px;
 
-  font-family: 'Lovers Quarrel', cursive;
+  font-family: cursive;
   font-weight: 400;
   font-style: normal;
-  background-image: url('https://i.pinimg.com/originals/2c/d0/01/2cd001d41719443a50b1bb7a090fef5f.jpg');
+  background-image: url('../img/book.jpg');
   background-size: cover;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 4px;
@@ -23,12 +23,6 @@
   font-family: "Kablammo", system-ui;
   color: rgb(161, 12, 12);
   text-indent: 5px;
-}
-
-.book__page::-webkit-scrollbar {
-  width: 10px;
-  background-color: hsl(30, 40%, 70%);
-  box-shadow: inset -50px 0 50px rgba(0, 0, 0, .5);
 }
 
 .book__text {
@@ -48,8 +42,26 @@
   overflow-y: overlay;
 }
 
+.book__page::-webkit-scrollbar {
+  width: 12px;
+}
+.book__page::-webkit-scrollbar-track {
+  background: hsl(30, 40%, 70%);
+  box-shadow: inset -50px 0 50px rgba(0, 0, 0, .5);
+}
+.book__page::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 20px;
+  border: hsl(30, 40%, 70%);
+}
+
+
 .book__page:nth-child(even) {
   clear: both;
+}
+
+.book__page:last-child {
+  padding-bottom: 60px;
 }
 
 .book__pages {
@@ -176,7 +188,7 @@
   border: 1px solid #333;
   border-radius: 6px;
   font-size: 10px;
-  padding: 9px 0 5px;
+  padding: 8px 0;
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;

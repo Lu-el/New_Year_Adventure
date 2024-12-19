@@ -14,7 +14,7 @@ export const getUserName = (user, room) => {
   }
 
   userNameArea.addEventListener('keyup', () => {
-    if (userNameArea.value.length > 4) {
+    if (userNameArea.value.length > 2) {
       entrance.classList.remove('visually-hidden');
     }
   })
