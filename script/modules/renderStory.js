@@ -43,7 +43,9 @@ export const getEndPage = (room, resultNumber, user) => {
   if (room.room == 'predictions') {
     btnContinute.innerHTML = 'Конец истории';
     btnContinute.style.cursor = 'auto';
+    btnContinute.style.border = 'none';
     resourseSpend.innerHTML = '';
+    ending.innerHTML = room.ending;
   } else {
     btnContinute.innerHTML = 'Идти дальше';
     btnContinute.dataset.roomNext = resultNumber;

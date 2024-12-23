@@ -3,7 +3,7 @@ import { renderFooter, renderHead, renderMain } from "./script/modules/renderPag
 import { roomAction } from "./script/modules/renderTask.js";
 
 const init = (storyBook) => {
-  const userNew = new Users();
+  const userNew = new Users("restroom");
   document.body.append(renderHead(), renderMain(), renderFooter());
   const main = document.querySelector('main');
   roomAction(userNew, main, storyBook);

@@ -119,6 +119,8 @@ export const restroomListener = (overlay, room, user) => {
 
   for (let door of doors) {
     door.addEventListener('dblclick', (e) => {
+      console.log(user.resourses);
+
       const target = e.target;
       resultNumber = target.dataset.room;
       overlay.classList.add('visually-hidden');

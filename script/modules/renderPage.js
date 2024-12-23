@@ -47,7 +47,7 @@ export const renderFooter = () => {
       </div>
 
       <div class="footer__social">
-        <a href="https://vk.com/id21265231" class="footer__link">
+        <a href="https://vk.com/id21265231?z=photo21265231_457239152%2F99ed77dbe70bd2ce73" class="footer__link">
           <svg xmlns="http://www.w3.org/2000/svg" aria-label="VK" role="img" viewBox="0 0 512 512">
             <rect width="512" height="512" rx="15%" fill="#5281b8" />
             <path fill="#ffffff"

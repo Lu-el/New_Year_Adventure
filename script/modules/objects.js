@@ -11,8 +11,9 @@ import { openDoor } from "./restroom.js";
 import { bullAndCowsGame } from "./workroom.js";
 
 export class Users {
-  constructor() {
-    this.rooms = ['begining'];
+  constructor(room) {
+    // this.rooms = ['begining'];
+    this.rooms = [room]
     this.resourses = 15;
     this.recourse = 1;
     this.lastRoomDone = false;
@@ -275,7 +276,7 @@ export const storyBook = {
           </div>
           `,
     result: {
-      3: 'hall',
+      3: 'storeroom',
       5: 'dining',
       6: 'greenhouse',
       8: 'bedroom',
