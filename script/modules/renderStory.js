@@ -49,12 +49,13 @@ export const getEndPage = (room, resultNumber, user) => {
   } else {
     btnContinute.innerHTML = 'Идти дальше';
     btnContinute.dataset.roomNext = resultNumber;
+    renderResourses(user);
   }
 
   if (user.resourses < 0) {
     btnContinute.dataset.roomNext = 10;
   }
-  renderResourses(user.resourses);
+
 
   endPage.prepend(resourseSpend)
   endPage.append(btnContinute);

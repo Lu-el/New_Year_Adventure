@@ -1,20 +1,37 @@
 import { getContainer } from "./functions.js";
 
-export const renderResourses = (resourses, listResourses = document.querySelector('.header__list')) => {
+export const renderResourses = (user, listResourses = document.querySelector('.header__list')) => {
   listResourses.innerHTML = '';
 
+  if (user.resourses <= 0) {
+    listResourses.style.display = 'none';
+    return
+  }
+
   let i = 1;
-  while (i <= resourses) {
+  while (i <= 48) {
     const item = document.createElement('li');
     item.classList.add('header__item');
     listResourses.append(item);
     i++;
   }
 
+  const items = document.querySelectorAll('.header__item');
+  console.log(user);
+
+  const resour = user.resoursesPicture.slice(0, user.resourses);
+  resour.forEach(el => {
+    items.forEach((item, index) => {
+      if (el == index) {
+        item.classList.add('header__item_mandarin')
+      }
+    })
+  })
+
 }
 
 
-export const renderHead = (resourses) => {
+export const renderHead = (user) => {
   const header = document.createElement('header');
   header.classList.add('header');
   const container = getContainer('header');
@@ -30,7 +47,7 @@ export const renderHead = (resourses) => {
 
   container.append(list);
 
-  renderResourses(resourses, list);
+  renderResourses(user, list);
 
   return header;
 }

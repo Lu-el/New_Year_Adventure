@@ -11,12 +11,12 @@ import { openDoor } from "./restroom.js";
 import { bullAndCowsGame } from "./workroom.js";
 
 export class Users {
-  constructor(room) {
-    // this.rooms = ['begining'];
-    this.rooms = [room]
-    this.resourses = 15;
+  constructor() {
+    this.rooms = ['begining'];
+    this.resourses = 25;
     this.recourse = 1;
     this.lastRoomDone = false;
+    this.resoursesPicture = [47,46,35,22,11,10,44,43,31,20,8,7,40,29,27,17,15,5,4,37,36,24,13,1,0]
   }
 
   changeResourses(n) {
@@ -100,7 +100,7 @@ export const mottos = [
 export const storyBook = {
   "begining": {
     room: 'begining',
-    title: "Начало",
+    title: "Книга историй",
     description: `
       <p class="book__text">Вы открыли Книгу историй, с которой у вас начнётся настоящее новогоднее приключение и для этого даже не потребуется вставать с дивана и тем более откладывать в сторону телефон.
       </p>
@@ -236,8 +236,8 @@ export const storyBook = {
       2: 2,
       3: 2,
       4: 3,
-      5: 1,
-      9: 3,
+      5: 2,
+      9: 4,
     },
     predictions: [
       'Год для вас будет гармоничным. Удивительно, но наконец-то наступит момент, когда во всех сферах будет баланс. Вас устроит все, что будет происходить на работе, на личном фронте и дома. Окружающие заметят, как будут светиться по-новому ваши глаза.',
@@ -286,9 +286,9 @@ export const storyBook = {
       // 8: 'hall',
     },
     resourses: {
-      3: 1,
+      3: 2,
       5: 3,
-      6: 2,
+      6: 4,
       8: 2,
     },
     predictions: [
@@ -530,9 +530,9 @@ export const storyBook = {
       3: 'hall',
     },
     resourses: {
-      1: 1,
-      2: 2,
-      3: 3,
+      1: 2,
+      2: 3,
+      3: 4,
     },
     predictions: [
       'Год для вас будет удивительным. Вы уже отвыкли к тому, что судьба дарит приятные сюрпризы. Именно их она припасла на предстоящий год. Удивят даже те, кого вы, казалось, знали как свои пять пальцев. Даже от весьма авантюрных предложений в этом году лучше не отказываться.',
