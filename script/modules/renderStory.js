@@ -5,6 +5,7 @@ export const getEndPage = (room, resultNumber, user) => {
 
   user.lastRoomDone = true;
   const endPage = document.querySelector('.book__pages').lastElementChild;
+  const endPageBook = document.querySelector('.book__pages');
   const resourseSpend = document.createElement('p');
   resourseSpend.classList.add('book__text');
   const ending = endPage.querySelector('.book__text');
@@ -46,6 +47,7 @@ export const getEndPage = (room, resultNumber, user) => {
     btnContinute.style.border = 'none';
     resourseSpend.innerHTML = '';
     ending.innerHTML = room.ending;
+
   } else {
     btnContinute.innerHTML = 'Идти дальше';
     btnContinute.dataset.roomNext = resultNumber;
@@ -144,3 +146,4 @@ export const renderRoom = (room) => {
 
   return roomSection;
 }
+

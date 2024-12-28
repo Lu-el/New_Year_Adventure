@@ -60,7 +60,7 @@ export const renderFooter = () => {
 
   const content = `
 <div class="footer__creator">
-        Гривенева Любовь
+        Создатель: Гривенева Любовь
       </div>
 
       <div class="footer__social">
@@ -116,10 +116,16 @@ export const renderFooter = () => {
         </a>
       </div>
 
-      <div class="footer__rights">© 2024 all rights reserved</div>
-
+      <div class="footer__creator footer__creator_tester">
+        Тестировщик: Шопин Олег
+      </div>
 `
+  const rights = document.createElement('div');
+  rights.classList.add('footer__rights');
+  rights.innerHTML = `© ${new Date().getFullYear()} all rights reserved`;
+
   container.innerHTML = content;
+  container.append(rights);
 
   return footer;
 }

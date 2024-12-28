@@ -27,8 +27,6 @@ const init = (storyBook) => {
 
       if (resultNumber == 10 || userNew.rooms.slice(-1)[0] == "predictions") {
         if (!userNew.prediction) {
-          console.log(room, userNew);
-
           userNew.setPredictions(room);
         }
       }
