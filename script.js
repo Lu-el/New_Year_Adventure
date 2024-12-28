@@ -38,7 +38,7 @@ const init = (storyBook) => {
   })
 
   window.onbeforeunload = function (e) {
-    if (userNew.lastRoomDone && userNew.lastResourses) {
+    if (userNew.lastRoomDone && userNew.lastResourses && (userNew.rooms.slice(-1)[0] != "predictions")) {
       userNew.resourses = userNew.resourses + userNew.lastResourses;
       userNew.lastRoomDone = false;
     }
