@@ -31,7 +31,7 @@ export const getEndPage = (room, resultNumber, user) => {
         ending.innerHTML = room.ending;
         resourseSpend.innerHTML = `
       ${room.resourses[resultNumber] == 0 ? `Здесь вы были слишком увлечены процессом и совсем забыли подкрепиться и` :
-            `Вы потратили здесь <span class="book__resourse">${room.resourses[resultNumber]}</span> ${wordMandarine(room.resourses[resultNumber])} и `}
+            `Вы схомячили здесь <span class="book__resourse">${room.resourses[resultNumber]}</span> ${wordMandarine(room.resourses[resultNumber])} и `}
       ${user.resourses <= 0 ? 'У вас не осталось мандарин' : `у вас осталось <span class="book__resourse">${user.resourses}</span> ${wordMandarine(user.resourses)}.`}`
       }
     }
