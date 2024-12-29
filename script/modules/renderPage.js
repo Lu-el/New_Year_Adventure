@@ -17,7 +17,6 @@ export const renderResourses = (user, listResourses = document.querySelector('.h
   }
 
   const items = document.querySelectorAll('.header__item');
-  console.log(user);
 
   const resour = user.resoursesPicture.slice(0, user.resourses);
   resour.forEach(el => {

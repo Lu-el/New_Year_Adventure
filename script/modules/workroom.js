@@ -58,7 +58,7 @@ const getCowsCount = (numberString, secret) => {
   return count;
 }
 
-const getResult = (numberString, secret, table, userArea, user) => {
+const getResult = (numberString, secret, table, userArea, user, countTip) => {
 
   if (validateNumber(numberString)) {
 
@@ -88,7 +88,7 @@ const getResult = (numberString, secret, table, userArea, user) => {
     const count = document.querySelectorAll('.workroom__td_help').length || 0;
     const buttonTip = document.querySelector('.workroom__tip-btn');
 
-    if (trying > 9) {
+    if (trying > 2) {
       buttonTip.classList.remove('visually-hidden');
     }
 
@@ -105,26 +105,28 @@ const getResult = (numberString, secret, table, userArea, user) => {
   }
 }
 
-const helper = (computerNumber, table, count) => {
+const helper = (computerNumber, table, countTip) => {
   const buttonTip = document.querySelector('.workroom__tip-btn');
   const numberTip = Array.from(computerNumber);
   buttonTip.addEventListener('click', () => {
-    if (count === 2) {
-      buttonTip.classList.add('visually-hidden');
-      return;
-    }
+
     const tryCell = document.createElement('td');
     tryCell.classList.add('workroom__td', 'workroom__td_help');
     numberTip.forEach((el, index) => {
-      if (index <= count) {
+      if (index <= countTip) {
         tryCell.innerHTML += el;
       }
     })
     tryCell.style.textAlign = 'left';
     tryCell.style.letterSpacing = '8px';
+    tryCell.style.color = 'red';
     table.append(tryCell);
     buttonTip.classList.add('visually-hidden');
-    count++;
+    countTip++;
+
+    if (countTip === 2) {
+      buttonTip.style.display = 'none';
+    }
   })
 }
 
@@ -137,12 +139,12 @@ export const bullAndCowsGame = (user) => {
   const userArea = document.querySelector('.workroom__feedback');
   const overlay = document.querySelector('.workroom__overlay');
   const container = document.querySelector('.workroom__container');
-  let count = 0;
+  let countTip = 0;
 
-  helper(computerNumber, table, count);
+  helper(computerNumber, table, countTip);
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;
-    getResult(userNumber, computerNumber, table, userArea, user);
+    getResult(userNumber, computerNumber, table, userArea, user, countTip);
     inputElem.value = '';
     if ((overlay.offsetHeight + 20) > container.offsetHeight) {
       container.style.height = `${overlay.offsetHeight + 20}px`;
