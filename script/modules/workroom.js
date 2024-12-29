@@ -58,7 +58,7 @@ const getCowsCount = (numberString, secret) => {
   return count;
 }
 
-const getResult = (numberString, secret, table, userArea, user, countTip) => {
+const getResult = (numberString, secret, table, userArea, user) => {
 
   if (validateNumber(numberString)) {
 
@@ -88,7 +88,7 @@ const getResult = (numberString, secret, table, userArea, user, countTip) => {
     const count = document.querySelectorAll('.workroom__td_help').length || 0;
     const buttonTip = document.querySelector('.workroom__tip-btn');
 
-    if (trying > 2) {
+    if (trying > 8) {
       buttonTip.classList.remove('visually-hidden');
     }
 
@@ -111,16 +111,20 @@ const helper = (computerNumber, table, countTip) => {
   buttonTip.addEventListener('click', () => {
 
     const tryCell = document.createElement('td');
+    const tryBull = document.createElement('td');
     tryCell.classList.add('workroom__td', 'workroom__td_help');
+    tryBull.classList.add('workroom__td', 'workroom__td_help');
     numberTip.forEach((el, index) => {
       if (index <= countTip) {
         tryCell.innerHTML += el;
       }
     })
+    tryBull.innerHTML = (countTip + 1);
+    tryBull.style.textAlign = 'right';
     tryCell.style.textAlign = 'left';
     tryCell.style.letterSpacing = '8px';
     tryCell.style.color = 'red';
-    table.append(tryCell);
+    table.append(tryCell, tryBull);
     buttonTip.classList.add('visually-hidden');
     countTip++;
 
@@ -144,7 +148,7 @@ export const bullAndCowsGame = (user) => {
   helper(computerNumber, table, countTip);
   btnTriing.addEventListener('click', () => {
     const userNumber = inputElem.value;
-    getResult(userNumber, computerNumber, table, userArea, user, countTip);
+    getResult(userNumber, computerNumber, table, userArea, user);
     inputElem.value = '';
     if ((overlay.offsetHeight + 20) > container.offsetHeight) {
       container.style.height = `${overlay.offsetHeight + 20}px`;
