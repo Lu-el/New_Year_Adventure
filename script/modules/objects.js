@@ -12,7 +12,7 @@ import { bullAndCowsGame } from "./workroom.js";
 
 export class Users {
   constructor() {
-    this.rooms = ['workroom'];
+    this.rooms = ['begining'];
     this.resourses = 25;
     this.recourse = 1;
     this.lastRoomDone = false;
